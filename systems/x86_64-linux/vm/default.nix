@@ -2,7 +2,6 @@
   modulesPath,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -38,11 +37,11 @@
   desktops = {
     plasma6.enable = true;
   };
+  display-managers.sddm.enable = true;
 
   roles.common.enable = true;
 
   programs.fuse.userAllowOther = true;
-
 
   system.stateVersion = "24.11";
 }
