@@ -12,5 +12,7 @@ in
       nix.enable = true;
       locale.enable = true;
     };
+
+    styles.stylix.enable = true;
   };
 }

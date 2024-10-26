@@ -2,6 +2,7 @@
   modulesPath,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -41,6 +42,7 @@
   roles.common.enable = true;
 
   programs.fuse.userAllowOther = true;
+
 
   system.stateVersion = "24.11";
 }

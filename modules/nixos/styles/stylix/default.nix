@@ -2,15 +2,12 @@
   lib,
   pkgs,
   config,
-  inputs,
   ...
 }:
 let
   cfg = config.styles.stylix;
 in
 {
-  imports = with inputs; [ stylix.homeManagerModules.stylix ];
-
   options.styles.stylix = {
     enable = lib.mkEnableOption "Enable stylix";
   };
@@ -20,6 +17,8 @@ in
       enable = true;
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+      homeManagerIntegration.autoImport = false;
+      homeManagerIntegration.followSystem = false;
 
       image = pkgs.theobori-org.wallpapers.nix-simple;
 

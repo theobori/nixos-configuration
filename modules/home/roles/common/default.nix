@@ -24,6 +24,6 @@ in
     #   shells.fish.enable = true;
     # };
 
-    # styles.stylix.enable = true;
+    styles.stylix.enable = true;
   };
 }
