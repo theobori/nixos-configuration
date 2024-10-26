@@ -82,6 +82,7 @@
       systems.modules.nixos = with inputs; [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
+        { home-manager.backupFileExtension = "hm-backup"; }
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
       ];
