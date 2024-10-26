@@ -16,10 +16,14 @@
     pkgs.gitMinimal
   ];
 
+  system = {
+    locale.enable = true;
+  };
+
   user = {
     name = "nixos";
     initialPassword = "1";
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
 }

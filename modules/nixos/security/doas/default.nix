@@ -4,11 +4,7 @@ let
 in
 {
   options.security.theobori-org.doas = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Whether or not to replace sudo with doas";
-    };
+    enable = lib.mkEnableOption "Whether or not to replace sudo with doas";
   };
 
   config = lib.mkIf cfg.enable {

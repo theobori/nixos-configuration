@@ -28,7 +28,6 @@
     };
 
     stylix.url = "github:danth/stylix";
-    catppuccin.url = "github:catppuccin/nix";
 
     disko = {
       url = "github:nix-community/disko";
@@ -45,11 +44,22 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
-    inputs:
+    {
+      self,
+      nixpkgs,
+      systems,
+      ...
+    }@inputs:
     let
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+
+      treefmtEval = eachSystem (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
         src = ./.;
@@ -70,12 +80,18 @@
       };
 
       systems.modules.nixos = with inputs; [
-        stylix.nixosModules.stylix
+        #stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
       ];
 
       overlays = with inputs; [ nur.overlay ];
+
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+
+      checks = eachSystem (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check inputs.self;
+      });
     };
 }
