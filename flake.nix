@@ -80,7 +80,7 @@
       };
 
       systems.modules.nixos = with inputs; [
-        #stylix.nixosModules.stylix
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
