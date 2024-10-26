@@ -5,8 +5,9 @@
     name = "theobori";
   };
 
-  # tmp just for testing purposes
-  home.packages = with pkgs; [ emacs ];
+  roles = {
+    common.enable = true;
+  };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 }

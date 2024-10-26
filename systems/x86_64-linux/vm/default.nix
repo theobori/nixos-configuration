@@ -34,5 +34,13 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  desktops = {
+    plasma6.enable = true;
+  };
+
+  roles.common.enable = true;
+
+  programs.fuse.userAllowOther = true;
+
+  system.stateVersion = "24.11";
 }

@@ -9,11 +9,7 @@ let
 in
 {
   options.browsers.firefox = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable firefox browser";
-    };
+    enable = lib.mkEnableOption "Enable firefox browser";
   };
 
   config = lib.mkIf cfg.enable {

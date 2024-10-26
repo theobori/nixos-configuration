@@ -4,11 +4,7 @@ let
 in
 {
   options.theobori-org.user = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Whether to configure the user account";
-    };
+    enable = lib.mkEnableOption "Whether to configure the user account";
 
     name = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
