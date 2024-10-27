@@ -40,8 +40,8 @@ in
         };
 
         monospace = {
-          package = pkgs.inconsolata;
-          name = "Inconsolata";
+          package = pkgs.theobori-org.monolisa;
+          name = "MonoLisa Nerd Font";
         };
 
         emoji = {

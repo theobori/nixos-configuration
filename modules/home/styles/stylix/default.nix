@@ -21,6 +21,8 @@ in
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
+      targets.gtk.enable = false;
+
       image = pkgs.theobori-org.wallpapers.nix-simple;
 
       fonts = {
@@ -41,8 +43,8 @@ in
         };
 
         monospace = {
-          package = pkgs.inconsolata;
-          name = "Inconsolata";
+          package = pkgs.theobori-org.monolisa;
+          name = "MonoLisa Nerd Font";
         };
 
         emoji = {

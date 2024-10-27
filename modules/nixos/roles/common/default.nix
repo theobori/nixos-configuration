@@ -13,6 +13,10 @@ in
       locale.enable = true;
     };
 
+    hardware = {
+      networking.enable = true;
+    };
+
     styles.stylix.enable = true;
   };
 }

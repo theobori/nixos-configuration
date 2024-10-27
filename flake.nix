@@ -28,6 +28,8 @@
     };
 
     stylix.url = "github:danth/stylix";
+    nixgl.url = "github:nix-community/nixGL";
+    nix-index-database.url = "github:nix-community/nix-index-database";
 
     disko = {
       url = "github:nix-community/disko";
@@ -82,12 +84,14 @@
       systems.modules.nixos = with inputs; [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
-        { home-manager.backupFileExtension = "hm-backup"; }
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
       ];
 
-      overlays = with inputs; [ nur.overlay ];
+      overlays = with inputs; [
+        nur.overlay
+        nixgl.overlay
+      ];
 
       formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
 

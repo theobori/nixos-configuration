@@ -39,7 +39,8 @@
   };
   display-managers.sddm.enable = true;
 
-  roles.common.enable = true;
+  roles.desktop.enable = true;
+  services.virtualisation.kvm.enable = true;
 
   programs.fuse.userAllowOther = true;
 
