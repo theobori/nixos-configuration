@@ -33,15 +33,14 @@ in
           plasma-workspace
           plasma-integration
           kdeclarative
-          plasma-desktop
         ];
 
       # Non-root X11 instance
       settings.General.DisplayServer = "x11-user";
       # My custom dracula theme
-      theme = "sddm-dracula";
+      theme = "Dracula";
     };
 
-    environment.systemPackages = with pkgs; [ theobori-org.sddm-dracula ];
+    environment.systemPackages = with pkgs; [ theobori-org.my-dracula-theme ];
   };
 }

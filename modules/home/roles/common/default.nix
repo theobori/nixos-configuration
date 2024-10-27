@@ -19,10 +19,10 @@ in
       nix.enable = true;
     };
 
-    # cli = {
-    #   terminals.wezterm.enable = true;
-    #   shells.fish.enable = true;
-    # };
+    cli = {
+      terminals.wezterm.enable = true;
+      shells.fish.enable = true;
+    };
 
     styles.stylix.enable = true;
   };

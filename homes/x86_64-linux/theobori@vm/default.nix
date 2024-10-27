@@ -6,7 +6,9 @@
   };
 
   roles = {
-    common.enable = true;
+    social.enable = true;
+    desktop.enable = true;
+    games.enable = true;
   };
 
   home.stateVersion = "24.11";
