@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.modern-unix;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.modern-unix;
 in
 {
-  options.cli.programs.modern-unix = {
-    enable = lib.mkEnableOption "Whether or not to enable modern unix tools";
+  options.${namespace}.cli.programs.modern-unix = {
+    enable = mkBoolOpt false "Whether or not to enable modern unix tools.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       broot
       choose

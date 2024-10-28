@@ -2,22 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.roles.desktop;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.desktop;
 in
 {
-  options.roles.desktop = {
-    enable = lib.mkEnableOption "Enable desktop suite";
+  options.${namespace}.roles.desktop = {
+    enable = mkBoolOpt false "Enable desktop suite.";
   };
 
-  config = lib.mkIf cfg.enable {
-    roles = {
-      common.enable = true;
-      development.enable = true;
-    };
-
+  config = mkIf cfg.enable {
     # Fixes tray icons: https://github.com/nix-community/home-manager/issues/2064#issuecomment-887300055
     systemd.user.targets.tray = {
       Unit = {
@@ -26,14 +25,8 @@ in
       };
     };
 
-    multimedia.mpv.enable = true;
-    multimedia.calibre.enable = true;
-    programs.inkscape.enable = true;
-    programs.obsidian.enable = true;
-    programs.qbittorrent.enable = true;
-
     home.packages = with pkgs; [
-      spotify
+      #spotify
       pavucontrol
       mplayer
       mtpfs
@@ -48,5 +41,18 @@ in
       grimblast
       slurp
     ];
+
+    ${namespace} = {
+      roles = {
+        common = enabled;
+        development = enabled;
+      };
+
+      multimedia.mpv = enabled;
+      multimedia.calibre = enabled;
+      programs.inkscape = enabled;
+      programs.obsidian = enabled;
+      programs.qbittorrent = enabled;
+    };
   };
 }

@@ -1,52 +1,41 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.git;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkOpt mkBoolOpt enabled;
+  inherit (config.${namespace}) user;
 
-  rewriteURL =
-    urlRewrites:
-    lib.mapAttrs' (key: value: {
-      name = "url.${key}";
-      value = {
-        insteadOf = value;
-      };
-    }) urlRewrites;
+  cfg = config.${namespace}.cli.programs.git;
 in
 {
-  options.cli.programs.git = {
-    enable = lib.mkEnableOption "Whether or not to enable git";
+  options.${namespace}.cli.programs.git = with types; {
+    enable = mkBoolOpt false "Whether or not to enable git.";
 
-    name = lib.mkOption {
-      type = lib.types.str;
-      default = "Théo Bori";
-      description = "The name to use with git";
-    };
-
-    email = lib.mkOption {
-      type = lib.types.str;
-      default = "theo1.bori@epitech.eu";
-      description = "The email to use with git";
-    };
-
-    urlRewrites = lib.mkOption {
-      type = lib.types.attrsOf lib.types.str;
-      default = { };
-      description = "URL we need to rewrite i.e. SSH to HTTP";
-    };
-
-    allowedSigners = lib.mkOption {
-      type = lib.types.str;
-      default = "";
-      description = "The public key used for signing commits";
-    };
+    signByDefault = mkOpt types.bool true "Whether to sign commits by default.";
+    signingKey =
+      mkOpt types.str "${config.home.homeDirectory}/.ssh/id_ed25519"
+        "The key ID to sign commits with.";
+    userName = mkOpt types.str user.fullName "The name to configure git with.";
+    userEmail = mkOpt types.str user.email "The email to configure git with.";
   };
 
-  config = lib.mkIf cfg.enable {
-    home.file.".ssh/allowed_signers".text = "* ${cfg.allowedSigners}";
+  config = mkIf cfg.enable {
+    ${namespace}.editors.emacs = enabled;
 
     programs.git = {
       enable = true;
-      userName = cfg.name;
-      userEmail = cfg.email;
+      package = pkgs.gitFull;
+      inherit (cfg) userName userEmail;
+
+      signing = {
+        key = cfg.signingKey;
+        inherit (cfg) signByDefault;
+      };
 
       extraConfig = {
         gpg.format = "ssh";
@@ -63,6 +52,10 @@ in
           ui = true;
         };
 
+        fetch = {
+          prune = true;
+        };
+
         interactive = {
           diffFitler = "delta --color-only";
         };
@@ -72,6 +65,7 @@ in
           navigate = true;
           light = false;
           side-by-side = false;
+          line-numbers = true;
           options.syntax-theme = "dracula";
         };
 
@@ -84,10 +78,17 @@ in
           autoSetupRemote = true;
         };
 
-        init = {
-          defaultBranch = "init";
+        safe = {
+          directory = [
+            "~/${namespace}/"
+            "/etc/nixos"
+          ];
         };
-      } // (rewriteURL cfg.urlRewrites);
+
+        init = {
+          defaultBranch = "main";
+        };
+      };
     };
   };
 }

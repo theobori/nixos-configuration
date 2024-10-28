@@ -1,13 +1,21 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.htop;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.htop;
 in
 {
-  options.cli.programs.htop = {
-    enable = lib.mkEnableOption "Whether or not to enable htop";
+  options.${namespace}.cli.programs.htop = {
+    enable = mkBoolOpt false "Whether or not to enable htop.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.htop = {
       enable = true;
       settings = {

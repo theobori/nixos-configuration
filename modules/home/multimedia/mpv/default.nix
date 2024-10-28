@@ -2,17 +2,21 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.multimedia.mpv;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.multimedia.mpv;
 in
 {
-  options.multimedia.mpv = {
-    enable = lib.mkEnableOption "Whether or not to manage mpv";
+  options.${namespace}.multimedia.mpv = {
+    enable = mkBoolOpt false "Whether or not to manage mpv.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.mpv = {
       enable = true;
 

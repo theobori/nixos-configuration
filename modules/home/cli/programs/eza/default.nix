@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.eza;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.eza;
 in
 {
-  options.cli.programs.eza = {
-    enable = lib.mkEnableOption "Whether or not to enable eza";
+  options.${namespace}.cli.programs.eza = {
+    enable = mkBoolOpt false "Whether or not to enable eza.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.eza = {
       enable = true;
     };

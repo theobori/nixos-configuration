@@ -2,10 +2,14 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.browsers.firefox;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.browsers.firefox;
 
   firefox-addons = pkgs.nur.repos.rycee.firefox-addons;
 
@@ -28,11 +32,11 @@ let
     };
 in
 {
-  options.browsers.firefox = {
-    enable = lib.mkEnableOption "Enable firefox browser";
+  options.${namespace}.browsers.firefox = {
+    enable = mkBoolOpt false "Enable firefox browser.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix.targets.firefox.profileNames = [ "default" ];
 
     xdg.mimeApps.defaultApplications = {

@@ -1,39 +1,53 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  namespace,
+  ...
+}:
 let
-  cfg = config.theobori-org.user;
+  inherit (lib)
+    types
+    mkIf
+    mkDefault
+    mkMerge
+    getExe
+    getExe'
+    ;
+  inherit (lib.${namespace}) mkOpt enabled;
+
+  cfg = config.${namespace}.user;
+
+  home-directory = if cfg.name == null then null else "/home/${cfg.name}";
 in
 {
-  options.theobori-org.user = {
-    enable = lib.mkEnableOption "Whether to configure the user account";
-
-    name = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = config.snowfallorg.user.name;
-      description = "The user account name";
-    };
-
-    home = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = "/home/${cfg.name}";
-      description = "The user's home directory path";
-    };
+  options.${namespace}.user = {
+    enable = mkOpt types.bool false "Whether to configure the user account.";
+    email = mkOpt types.str "theo1.bori@epitech.eu" "The email of the user.";
+    fullName = mkOpt types.str "Théo Bori" "The full name of the user.";
+    home = mkOpt (types.nullOr types.str) home-directory "The user's home directory.";
+    name = mkOpt (types.nullOr types.str) config.snowfallorg.user.name "The user account.";
   };
 
-  config = lib.mkIf cfg.enable (
-    lib.mkMerge [
-      {
-        assertions = [
-          {
-            assertion = cfg.name != null;
-            message = "theobori-org.user.name must be set";
-          }
-        ];
+  config = mkIf cfg.enable (mkMerge [
+    {
+      assertions = [
+        {
+          assertion = cfg.name != null;
+          message = "${namespace}.user.name must be set";
+        }
+        {
+          assertion = cfg.home != null;
+          message = "${namespace}.user.home must be set";
+        }
+      ];
 
-        home = {
-          homeDirectory = lib.mkDefault cfg.home;
-          username = lib.mkDefault cfg.name;
-        };
-      }
-    ]
-  );
+      home = {
+        homeDirectory = mkDefault cfg.home;
+        username = mkDefault cfg.name;
+      };
+
+      ${namespace}.cli.programs.home-manager = enabled;
+    }
+  ]);
 }

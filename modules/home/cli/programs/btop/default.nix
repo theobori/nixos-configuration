@@ -1,13 +1,21 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.btop;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.btop;
 in
 {
-  options.cli.programs.btop = {
-    enable = lib.mkEnableOption "Whether or not to enable btop";
+  options.${namespace}.cli.programs.btop = {
+    enable = mkBoolOpt false "Whether or not to enable btop.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.btop = {
       enable = true;
 

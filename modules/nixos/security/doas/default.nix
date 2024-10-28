@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.security.theobori-org.doas;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.security.doas;
 in
 {
-  options.security.theobori-org.doas = {
-    enable = lib.mkEnableOption "Whether or not to replace sudo with doas";
+  options.${namespace}.security.doas = {
+    enable = mkBoolOpt false "Whether or not to replace sudo with doas.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     # Disable sudo
     security.sudo.enable = false;
 
@@ -16,7 +24,7 @@ in
       enable = true;
       extraRules = [
         {
-          users = [ config.user.name ];
+          users = [ config.${namespace}.user.name ];
           noPass = false;
           keepEnv = true;
         }

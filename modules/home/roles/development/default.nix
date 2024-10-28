@@ -1,42 +1,52 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 with lib;
 let
-  cfg = config.roles.development;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.development;
 in
 {
-  options.roles.development = {
-    enable = mkEnableOption "Enable development configuration";
+  options.${namespace}.roles.development = {
+    enable = mkEnableOption "Enable development configuration.";
   };
 
-  config = lib.mkIf cfg.enable {
-    editors = {
-      vscode.enable = true;
-      emacs.enable = true;
-    };
+  config = mkIf cfg.enable {
+    ${namespace} = {
+      editors = {
+        vscode = enabled;
+        emacs = enabled;
+      };
 
-    cli = {
-      multiplexers.tmux.enable = true;
+      cli = {
+        multiplexers.tmux = enabled;
 
-      programs = {
-        bat.enable = true;
-        direnv.enable = true;
-        eza.enable = true;
-        fzf.enable = true;
-        git.enable = true;
-        gpg.enable = true;
-        htop.enable = true;
-        btop.enable = true;
-        k8s.enable = true;
-        terraform.enable = true;
-        modern-unix.enable = true;
-        network-tools.enable = true;
-        nix-index.enable = true;
-        ssh.enable = true;
-        starship.enable = true;
-        yazi.enable = true;
-        zoxide.enable = true;
-        thefuck.enable = true;
-        lazygit.enable = true;
+        programs = {
+          bat = enabled;
+          direnv = enabled;
+          eza = enabled;
+          fzf = enabled;
+          git = enabled;
+          gpg = enabled;
+          htop = enabled;
+          btop = enabled;
+          k8s = enabled;
+          terraform = enabled;
+          modern-unix = enabled;
+          network-tools = enabled;
+          nix-index = enabled;
+          ssh = enabled;
+          starship = enabled;
+          yazi = enabled;
+          zoxide = enabled;
+          thefuck = enabled;
+          lazygit = enabled;
+        };
       };
     };
   };

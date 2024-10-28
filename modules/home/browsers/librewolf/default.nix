@@ -2,17 +2,21 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.browsers.librewolf;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.browsers.librewolf;
 in
 {
-  options.browsers.librewolf = {
-    enable = lib.mkEnableOption "Enable librewolf browser";
+  options.${namespace}.browsers.librewolf = {
+    enable = mkBoolOpt false "Enable librewolf browser.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.librewolf = {
       enable = true;
     };

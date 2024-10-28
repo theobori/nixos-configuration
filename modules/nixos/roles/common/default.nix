@@ -1,22 +1,32 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 let
-  cfg = config.roles.common;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.common;
 in
 {
-  options.roles.common = {
-    enable = lib.mkEnableOption "Enable common configuration";
+  options.${namespace}.roles.common = {
+    enable = mkBoolOpt false "Enable common configuration";
   };
 
-  config = lib.mkIf cfg.enable {
-    system = {
-      nix.enable = true;
-      locale.enable = true;
-    };
+  config = mkIf cfg.enable {
+    ${namespace} = {
+      system = {
+        nix = enabled;
+        locale = enabled;
+      };
 
-    hardware = {
-      networking.enable = true;
-    };
+      hardware = {
+        networking = enabled;
+      };
 
-    styles.stylix.enable = true;
+      styles.stylix = enabled;
+    };
   };
 }

@@ -47,7 +47,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    pre-commit-hooks-nix.url = "github:cachix/pre-commit-hooks.nix";
   };
 
   outputs =
@@ -58,19 +58,15 @@
       ...
     }@inputs:
     let
-      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
-
-      treefmtEval = eachSystem (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
         src = ./.;
 
         snowfall = {
-          metadata = "theobori-org";
-          namespace = "theobori-org";
+          metadata = "theobori-nix";
+          namespace = "theobori-nix";
           meta = {
-            name = "theobori-org";
+            name = "theobori-nix";
             title = "theobori's Nix Flake";
           };
         };
@@ -81,22 +77,27 @@
         allowUnfree = true;
       };
 
-      systems.modules.nixos = with inputs; [
-        stylix.nixosModules.stylix
-        home-manager.nixosModules.home-manager
-        disko.nixosModules.disko
-        sops-nix.nixosModules.sops
-      ];
-
       overlays = with inputs; [
         nur.overlay
         nixgl.overlay
       ];
 
-      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      homes.modules = with inputs; [
+        nix-index-database.hmModules.nix-index
+        stylix.homeManagerModules.stylix
+      ];
 
-      checks = eachSystem (pkgs: {
-        formatting = treefmtEval.${pkgs.system}.config.build.check inputs.self;
-      });
+      systems = {
+        modules = {
+          nixos = with inputs; [
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+        };
+      };
+
+      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
     };
 }

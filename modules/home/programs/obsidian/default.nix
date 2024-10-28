@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.programs.obsidian;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.programs.obsidian;
 in
 {
-  options.programs.obsidian = {
-    enable = lib.mkEnableOption "Whether or not to manage obsidian";
+  options.${namespace}.programs.obsidian = {
+    enable = mkBoolOpt false "Whether or not to manage obsidian.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ obsidian ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ obsidian ]; };
 }

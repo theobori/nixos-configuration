@@ -4,7 +4,7 @@ pkgs.dracula-theme.overrideAttrs (
     pname = "my-dracula-theme";
 
     postInstall = ''
-      cp ${pkgs.theobori-org.wallpapers.nix-simple} $out/share/sddm/themes/Dracula/assets/background.jpg
+      cp ${pkgs.theobori-nix.wallpapers.nix-simple} $out/share/sddm/themes/Dracula/assets/background.jpg
 
       # Collision with stylix
       rm -f $out/share/color-schemes/Dracula.colors

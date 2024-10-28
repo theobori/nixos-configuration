@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.editors.emacs;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.editors.emacs;
 in
 {
-  options.editors.emacs = {
-    enable = lib.mkEnableOption "Whether or not to enable emacs";
+  options.${namespace}.editors.emacs = {
+    enable = mkBoolOpt false "Whether or not to enable emacs.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
 

@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.terminals.wezterm;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.terminals.wezterm;
 in
 {
-  options.cli.terminals.wezterm = {
-    enable = lib.mkEnableOption "enable wezterm terminal emulator";
+  options.${namespace}.cli.terminals.wezterm = {
+    enable = mkBoolOpt false "Enable wezterm terminal emulator.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./wezterm.lua;

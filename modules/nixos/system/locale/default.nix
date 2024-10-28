@@ -2,17 +2,21 @@
   options,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.system.locale;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.system.locale;
 in
 {
-  options.system.locale = {
-    enable = lib.mkEnableOption "Whether or not to manage locale settings";
+  options.${namespace}.system.locale = {
+    enable = mkBoolOpt false "Whether or not to manage locale settings.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     i18n = {
       defaultLocale = lib.mkDefault "fr_FR.UTF-8";
       extraLocaleSettings = {

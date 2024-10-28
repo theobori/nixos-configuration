@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.programs.inkscape;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.programs.inkscape;
 in
 {
-  options.programs.inkscape = {
-    enable = lib.mkEnableOption "Whether or not to manage inkscape";
+  options.${namespace}.programs.inkscape = {
+    enable = mkBoolOpt false "Whether or not to manage inkscape.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ inkscape ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ inkscape ]; };
 }

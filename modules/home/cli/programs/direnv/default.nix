@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.direnv;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.direnv;
 in
 {
-  options.cli.programs.direnv = {
-    enable = lib.mkEnableOption "Whether or not to enable direnv";
+  options.${namespace}.cli.programs.direnv = {
+    enable = mkBoolOpt false "Whether or not to enable direnv.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;

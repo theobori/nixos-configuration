@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.thefuck;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.thefuck;
 in
 {
-  options.cli.programs.thefuck = {
-    enable = lib.mkEnableOption "Whether or not to enable thefuck";
+  options.${namespace}.cli.programs.thefuck = {
+    enable = mkBoolOpt false "Whether or not to enable thefuck.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.thefuck = {
       enable = true;
       enableFishIntegration = false;

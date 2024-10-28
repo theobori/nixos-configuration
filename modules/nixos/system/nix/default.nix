@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.system.nix;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.system.nix;
 in
 {
-  options.system.nix = {
-    enable = lib.mkEnableOption "Whether or not to manage nix configuration";
+  options.${namespace}.system.nix = {
+    enable = mkBoolOpt false "Whether or not to manage nix configuration.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     nix = {
       settings = {
         trusted-users = [

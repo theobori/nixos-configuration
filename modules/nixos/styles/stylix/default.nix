@@ -2,17 +2,21 @@
   lib,
   pkgs,
   config,
+  namespace,
   ...
 }:
 let
-  cfg = config.styles.stylix;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.styles.stylix;
 in
 {
-  options.styles.stylix = {
-    enable = lib.mkEnableOption "Enable stylix";
+  options.${namespace}.styles.stylix = {
+    enable = mkBoolOpt false "Enable stylix.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix = {
       enable = true;
       autoEnable = true;
@@ -20,7 +24,7 @@ in
       homeManagerIntegration.autoImport = false;
       homeManagerIntegration.followSystem = false;
 
-      image = pkgs.theobori-org.wallpapers.nix-simple;
+      image = pkgs.${namespace}.wallpapers.nix-simple;
 
       fonts = {
         sizes = {
@@ -40,7 +44,7 @@ in
         };
 
         monospace = {
-          package = pkgs.theobori-org.monolisa;
+          package = pkgs.${namespace}.monolisa;
           name = "MonoLisa Nerd Font";
         };
 

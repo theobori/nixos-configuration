@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.network-tools;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.network-tools;
 in
 {
-  options.cli.programs.network-tools = {
-    enable = lib.mkEnableOption "Whether or not to enable network tools";
+  options.${namespace}.cli.programs.network-tools = {
+    enable = mkBoolOpt false "Whether or not to enable network tools.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       termshark
       kubeshark

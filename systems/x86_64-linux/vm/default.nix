@@ -1,9 +1,12 @@
 {
   modulesPath,
   lib,
-  pkgs,
+  namespace,
   ...
 }:
+let
+  inherit (lib.${namespace}) enabled;
+in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -19,28 +22,24 @@
     efiInstallAsRemovable = true;
   };
 
-  environment.systemPackages = map lib.lowPrio [
-    pkgs.curl
-    pkgs.gitMinimal
-  ];
-
   services = {
-    openssh.enable = true;
+    openssh = enabled;
   };
 
-  security = {
-    theobori-org = {
-      doas.enable = true;
+  ${namespace} = {
+
+    security = {
+      doas = enabled;
     };
-  };
 
-  desktops = {
-    plasma6.enable = true;
-  };
-  display-managers.sddm.enable = true;
+    desktops = {
+      plasma6 = enabled;
+    };
+    display-managers.sddm = enabled;
 
-  roles.desktop.enable = true;
-  services.virtualisation.kvm.enable = true;
+    roles.desktop = enabled;
+    services.virtualisation.kvm = enabled;
+  };
 
   programs.fuse.userAllowOther = true;
 

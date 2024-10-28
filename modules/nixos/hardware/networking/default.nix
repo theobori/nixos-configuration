@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.hardware.networking;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.hardware.networking;
 in
 {
-  options.hardware.networking = {
-    enable = lib.mkEnableOption "Enable networkmanager";
+  options.${namespace}.hardware.networking = {
+    enable = mkBoolOpt false "Enable networkmanager.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     networking.firewall = {
       enable = true;
       allowedTCPPortRanges = [
@@ -24,6 +32,6 @@ in
       ];
     };
 
-    networking.networkmanager.enable = true;
+    networking.networkmanager = enabled;
   };
 }
