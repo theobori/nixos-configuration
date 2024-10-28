@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.editors.vscode;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.editors.vscode;
 in
 {
-  options.editors.vscode = {
-    enable = lib.mkEnableOption "Whether or not to enable vscode";
+  options.${namespace}.editors.vscode = {
+    enable = mkBoolOpt false "Whether or not to enable vscode.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix.targets.vscode.enable = false;
 
     programs.vscode = {

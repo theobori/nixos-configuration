@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.yazi;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.yazi;
 in
 {
-  options.cli.programs.yazi = {
-    enable = lib.mkEnableOption "Whether or not to enable yazi";
+  options.${namespace}.cli.programs.yazi = {
+    enable = mkBoolOpt false "Whether or not to enable yazi.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;
       enableFishIntegration = true;

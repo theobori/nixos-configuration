@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, namespace, ... }:
 {
-  theobori-org.user = {
+  theobori-nix.user = {
     enable = true;
     name = "theobori";
   };

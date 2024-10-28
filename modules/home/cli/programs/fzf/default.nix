@@ -1,19 +1,27 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.fzf;
+  inherit (lib) mkIf mkForce;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.fzf;
 in
 {
-  options.cli.programs.fzf = {
-    enable = lib.mkEnableOption "Whether or not to enable fzf";
+  options.${namespace}.cli.programs.fzf = {
+    enable = mkBoolOpt false "Whether or not to enable fzf";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.fzf = {
       enable = true;
       enableFishIntegration = false;
       colors =
         with config.lib.stylix.colors.withHashtag;
-        lib.mkForce {
+        mkForce {
           "bg" = base00;
           "bg+" = base02;
           "fg" = base05;

@@ -3,27 +3,29 @@
   pkgs,
   config,
   inputs,
+  namespace,
   ...
 }:
 let
-  cfg = config.styles.stylix;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.styles.stylix;
 in
 {
-  imports = with inputs; [ stylix.homeManagerModules.stylix ];
-
-  options.styles.stylix = {
-    enable = lib.mkEnableOption "Enable stylix";
+  options.${namespace}.styles.stylix = {
+    enable = mkBoolOpt false "Enable stylix.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      autoEnable = true;
+      # autoenable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
       targets.gtk.enable = false;
 
-      image = pkgs.theobori-org.wallpapers.nix-simple;
+      image = pkgs."${namespace}".wallpapers.nix-simple;
 
       fonts = {
         sizes = {
@@ -43,7 +45,7 @@ in
         };
 
         monospace = {
-          package = pkgs.theobori-org.monolisa;
+          package = pkgs."${namespace}".monolisa;
           name = "MonoLisa Nerd Font";
         };
 

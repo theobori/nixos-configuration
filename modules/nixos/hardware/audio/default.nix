@@ -2,28 +2,34 @@
   config,
   pkgs,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.hardware.audio;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
+
+  cfg = config.${namespace}.hardware.audio;
 in
 {
-  options.hardware.audio = {
-    enable = lib.mkEnableOption "Enable or disable hardware audio support";
+  options.${namespace}.hardware.audio = {
+    enable = mkBoolOpt false "Enable or disable hardware audio support.";
   };
 
-  config = lib.mkIf cfg.enable {
-    hardware.pulseaudio.enable = false;
-    security.rtkit.enable = true;
+  config = mkIf cfg.enable {
+    hardware.pulseaudio = disabled;
+    security.rtkit = enabled;
     services.pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-      wireplumber.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse = enabled;
+      jack = enabled;
+      wireplumber = enabled;
     };
-    programs.noisetorch.enable = true;
+    programs.noisetorch = enabled;
 
     environment.systemPackages = with pkgs; [ pulsemixer ];
   };

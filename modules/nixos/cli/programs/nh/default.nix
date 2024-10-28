@@ -5,19 +5,23 @@
   ...
 }:
 let
-  cfg = config.cli.programs.nh;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.nh;
+  userName = config.${namespace}.user.name;
 in
 {
-  options.cli.programs.nh = {
-    enable = lib.mkEnableOption "Whether or not to enable nh";
+  options.${namespace}.cli.programs.nh = {
+    enable = mkBoolOpt false "Whether or not to enable nh.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.nh = {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/${config.user.name}/${namespace}";
+      flake = "/home/${userName}/${namespace}";
     };
   };
 }

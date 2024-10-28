@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.programs.bitwarden;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.programs.bitwarden;
 in
 {
-  options.programs.bitwarden = {
-    enable = lib.mkEnableOption "Whether or not to manage bitwarden";
+  options.${namespace}.programs.bitwarden = {
+    enable = mkBoolOpt false "Whether or not to manage bitwarden.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ bitwarden ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ bitwarden ]; };
 }

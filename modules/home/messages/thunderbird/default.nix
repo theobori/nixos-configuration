@@ -2,35 +2,28 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.messages.thunderbird;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
+
+  cfg = config.${namespace}.messages.thunderbird;
 in
 {
-  options.messages.thunderbird = {
-    enable = lib.mkEnableOption "Whether or not to manage thunderbird";
-
-    enableEmailAccounts = lib.mkEnableOption "Whether or not to enable email accounts";
-
-    name = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = config.snowfallorg.user.name;
-      description = "The thunderbird default profile name";
-    };
+  options.${namespace}.messages.thunderbird = with types; {
+    enable = mkBoolOpt false "Whether or not to manage thunderbird.";
+    name = mkOpt str config.${namespace}.user.name "The thunderbird default profile name";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.thunderbird = {
       enable = true;
 
       profiles."${cfg.name}" = {
         isDefault = true;
       };
-    };
-
-    accounts.email.accounts = lib.mkIf cfg.enableEmailAccounts {
-
     };
   };
 }

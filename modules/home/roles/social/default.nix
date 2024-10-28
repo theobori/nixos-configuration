@@ -2,20 +2,26 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.roles.social;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.social;
 in
 {
-  options.roles.social = {
-    enable = lib.mkEnableOption "Enable social suite";
+  options.${namespace}.roles.social = {
+    enable = mkBoolOpt false "Enable social suite.";
   };
 
-  config = lib.mkIf cfg.enable {
-    messages = {
-      discord.enable = true;
-      thunderbird.enable = true;
+  config = mkIf cfg.enable {
+    ${namespace} = {
+      messages = {
+        discord = enabled;
+        thunderbird = enabled;
+      };
     };
   };
 }

@@ -2,17 +2,21 @@
   config,
   pkgs,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.system.nix;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.system.nix;
 in
 {
-  options.system.nix = {
-    enable = lib.mkEnableOption "Whether or not to manage nix configuration";
+  options.${namespace}.system.nix = {
+    enable = mkBoolOpt false "Whether or not to manage nix configuration";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     nixpkgs = {
       config = {
         allowUnfree = true;
@@ -28,9 +32,7 @@ in
 
     systemd.user.startServices = "sd-switch";
 
-    programs = {
-      home-manager.enable = true;
-    };
+    ${namespace}.cli.programs.home-manager = enabled;
 
     nix = {
       settings = {

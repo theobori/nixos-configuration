@@ -2,17 +2,21 @@
   lib,
   pkgs,
   config,
+  namespace,
   ...
 }:
 let
-  cfg = config.services.virtualisation.kvm;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.services.virtualisation.kvm;
 in
 {
-  options.services.virtualisation.kvm = {
-    enable = lib.mkEnableOption "enable kvm virtualisation";
+  options.${namespace}.services.virtualisation.kvm = {
+    enable = mkBoolOpt false "enable kvm virtualisation.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       libguestfs
       win-virtio

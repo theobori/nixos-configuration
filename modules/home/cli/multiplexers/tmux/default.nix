@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.multiplexers.tmux;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.multiplexers.tmux;
 in
 {
-  options.cli.multiplexers.tmux = {
-    enable = lib.mkEnableOption "Whether or not to enable tmux multiplexer";
+  options.${namespace}.cli.multiplexers.tmux = {
+    enable = mkBoolOpt false "Whether or not to enable tmux multiplexer.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       sesh
       lsof

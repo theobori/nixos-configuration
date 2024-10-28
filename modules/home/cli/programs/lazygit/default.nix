@@ -1,13 +1,21 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.lazygit;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.lazygit;
 in
 {
-  options.cli.programs.lazygit = {
-    enable = lib.mkEnableOption "Whether or not to enable lazygit";
+  options.${namespace}.cli.programs.lazygit = {
+    enable = mkBoolOpt false "Whether or not to enable lazygit.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.lazygit = {
       enable = true;
     };

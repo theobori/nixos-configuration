@@ -2,27 +2,29 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.display-managers.sddm;
+  inherit (lib) mkIf mkForce;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.display-managers.sddm;
 in
 {
-  options.display-managers.sddm = {
-    enable = lib.mkEnableOption "Enable SDDM";
+  options.${namespace}.display-managers.sddm = {
+    enable = mkBoolOpt false "Enable SDDM.";
   };
 
-  config = lib.mkIf cfg.enable {
-    services.xserver.enable = true;
+  config = mkIf cfg.enable {
+    services.xserver = enabled;
 
     services.displayManager.sddm = {
       enable = true;
-
-      package = lib.mkForce pkgs.libsForQt5.sddm;
-
+      package = mkForce pkgs.libsForQt5.sddm;
       extraPackages =
         with pkgs.libsForQt5;
-        lib.mkForce [
+        mkForce [
           qt5.qtquickcontrols
           qt5.qtquickcontrols2
           qt5.qtgraphicaleffects
@@ -41,6 +43,6 @@ in
       theme = "Dracula";
     };
 
-    environment.systemPackages = with pkgs; [ theobori-org.my-dracula-theme ];
+    environment.systemPackages = with pkgs; [ theobori-nix.my-dracula-theme ];
   };
 }

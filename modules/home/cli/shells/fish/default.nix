@@ -7,14 +7,17 @@
   ...
 }:
 let
-  cfg = config.cli.shells.fish;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.shells.fish;
 in
 {
-  options.cli.shells.fish = {
-    enable = lib.mkEnableOption "Enable fish shell";
+  options.${namespace}.cli.shells.fish = {
+    enable = mkBoolOpt false "Enable fish shell.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
@@ -49,7 +52,7 @@ in
 
         nd = "nix develop";
         nfu = "nix flake update";
-        hms = "home-manager switch --flake ~/${namespace}#${config.theobori-org.user.name}@${host}";
+        hms = "home-manager switch --flake ~/${namespace}#${config.theobori-nix.user.name}@${host}";
         nrs = "sudo nixos-rebuild switch --flake ~/${namespace}#${host}";
       };
 
@@ -79,6 +82,7 @@ in
           end
         '';
       };
+
       plugins = [
         {
           name = "fzf-fish";

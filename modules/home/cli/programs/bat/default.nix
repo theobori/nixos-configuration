@@ -1,15 +1,37 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.bat;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.bat;
 in
 {
-  options.cli.programs.bat = {
-    enable = lib.mkEnableOption "Whether or not to enable bat";
+  options.${namespace}.cli.programs.bat = {
+    enable = mkBoolOpt false "Whether or not to enable bat.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.bat = {
       enable = true;
+
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batgrep
+        batman
+        batpipe
+        batwatch
+        prettybat
+      ];
+    };
+
+    home.shellAliases = {
+      cat = "bat --style=plain";
     };
   };
 }

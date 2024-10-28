@@ -2,18 +2,22 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.desktops.plasma6;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.desktops.plasma6;
 in
 {
-  options.desktops.plasma6 = {
-    enable = lib.mkEnableOption "Enable KDE Plasma 6";
+  options.${namespace}.desktops.plasma6 = {
+    enable = mkBoolOpt false "Enable KDE Plasma 6.";
   };
 
-  config = lib.mkIf cfg.enable {
-    services.xserver.enable = true;
+  config = mkIf cfg.enable {
+    services.xserver = enabled;
     services.desktopManager.plasma6 = {
       enable = true;
       enableQt5Integration = true;

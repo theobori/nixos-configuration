@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.cli.programs.k8s;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.k8s;
 in
 {
-  options.cli.programs.k8s = {
-    enable = lib.mkEnableOption "Whether or not to manage kubernetes";
+  options.${namespace}.cli.programs.k8s = {
+    enable = mkBoolOpt false "Whether or not to manage kubernetes.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs = {
       k9s = {
         enable = true;

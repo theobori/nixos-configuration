@@ -2,17 +2,21 @@
   pkgs,
   config,
   lib,
+  namespace,
   ...
 }:
 let
-  cfg = config.roles.games;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.roles.games;
 in
 {
-  options.roles.games = {
-    enable = lib.mkEnableOption "Enable single games";
+  options.${namespace}.roles.games = {
+    enable = mkBoolOpt false "Enable single games.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Teeworlds and Teeworlds based games
       teeworlds

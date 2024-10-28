@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.multimedia.calibre;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.multimedia.calibre;
 in
 {
-  options.multimedia.calibre = {
-    enable = lib.mkEnableOption "Whether or not to manage calibre";
+  options.${namespace}.multimedia.calibre = {
+    enable = mkBoolOpt false "Whether or not to manage calibre.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ calibre ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ calibre ]; };
 }

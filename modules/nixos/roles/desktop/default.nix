@@ -1,24 +1,34 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 let
-  cfg = config.roles.desktop;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.desktop;
 in
 {
-  options.roles.desktop = {
-    enable = lib.mkEnableOption "Enable desktop configuration";
+  options.${namespace}.roles.desktop = {
+    enable = mkBoolOpt false "Enable desktop configuration.";
   };
 
-  config = lib.mkIf cfg.enable {
-    roles = {
-      common.enable = true;
-    };
+  config = mkIf cfg.enable {
+    ${namespace} = {
+      roles = {
+        common = enabled;
+      };
 
-    hardware = {
-      audio.enable = true;
-      bluetoothctl.enable = true;
-    };
+      hardware = {
+        audio = enabled;
+        bluetoothctl = enabled;
+      };
 
-    cli.programs = {
-      nh.enable = true;
+      cli.programs = {
+        nh = enabled;
+      };
     };
   };
 }

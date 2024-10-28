@@ -1,13 +1,21 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.home-manager;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.home-manager;
 in
 {
-  options.cli.programs.home-manager = {
-    enable = lib.mkEnableOption "Whether or not to enable home-manager";
+  options.${namespace}.cli.programs.home-manager = {
+    enable = mkBoolOpt false "Whether or not to enable home-manager.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.home-manager = {
       enable = true;
     };

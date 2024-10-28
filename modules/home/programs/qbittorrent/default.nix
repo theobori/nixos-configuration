@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.programs.qbittorrent;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.programs.qbittorrent;
 in
 {
-  options.programs.qbittorrent = {
-    enable = lib.mkEnableOption "Whether or not to manage qbittorrent";
+  options.${namespace}.programs.qbittorrent = {
+    enable = mkBoolOpt false "Whether or not to manage qbittorrent.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ qbittorrent ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ qbittorrent ]; };
 }

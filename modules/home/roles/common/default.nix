@@ -2,33 +2,41 @@
   lib,
   pkgs,
   config,
+  namespace,
   ...
 }:
 let
-  cfg = config.roles.common;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
+
+  cfg = config.${namespace}.roles.common;
 in
 {
-  options.roles.common = {
-    enable = lib.mkEnableOption "Enable common configuration";
+  options.${namespace}.roles.common = {
+    enable = mkBoolOpt false "Enable common configuration.";
   };
 
-  config = lib.mkIf cfg.enable {
-    browsers.firefox.enable = true;
-    browsers.librewolf.enable = true;
-    browsers.lagrange.enable = true;
+  config = mkIf cfg.enable {
+    ${namespace} = {
+      browsers = {
+        firefox = enabled;
+        librewolf = enabled;
+        lagrange = enabled;
+      };
 
-    programs.bitwarden.enable = true;
+      programs.bitwarden = enabled;
 
-    system = {
-      nix.enable = true;
+      system = {
+        nix = enabled;
+      };
+
+      cli = {
+        terminals.wezterm = enabled;
+        shells.fish = enabled;
+        programs.home-manager = enabled;
+      };
+
+      styles.stylix = enabled;
     };
-
-    cli = {
-      terminals.wezterm.enable = true;
-      shells.fish.enable = true;
-      programs.home-manager.enable = true;
-    };
-
-    styles.stylix.enable = true;
   };
 }

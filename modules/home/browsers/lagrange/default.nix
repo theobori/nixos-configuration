@@ -2,15 +2,19 @@
   config,
   lib,
   pkgs,
+  namespace,
   ...
 }:
 let
-  cfg = config.browsers.lagrange;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.browsers.lagrange;
 in
 {
-  options.browsers.lagrange = {
-    enable = lib.mkEnableOption "Whether or not to manage lagrange";
+  options.${namespace}.browsers.lagrange = {
+    enable = mkBoolOpt false "Whether or not to manage lagrange.";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ lagrange ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ lagrange ]; };
 }

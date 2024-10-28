@@ -1,14 +1,22 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  namespace,
+  ...
+}:
 let
-  cfg = config.cli.programs.starship;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
+
+  cfg = config.${namespace}.cli.programs.starship;
   inherit (config.lib.stylix) colors;
 in
 {
-  options.cli.programs.starship = {
-    enable = lib.mkEnableOption "Whether or not to enable starship";
+  options.${namespace}.cli.programs.starship = {
+    enable = mkBoolOpt false "Whether or not to enable starship.";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
 

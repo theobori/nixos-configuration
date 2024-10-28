@@ -1,41 +1,34 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  namespace,
+  ...
+}:
 let
-  cfg = config.user;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt enabled;
+
+  cfg = config.${namespace}.user;
 in
 {
-  options.user = {
-    name = lib.mkOption {
-      type = lib.types.str;
-      default = "theobori";
-      description = "The name of the user's account";
-    };
-
-    initialPassword = lib.mkOption {
-      type = lib.types.str;
-      default = "1";
-      description = "The initial password to use";
-    };
-
-    extraGroups = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [ ];
-      description = "Groups for the user to be assigned";
-    };
-
-    extraOptions = lib.mkOption {
-      type = lib.types.attrs;
-      default = { };
-      description = "Extra options passed to users.users.<name>";
-    };
+  options.${namespace}.user = with types; {
+    extraGroups = mkOpt (listOf str) [ ] "Groups for the user to be assigned.";
+    extraOptions = mkOpt attrs { } "Extra options passed to <option>users.users.<name></option>.";
+    initialPassword = mkOpt str "1" "The initial password to use when the user is first created.";
+    name = mkOpt str "theobori" "The name to use for the user account.";
   };
 
   config = {
-    users.mutableUsers = false;
+    programs.fish = enabled;
+
     users.users.${cfg.name} = {
       isNormalUser = true;
       inherit (cfg) name initialPassword;
       home = "/home/${cfg.name}";
       group = "users";
+      shell = pkgs.fish;
+      uid = 1000;
 
       extraGroups = [
         "wheel"
@@ -47,6 +40,8 @@ in
         "tty"
         "kvm"
         "libvirtd"
+        "nix"
+        "power"
       ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
 
