@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.programs.discord;
+  cfg = config.messages.discord;
 in
 {
-  options.programs.discord = {
+  options.messages.discord = {
     enable = lib.mkEnableOption "Whether or not to manage discord";
   };
 
