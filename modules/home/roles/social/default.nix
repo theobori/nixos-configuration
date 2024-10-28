@@ -13,8 +13,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs = {
+    messages = {
       discord.enable = true;
+      thunderbird.enable = true;
     };
   };
 }

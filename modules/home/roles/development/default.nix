@@ -9,6 +9,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    editors = {
+      vscode.enable = true;
+      emacs.enable = true;
+    };
+
     cli = {
       multiplexers.tmux.enable = true;
 
@@ -31,6 +36,7 @@ in
         yazi.enable = true;
         zoxide.enable = true;
         thefuck.enable = true;
+        lazygit.enable = true;
       };
     };
   };

@@ -26,7 +26,11 @@ in
       };
     };
 
-    editors.vscode.enable = true;
+    multimedia.mpv.enable = true;
+    multimedia.calibre.enable = true;
+    programs.inkscape.enable = true;
+    programs.obsidian.enable = true;
+    programs.qbittorrent.enable = true;
 
     home.packages = with pkgs; [
       spotify

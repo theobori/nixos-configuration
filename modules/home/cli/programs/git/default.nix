@@ -52,10 +52,10 @@ in
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
         commit.gpgsign = true;
-        user.signingkey = "~/.ssh/id_ed25519.pub";
+        #user.signingkey = "~/.ssh/id_ed25519.pub";
 
         core = {
-          editor = "emacs -nw";
+          editor = "emacs";
           pager = "delta";
         };
 
