@@ -85,6 +85,7 @@
       homes.modules = with inputs; [
         nix-index-database.hmModules.nix-index
         stylix.homeManagerModules.stylix
+        sops-nix.homeManagerModules.sops
       ];
 
       systems = {
