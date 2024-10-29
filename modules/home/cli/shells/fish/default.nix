@@ -24,11 +24,10 @@ in
         # There are fish intregration from home-manager module
         ${pkgs.nix-your-shell}/bin/nix-your-shell --nom fish | source
 
-        set -x GOPATH $XDG_DATA_HOME/go
+        set -gx GOPATH $XDG_DATA_HOME/go
         set -gx PATH /usr/local/bin /usr/bin ~/.local/bin $GOPATH/bin/ $PATH $HOME/.cargo/bin
 
-        # fish_add_path --path --append $GOPATH/bin/
-        # fish_add_path --path --append /usr/local/bin /usr/bin ~/.local/bin
+        set -gx fzf_diff_highlighter delta --paging=never --line-numbers
       '';
 
       shellAbbrs = {
