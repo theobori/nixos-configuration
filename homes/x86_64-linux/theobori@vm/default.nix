@@ -1,4 +1,9 @@
-{ pkgs, namespace, ... }:
+{
+  pkgs,
+  namespace,
+  lib,
+  ...
+}:
 {
   theobori-nix = {
     roles = {
@@ -10,6 +15,15 @@
     user = {
       enable = true;
       name = "theobori";
+    };
+
+    cli.programs.ssh.useSops = true;
+
+    services = {
+      sops = {
+        enable = true;
+        defaultSopsFile = lib.snowfall.fs.get-file "secrets/vm/theobori/secrets.yaml";
+      };
     };
   };
 
