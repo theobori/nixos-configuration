@@ -1,4 +1,4 @@
-{ pkgs, namespace, ... }:
+{ ... }:
 {
   theobori-nix.user = {
     enable = true;

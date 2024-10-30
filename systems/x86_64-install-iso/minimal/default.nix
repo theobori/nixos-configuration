@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  namespace,
+  ...
+}:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -16,13 +21,15 @@
     pkgs.gitMinimal
   ];
 
-  system = {
-    locale.enable = true;
-  };
+  ${namespace} = {
+    system = {
+      locale.enable = true;
+    };
 
-  user = {
-    name = "nixos";
-    initialPassword = "1";
+    user = {
+      name = "nixos";
+      initialPassword = "1";
+    };
   };
 
   system.stateVersion = "24.11";

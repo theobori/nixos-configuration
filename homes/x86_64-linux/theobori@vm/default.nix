@@ -1,15 +1,10 @@
-{
-  pkgs,
-  namespace,
-  lib,
-  ...
-}:
+{ lib, ... }:
 {
   theobori-nix = {
     roles = {
       social.enable = true;
       desktop.enable = true;
-      games.enable = true;
+      gaming.enable = true;
     };
 
     user = {
@@ -17,7 +12,10 @@
       name = "theobori";
     };
 
-    cli.programs.ssh.useSops = true;
+    cli.programs = {
+      ssh.useSops = true;
+      gpg.useSops = true;
+    };
 
     services = {
       sops = {
