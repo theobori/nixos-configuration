@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   namespace,
   ...
 }:
@@ -11,8 +10,6 @@ let
     mkIf
     mkDefault
     mkMerge
-    getExe
-    getExe'
     ;
   inherit (lib.${namespace}) mkOpt enabled;
 
