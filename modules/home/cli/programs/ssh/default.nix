@@ -1,23 +1,22 @@
 {
   config,
   lib,
-  inputs,
-  pkgs,
   namespace,
   host,
   ...
 }:
 let
-  inherit (lib) types mkIf;
-  inherit (lib.${namespace}) mkBoolOpt mkOpt;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
   inherit (config.${namespace}) user;
 
   cfg = config.${namespace}.cli.programs.ssh;
+  sopsFile = lib.snowfall.fs.get-file "secrets/${host}/${user.name}/secrets.yaml";
+  sopsEnable = config."${namespace}".services.sops.enable && cfg.useSops;
 in
 {
-  options.${namespace}.cli.programs.ssh = with types; {
+  options.${namespace}.cli.programs.ssh = {
     enable = mkBoolOpt false "Whether or not to configure ssh support.";
-    extraConfig = mkOpt str "" "Extra configuration to apply.";
     useSops = mkBoolOpt false "Whether or not to use SOPS.";
   };
 
@@ -25,13 +24,17 @@ in
     programs.ssh = {
       enable = true;
 
-      inherit (cfg) extraConfig;
+      includes = (lib.optional sopsEnable config.sops.secrets.ssh_config.path);
     };
 
-    sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
-      "vm_theobori_ssh_key" = {
-        sopsFile = lib.snowfall.fs.get-file "secrets/${host}/${user.name}/secrets.yaml";
+    sops.secrets = mkIf sopsEnable {
+      ssh_key = {
+        inherit sopsFile;
         path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      };
+
+      ssh_config = {
+        inherit sopsFile;
       };
     };
   };

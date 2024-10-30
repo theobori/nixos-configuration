@@ -55,7 +55,11 @@ in
         "files.autoSave" = "afterDelay";
         "window.menuBarVisibility" = "toggle";
         "workbench.colorTheme" = "Dracula Theme Soft";
+        "nix.enableLanguageServer" = "true";
+        "nix.serverPath" = "nixd";
       };
     };
+
+    home.packages = with pkgs; [ nixd ];
   };
 }

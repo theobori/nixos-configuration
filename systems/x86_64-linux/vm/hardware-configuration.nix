@@ -6,7 +6,6 @@
   lib,
   pkgs,
   modulesPath,
-  namespace,
   ...
 }:
 
