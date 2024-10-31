@@ -42,6 +42,7 @@ in
         "libvirtd"
         "nix"
         "power"
+        "docker"
       ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
 

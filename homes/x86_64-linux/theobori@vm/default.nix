@@ -1,10 +1,13 @@
-{ lib, ... }:
+{ lib, namespace, ... }:
+let
+  inherit (lib.${namespace}) enabled;
+in
 {
   theobori-nix = {
     roles = {
-      social.enable = true;
-      desktop.enable = true;
-      gaming.enable = true;
+      social = enabled;
+      desktop = enabled;
+      gaming = enabled;
     };
 
     user = {

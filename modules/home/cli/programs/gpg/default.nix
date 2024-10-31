@@ -31,6 +31,7 @@ in
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
       pgp_key = {
         sopsFile = lib.snowfall.fs.get-file "secrets/${host}/${user.name}/secrets.yaml";
+        path = "${config.home.homeDirectory}/my-gpg-private-key";
       };
     };
   };

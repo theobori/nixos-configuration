@@ -4,16 +4,19 @@
   namespace,
   ...
 }:
+let
+  inherit (lib.${namespace}) enabled;
+in
 {
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = enabled;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.wireless.enable = lib.mkForce false;
-  networking.networkmanager.enable = true;
+  networking.networkmanager = enabled;
 
-  nix.enable = true;
+  nix = enabled;
   services = {
-    openssh.enable = true;
+    openssh = enabled;
   };
 
   environment.systemPackages = map lib.lowPrio [
@@ -23,7 +26,7 @@
 
   ${namespace} = {
     system = {
-      locale.enable = true;
+      locale = enabled;
     };
 
     user = {
