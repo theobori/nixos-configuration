@@ -7,6 +7,7 @@ site_author: Théo Bori
 
 nav:
   - Home: index.md
+  - Tasks: tasks.md
 
 plugins:
   - glightbox
