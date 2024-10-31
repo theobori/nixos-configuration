@@ -16,12 +16,12 @@ in
   options.${namespace}.cli.programs.git = with types; {
     enable = mkBoolOpt false "Whether or not to enable git.";
 
-    signByDefault = mkOpt types.bool true "Whether to sign commits by default.";
+    signByDefault = mkOpt bool true "Whether to sign commits by default.";
     signingKey =
-      mkOpt types.str "${config.home.homeDirectory}/.ssh/id_ed25519"
-        "The key ID to sign commits with.";
-    userName = mkOpt types.str user.fullName "The name to configure git with.";
-    userEmail = mkOpt types.str user.email "The email to configure git with.";
+      mkOpt str "EEFBCC3AC529CFD1943DA75CBDD57BE99D555965"
+        "The GnuPG signing key fingerprint sign commits with.";
+    userName = mkOpt str user.fullName "The name to configure git with.";
+    userEmail = mkOpt str user.email "The email to configure git with.";
   };
 
   config = mkIf cfg.enable {
@@ -38,10 +38,7 @@ in
       };
 
       extraConfig = {
-        gpg.format = "ssh";
-        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
         commit.gpgsign = true;
-        #user.signingkey = "~/.ssh/id_ed25519.pub";
 
         core = {
           editor = "emacs";
@@ -90,5 +87,7 @@ in
         };
       };
     };
+
+    home.packages = with pkgs; [ gitmoji-cli ];
   };
 }

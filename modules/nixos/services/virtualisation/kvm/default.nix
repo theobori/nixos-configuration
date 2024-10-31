@@ -13,7 +13,7 @@ let
 in
 {
   options.${namespace}.services.virtualisation.kvm = {
-    enable = mkBoolOpt false "enable kvm virtualisation.";
+    enable = mkBoolOpt false "Enable kvm virtualisation.";
   };
 
   config = mkIf cfg.enable {

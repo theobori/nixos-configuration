@@ -40,7 +40,10 @@ in
     display-managers.sddm = enabled;
 
     roles.desktop = enabled;
-    services.virtualisation.kvm = enabled;
+    services.virtualisation = {
+      kvm = enabled;
+      docker = enabled;
+    };
   };
 
   programs.fuse.userAllowOther = true;
