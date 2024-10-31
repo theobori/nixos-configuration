@@ -48,6 +48,8 @@
     };
 
     pre-commit-hooks-nix.url = "github:cachix/pre-commit-hooks.nix";
+
+    mkdocs-flake.url = "github:applicative-systems/mkdocs-flake";
   };
 
   outputs =

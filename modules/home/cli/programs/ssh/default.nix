@@ -24,7 +24,7 @@ in
     programs.ssh = {
       enable = true;
 
-      includes = (lib.optional sopsEnable config.sops.secrets.ssh_config.path);
+      includes = lib.optional sopsEnable config.sops.secrets.ssh_config.path;
     };
 
     sops.secrets = mkIf sopsEnable {

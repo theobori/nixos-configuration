@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   theobori-nix.user = {
     enable = true;
     name = "theobori";

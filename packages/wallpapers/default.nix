@@ -20,7 +20,7 @@ let
       };
     in
     pkg;
-  names = builtins.map (lib.snowfall.path.get-file-name-without-extension) images;
+  names = builtins.map lib.snowfall.path.get-file-name-without-extension images;
   wallpapers = lib.foldl (
     acc: image:
     let
@@ -33,9 +33,6 @@ let
     acc // { "${name}" = mkWallpaper name (./wallpapers + "/${image}"); }
   ) { } images;
   installTarget = "$out/share/wallpapers";
-  installWallpapers = builtins.mapAttrs (name: wallpaper: ''
-    cp ${wallpaper} ${installTarget}/${wallpaper.fileName}
-  '') wallpapers;
 in
 pkgs.stdenvNoCC.mkDerivation {
   name = "wallpapers";

@@ -6,8 +6,8 @@
   ...
 }:
 let
-  inherit (lib) mkIf types;
-  inherit (lib.${namespace}) mkBoolOpt mkOpt enabled;
+  inherit (lib) types;
+  inherit (lib.${namespace}) mkOpt enabled;
 
   cfg = config.${namespace}.user;
 in

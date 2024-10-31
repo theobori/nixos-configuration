@@ -16,7 +16,7 @@ let
 
   cfg = config.${namespace}.browsers.firefox;
 
-  firefox-addons = pkgs.nur.repos.rycee.firefox-addons;
+  inherit (pkgs.nur.repos.rycee) firefox-addons;
 
   twitchnosub =
     let

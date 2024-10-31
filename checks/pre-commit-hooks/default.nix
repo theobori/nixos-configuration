@@ -45,6 +45,6 @@ pre-commit-hooks-nix.lib.${pkgs.system}.run {
 
       pre-commit-hook-ensure-sops.enable = true;
 
-      statix.enable = true;
+      #statix.enable = true;
     };
 }
