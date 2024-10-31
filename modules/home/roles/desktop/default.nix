@@ -50,9 +50,11 @@ in
 
       multimedia.mpv = enabled;
       multimedia.calibre = enabled;
-      programs.inkscape = enabled;
-      programs.obsidian = enabled;
-      programs.qbittorrent = enabled;
+      programs = {
+        inkscape = enabled;
+        obsidian = enabled;
+        qbittorrent = enabled;
+      };
     };
   };
 }

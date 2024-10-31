@@ -7,7 +7,7 @@
 with lib;
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.roles.development;
 in

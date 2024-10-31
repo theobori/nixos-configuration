@@ -1,10 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, namespace, ... }:
 pkgs.dracula-theme.overrideAttrs (
-  finalAttrs: previousAttrs: {
+  _finalAttrs: _previousAttrs: {
     pname = "my-dracula-theme";
 
     postInstall = ''
-      cp ${pkgs.theobori-nix.wallpapers.nix-simple} $out/share/sddm/themes/Dracula/assets/background.jpg
+      cp ${pkgs.${namespace}.wallpapers.nix-simple} $out/share/sddm/themes/Dracula/assets/background.jpg
 
       # Collision with stylix
       rm -f $out/share/color-schemes/Dracula.colors

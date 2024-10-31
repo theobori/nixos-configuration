@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  inputs,
   namespace,
   ...
 }:
@@ -25,7 +24,7 @@ in
 
       targets.gtk.enable = false;
 
-      image = pkgs."${namespace}".wallpapers.nix-simple;
+      image = pkgs.${namespace}.wallpapers.nix-simple;
 
       fonts = {
         sizes = {
@@ -45,7 +44,7 @@ in
         };
 
         monospace = {
-          package = pkgs."${namespace}".monolisa;
+          package = pkgs.${namespace}.monolisa;
           name = "MonoLisa Nerd Font";
         };
 
