@@ -50,6 +50,8 @@
     pre-commit-hooks-nix.url = "github:cachix/pre-commit-hooks.nix";
 
     mkdocs-flake.url = "github:applicative-systems/mkdocs-flake";
+
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =
@@ -83,6 +85,7 @@
         nix-index-database.hmModules.nix-index
         stylix.homeManagerModules.stylix
         sops-nix.homeManagerModules.sops
+        nixcord.homeManagerModules.nixcord
       ];
 
       systems = {

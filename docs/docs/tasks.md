@@ -2,4 +2,5 @@
 
 Here are a non-exhaustive list of tasks.
 
-- Better email accounts management
+- [x] Use [nixcord](https://github.com/KaylorBen/nixcord) to entirely manage Discord with Nix declarations
+- [ ] Better email accounts management
