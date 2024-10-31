@@ -1,4 +1,4 @@
-site_name: My NixOS Configuration
+site_name: ❄️ My NixOS Configuration
 site_url: https://github.com/theobori/nixos-configuration
 repo_url: https://github.com/theobori/nixos-configuration
 repo_name: theobori/nixos-configuration
@@ -6,7 +6,11 @@ edit_uri: edit/main/docs/docs
 site_author: Théo Bori
 
 nav:
-  - Home: index.md
+  - Getting Started: index.md
+  - Configuration:
+    - Features: features.md
+    - Customization: customization.md
+  - Resources: resources.md
   - Tasks: tasks.md
 
 plugins:
