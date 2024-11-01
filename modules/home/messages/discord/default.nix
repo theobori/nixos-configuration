@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf types;
+  inherit (lib) mkIf types strings;
   inherit (lib.${namespace})
     mkBoolOpt
     mkOpt
@@ -14,12 +14,20 @@ let
     ;
 
   cfg = config.${namespace}.messages.discord;
+
+  trimWith' =
+    s:
+    strings.trimWith {
+      start = true;
+      end = true;
+    } s;
 in
 {
   options.${namespace}.messages.discord = with types; {
     enable = mkBoolOpt false "Whether or not to manage discord.";
+    quickCss = mkOpt str (builtins.readFile ./custom.css) "Vencord quick CSS.";
     config = mkOpt attrs {
-      useQuickCss = true;
+      useQuickCss = ((trimWith' cfg.quickCss) != "");
       plugins = {
         betterFolders = enabled;
         betterRoleContext = enabled;
@@ -44,9 +52,8 @@ in
       enable = true;
       discord = disabled;
       vesktop.enable = true;
-      quickCss = builtins.readFile ./custom.css;
 
-      inherit (cfg) config;
+      inherit (cfg) config quickCss;
     };
   };
 }
