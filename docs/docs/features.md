@@ -6,9 +6,6 @@ Here's an overview of what my Nix configuration offers:
   - Access the Nix User Repository (NUR) for additional packages and
     enhancements.
 
-- **macOS Support**: Seamlessly configure and manage Nix on macOS using the
-  power of [Nix-darwin](https://github.com/LnL7/nix-darwin), also leveraging homebrew for GUI applications.
-
 - **Home Manager**: Manage your dotfiles, home environment, and user-specific
   configurations with [Home Manager](https://github.com/nix-community/home-manager).
 

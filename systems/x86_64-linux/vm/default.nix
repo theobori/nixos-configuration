@@ -36,8 +36,10 @@ in
 
     desktops = {
       plasma6 = enabled;
+      # gnome = enabled;
     };
     display-managers.sddm = enabled;
+    # display-managers.gdm = enabled;
 
     roles.desktop = enabled;
     services.virtualisation = {

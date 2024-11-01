@@ -26,6 +26,9 @@ in
         defaultSopsFile = lib.snowfall.fs.get-file "secrets/vm/theobori/secrets.yaml";
       };
     };
+
+    #desktops.addons.gnome = enabled;
+    desktops.addons.plasma6 = enabled;
   };
 
   home.stateVersion = "24.11";
