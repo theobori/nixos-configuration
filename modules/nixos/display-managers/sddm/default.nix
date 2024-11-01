@@ -43,6 +43,6 @@ in
       theme = "Dracula";
     };
 
-    environment.systemPackages = with pkgs; [ theobori-nix.my-dracula-theme ];
+    environment.systemPackages = [ pkgs.${namespace}.my-dracula-theme ];
   };
 }

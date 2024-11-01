@@ -28,7 +28,6 @@ in
       home = "/home/${cfg.name}";
       group = "users";
       shell = pkgs.fish;
-      uid = 1000;
 
       extraGroups = [
         "wheel"
