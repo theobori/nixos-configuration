@@ -17,6 +17,7 @@ in
 
   config = mkIf cfg.enable {
     services.xserver = enabled;
+
     services.desktopManager.plasma6 = {
       enable = true;
       enableQt5Integration = true;

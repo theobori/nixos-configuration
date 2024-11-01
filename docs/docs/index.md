@@ -4,8 +4,6 @@ Before diving in, ensure that you have Nix installed on your system. If not, you
 can download and install it from the official
 [Nix website](https://nixos.org/download.html) or from the
 [Determinate Systems installer](https://github.com/DeterminateSystems/nix-installer).
-If running on macOS, you need to have Nix-Darwin installed, as well. You can follow the
-installation instruction on [GitHub](https://github.com/LnL7/nix-darwin?tab=readme-ov-file#flakes).
 
 ### Clone this repository to your local machine
 
@@ -15,9 +13,6 @@ cd nixos-configuration
 
 # linux
 sudo nixos-rebuild switch --flake .
-
- # macos
-darwin-rebuild switch --flake .
 
  # with direnv
 flake switch

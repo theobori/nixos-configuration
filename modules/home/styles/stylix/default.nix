@@ -22,8 +22,6 @@ in
       # autoenable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
-      targets.gtk.enable = false;
-
       image = pkgs.${namespace}.wallpapers.nix-simple;
 
       fonts = {

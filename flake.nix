@@ -52,6 +52,12 @@
     mkdocs-flake.url = "github:applicative-systems/mkdocs-flake";
 
     nixcord.url = "github:kaylorben/nixcord";
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -86,6 +92,7 @@
         stylix.homeManagerModules.stylix
         sops-nix.homeManagerModules.sops
         nixcord.homeManagerModules.nixcord
+        plasma-manager.homeManagerModules.plasma-manager
       ];
 
       systems = {

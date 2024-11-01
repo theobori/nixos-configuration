@@ -8,7 +8,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
   inherit (config.${namespace}) user;
 
   cfg = config.${namespace}.cli.programs.gpg;
@@ -23,10 +23,10 @@ in
     home.packages = with pkgs; [ kleopatra ];
 
     programs = {
-      gpg = {
-        enable = true;
-      };
+      gpg = enabled;
     };
+
+    services.gpg-agent = enabled;
 
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
       pgp_key = {
