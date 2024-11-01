@@ -22,11 +22,12 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ kleopatra ];
 
-    programs = {
-      gpg = enabled;
-    };
+    programs.gpg = enabled;
 
-    services.gpg-agent = enabled;
+    services.gpg-agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-curses;
+    };
 
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
       pgp_key = {
