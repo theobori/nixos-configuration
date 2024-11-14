@@ -18,7 +18,7 @@ in
     extraWorkspace = mkOpt attrs {
       colorScheme = "DraculaPurple";
       theme = "Dracula";
-      lookAndFeel = "Dracula";
+      #lookAndFeel = "Dracula";
 
       windowDecorations = {
         library = "org.kde.kwin.aurorae";

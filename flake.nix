@@ -107,5 +107,10 @@
       };
 
       outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
+
+      templates = {
+        xdp-c.description = "My template for building a XDP program in C";
+        python.description = "My template for a base project in Python";
+      };
     };
 }
