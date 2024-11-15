@@ -29,9 +29,6 @@ in
   ${namespace} = {
     security = {
       doas = enabled;
-      sops = {
-        enable = true;
-      };
     };
 
     desktops = {
@@ -45,6 +42,13 @@ in
     services.virtualisation = {
       kvm = enabled;
       docker = enabled;
+    };
+
+    user.users = {
+      theobori = { };
+      nagi = {
+        initialPassword = "123";
+      };
     };
   };
 

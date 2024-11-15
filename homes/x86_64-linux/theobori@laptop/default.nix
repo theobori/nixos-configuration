@@ -18,7 +18,6 @@ in
     cli.programs = {
       ssh.useSops = true;
       gpg.useSops = true;
-      age.useSops = true;
     };
 
     services = {

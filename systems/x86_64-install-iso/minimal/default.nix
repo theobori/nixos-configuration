@@ -11,6 +11,8 @@ in
   boot.loader.systemd-boot = enabled;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking.wireless.enable = lib.mkForce false;
   networking.networkmanager = enabled;
 
@@ -29,9 +31,10 @@ in
       locale = enabled;
     };
 
-    user = {
-      name = "nixos";
-      initialPassword = "1";
+    user.users = {
+      nixos = {
+        initialPassword = "1";
+      };
     };
   };
 

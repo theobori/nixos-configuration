@@ -11,6 +11,7 @@ nav:
     - Features: features.md
     - Customization: customization.md
   - Resources: resources.md
+  - Screenshots: screenshots.md
   - Tasks: tasks.md
 
 plugins:

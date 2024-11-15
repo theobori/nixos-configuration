@@ -51,7 +51,7 @@ in
     programs.nixcord = {
       enable = true;
       discord = disabled;
-      vesktop.enable = true;
+      vesktop = enabled;
 
       inherit (cfg) config quickCss;
     };
