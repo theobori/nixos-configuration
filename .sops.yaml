@@ -1,9 +1,15 @@
 keys:
-  - &vm_theobori_old age14m06fd3svs9neg2w97ccw3c8470hckl95qxr6jw8fgm4ex65352q6tun06
+  - &admin age14m06fd3svs9neg2w97ccw3c8470hckl95qxr6jw8fgm4ex65352q6tun06
   - &vm_theobori age1ppppcualdw2q3xqrzyq80ll69eftzcmv7v6wa6hye3whn4kgvy8ss30ece
+  - &laptop_theobori age1lvyvwawkr0mcnnnncaghunadrqkmuf9e6507x9y920xxpp866cnql7dp2z
 creation_rules:
   - path_regex: secrets/vm/theobori/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
-        - *vm_theobori_old
-        - *vm_theobori
+          - *admin
+          - *vm_theobori
+  - path_regex: secrets/laptop/theobori/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *admin
+          - *laptop_theobori

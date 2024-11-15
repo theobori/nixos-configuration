@@ -27,6 +27,7 @@ in
         multiplexers.tmux = enabled;
 
         programs = {
+          age = enabled;
           bat = enabled;
           direnv = enabled;
           eza = enabled;
