@@ -8,30 +8,24 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt;
   inherit (config.${namespace}) user;
 
-  cfg = config.${namespace}.cli.programs.gpg;
+  cfg = config.${namespace}.cli.programs.age;
 in
 {
-  options.${namespace}.cli.programs.gpg = {
-    enable = mkBoolOpt false "Whether or not to enable gpg.";
+  options.${namespace}.cli.programs.age = {
+    enable = mkBoolOpt false "Whether or not to enable age.";
     useSops = mkBoolOpt false "Whether or not to use SOPS.";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ kleopatra ];
-
-    programs.gpg = enabled;
-
-    services.gpg-agent = {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
-    };
+    home.packages = with pkgs; [ age ];
 
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
-      pgp_key = {
+      age_keys = {
         sopsFile = lib.snowfall.fs.get-file "secrets/${host}/${user.name}/secrets.yaml";
+        path = "${config.home.homeDirectory}/sops/age/keys.txt";
       };
     };
   };
