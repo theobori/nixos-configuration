@@ -1,11 +1,18 @@
-{ lib, namespace, ... }:
+{
+  modulesPath,
+  lib,
+  namespace,
+  ...
+}:
 let
   inherit (lib.${namespace}) enabled;
 in
 {
   imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   boot.loader.grub = {
@@ -15,25 +22,27 @@ in
     efiInstallAsRemovable = true;
   };
 
-  ${namespace} = {
-    security = {
-      doas = enabled;
-      sops = {
-        enable = true;
-      };
-    };
+  boot.supportedFilesystems = [ "ntfs" ];
 
-    desktops = {
-      plasma6 = enabled;
-    };
+  ${namespace} = {
+    security.doas = enabled;
+
+    desktops.plasma6 = enabled;
     display-managers.sddm = enabled;
 
-    roles.desktop = enabled;
     services.virtualisation = {
       kvm = enabled;
       docker = enabled;
     };
+
+    user.users = {
+      theobori = { };
+    };
+
+    roles.desktop = enabled;
   };
+
+  programs.fuse.userAllowOther = true;
 
   system.stateVersion = "24.11";
 }

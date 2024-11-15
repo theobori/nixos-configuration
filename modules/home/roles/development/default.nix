@@ -41,6 +41,7 @@ in
           modern-unix = enabled;
           network-tools = enabled;
           nix-index = enabled;
+          screen = enabled;
           ssh = enabled;
           starship = enabled;
           yazi = enabled;

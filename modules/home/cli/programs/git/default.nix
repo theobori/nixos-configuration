@@ -43,6 +43,7 @@ in
         core = {
           editor = "emacs";
           pager = "delta";
+          filemode = "false";
         };
 
         color = {

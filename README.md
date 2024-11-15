@@ -130,6 +130,15 @@ works:
 This structured approach to Nix configuration makes it easier to manage and
 customize your Nix environment while maintaining flexibility and modularity.
 
+## Screenshots
+
+My NixOS KDE Plasma 6 environment looks like this.
+
+![sddm](./docs/docs/images/sddm.png)
+![home](./docs/docs/images/home.png)
+![launcher](./docs/docs/images/launcher.png)
+![neofetch](./docs/docs/images/neofetch.png)
+
 ## Resources
 
 Other configurations from where I learned and copied:

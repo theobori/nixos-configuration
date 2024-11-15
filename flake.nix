@@ -101,7 +101,6 @@
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             disko.nixosModules.disko
-            sops-nix.nixosModules.sops
           ];
         };
       };
