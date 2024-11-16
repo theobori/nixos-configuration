@@ -25,8 +25,8 @@ in
       extraRules = [
         {
           users = builtins.attrNames config.${namespace}.user.users;
-          noPass = false;
           keepEnv = true;
+          persist = true;
         }
       ];
     };

@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  host,
   namespace,
   ...
 }:
@@ -51,8 +50,6 @@ in
 
         nd = "nix develop";
         nfu = "nix flake update";
-        hms = "home-manager switch --flake ~/${namespace}#${config.theobori-nix.user.name}@${host}";
-        nrs = "sudo nixos-rebuild switch --flake ~/${namespace}#${host}";
       };
 
       functions = {
