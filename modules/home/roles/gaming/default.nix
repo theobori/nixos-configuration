@@ -20,6 +20,7 @@ in
       games = {
         teeworlds = enabled;
         taterclient-ddnet = enabled;
+        supermariowar = enabled;
       };
     };
   };
