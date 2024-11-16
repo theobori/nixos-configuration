@@ -609,6 +609,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-85f7e66": {
+      "locked": {
+        "lastModified": 1730958623,
+        "narHash": "sha256-JwQZIGSYnRNOgDDoIgqKITrPVil+RMWHsZH1eE1VGN0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "85f7e662eda4fa3a995556527c87b2524b691933",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "85f7e662eda4fa3a995556527c87b2524b691933",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -690,11 +706,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1730155734,
-        "narHash": "sha256-bzxn8TTWmpL9Q42bN5Lb53CnrnQk4sydsx3p2O4fR7c=",
+        "lastModified": 1731796084,
+        "narHash": "sha256-CwFQc/xErQmVyP51xfYGh2gpMgS0Pcme7oBCk0+5khU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bb50fc715d9c3e5b37da889722845087fcd9f251",
+        "rev": "d903a3ee64fb1d188695098694797869ab3a7551",
         "type": "github"
       },
       "original": {
@@ -831,6 +847,7 @@
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-85f7e66": "nixpkgs-85f7e66",
         "nur": "nur",
         "plasma-manager": "plasma-manager",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
