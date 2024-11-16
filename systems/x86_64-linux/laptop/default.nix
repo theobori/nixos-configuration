@@ -1,4 +1,5 @@
 {
+  pkgs,
   modulesPath,
   lib,
   namespace,
@@ -15,14 +16,16 @@ in
     ./hardware-configuration.nix
   ];
 
-  boot.loader.grub = {
-    # no need to set devices, disko will add all devices that have a EF02 partition to the list already
-    # devices = [ ];
-    efiSupport = true;
-    efiInstallAsRemovable = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader.grub = {
+      # no need to set devices, disko will add all devices that have a EF02 partition to the list already
+      # devices = [ ];
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+    };
+    supportedFilesystems = [ "ntfs" ];
   };
-
-  boot.supportedFilesystems = [ "ntfs" ];
 
   ${namespace} = {
     security.doas = enabled;

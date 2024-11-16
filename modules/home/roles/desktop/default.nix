@@ -26,7 +26,7 @@ in
     };
 
     home.packages = with pkgs; [
-      #spotify
+      spotify
       pavucontrol
       mplayer
       mtpfs
