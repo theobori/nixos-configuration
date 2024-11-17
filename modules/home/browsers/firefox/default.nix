@@ -99,7 +99,7 @@ in
         toolbar = true;
         bookmarks = [
           {
-            name = "✨ Aesthetics";
+            name = "Aesthetics";
             bookmarks = [
               {
                 name = "Vampire | Aesthetics Wiki | Fandom";
@@ -152,36 +152,7 @@ in
             ];
           }
           {
-            name = "alt";
-            bookmarks = [
-              {
-                name = "Je veux rejoindre le collectif | La litière";
-                url = "https://wiki.chatons.org/doku.php/rejoindre";
-              }
-              {
-                name = "Comment candidater [Guide] | Je veux rejoindre le collectif | La litière";
-                url = "https://wiki.chatons.org/doku.php/rejoindre/candidature";
-              }
-              {
-                name = "Obligations | Je veux rejoindre le collectif | La litière";
-                url = "https://wiki.chatons.org/doku.php/rejoindre/obligations";
-              }
-              {
-                name = "Nubo";
-                url = "https://nubo.coop/fr/";
-              }
-              {
-                name = "docs/Liste_de_conformité_à_la_Charte_CHATONS_V2.pdf · master · CHATONS / Collectif CHATONS · GitLab";
-                url = "https://framagit.org/chatons/CHATONS/-/blob/master/docs/Liste_de_conformit%C3%A9_%C3%A0_la_Charte_CHATONS_V2.pdf";
-              }
-              {
-                name = "[candidature] Siick's services (#131) · Tickets · CHATONS / Collectif CHATONS · GitLab";
-                url = "https://framagit.org/chatons/CHATONS/-/issues/131";
-              }
-            ];
-          }
-          {
-            name = "zines";
+            name = "Zines";
             bookmarks = [
               {
                 name = "OpenBSD Webzine";
@@ -194,7 +165,7 @@ in
             ];
           }
           {
-            name = "intéressants";
+            name = "Intéressants";
             bookmarks = [
               {
                 name = "hashbang/shell-server: #! shell server base images, ready to boot and allow user logins.";
@@ -231,7 +202,7 @@ in
             url = "https://wiki.archlinux.org/";
           }
           {
-            name = "nix";
+            name = "Nix";
             bookmarks = [
               {
                 name = "Issues · NixOS/nixpkgs";
@@ -288,7 +259,7 @@ in
             url = "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1";
           }
           {
-            name = "cinéma";
+            name = "Cinéma";
             bookmarks = [
               {
                 name = "| Berlinale |";
@@ -321,8 +292,17 @@ in
             ];
           }
           {
-            name = "Lib | Snowfall";
-            url = "https://snowfall.org/reference/lib/#libmkflake";
+            name = "Quake";
+            bookmarks = [
+              {
+                name = "Quaddicted";
+                url = "https://www.quaddicted.com";
+              }
+              {
+                name = "vkQuake";
+                url = "https://github.com/Novum/vkQuake";
+              }
+            ];
           }
         ];
       }
