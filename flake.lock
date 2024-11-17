@@ -609,22 +609,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-85f7e66": {
-      "locked": {
-        "lastModified": 1730958623,
-        "narHash": "sha256-JwQZIGSYnRNOgDDoIgqKITrPVil+RMWHsZH1eE1VGN0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "85f7e662eda4fa3a995556527c87b2524b691933",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "85f7e662eda4fa3a995556527c87b2524b691933",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -706,15 +690,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1731796084,
-        "narHash": "sha256-CwFQc/xErQmVyP51xfYGh2gpMgS0Pcme7oBCk0+5khU=",
+        "lastModified": 1731792568,
+        "narHash": "sha256-ukXN8HNUVs4/S/eLAmkMDWdUH4Qt6VkwPIiYGd9KJTI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d903a3ee64fb1d188695098694797869ab3a7551",
+        "rev": "ee202b2125eb6cfd953509fc7bb336a7658de960",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
+        "ref": "nixos-24.11-small",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -847,13 +832,13 @@
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-85f7e66": "nixpkgs-85f7e66",
         "nur": "nur",
         "plasma-manager": "plasma-manager",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "unstable": "unstable"
       }
     },
     "snowfall-lib": {
@@ -1077,6 +1062,21 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1731845826,
+        "narHash": "sha256-qreZKOC+z7CtmLyPbINzNxA4FjewzE1MpaYZR4XzA5I=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "99df2ed6bb88cbd9e6b405fbe8fbf8be90030c7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
         "type": "github"
       }
     }
