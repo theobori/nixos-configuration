@@ -2,8 +2,11 @@
   description = "theobori's Nix/NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nixpkgs-85f7e66.url = "github:nixos/nixpkgs/85f7e662eda4fa3a995556527c87b2524b691933";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
+
+    # We assume this version of nixpkgs is more updated than the `nixpkgs` input.
+    # Will be used within overlay to get the latest version of specific packages.
+    unstable.url = "github:nixos/nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -48,6 +48,8 @@ in
           zoxide = enabled;
           thefuck = enabled;
           lazygit = enabled;
+          tldr = enabled;
+          krabby = enabled;
         };
       };
     };

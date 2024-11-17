@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe;
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.cli.shells.fish;
@@ -21,7 +21,7 @@ in
       enable = true;
       interactiveShellInit = ''
         # There are fish intregration from home-manager module
-        ${pkgs.nix-your-shell}/bin/nix-your-shell --nom fish | source
+        ${getExe pkgs.nix-your-shell} --nom fish | source
 
         set -gx GOPATH $XDG_DATA_HOME/go
         set -gx PATH /usr/local/bin /usr/bin ~/.local/bin $GOPATH/bin/ $PATH $HOME/.cargo/bin
@@ -42,18 +42,12 @@ in
         cdi = "zi";
         curl = "curlie";
         tree = "eza --tree";
-
-        # nix
-        nhh = "nh home switch";
-        nho = "nh os switch";
-        nhu = "nh os --update";
-
-        nd = "nix develop";
-        nfu = "nix flake update";
       };
 
       functions = {
-        fish_greeting = '''';
+        fish_greeting = ''
+          ${getExe pkgs.krabby} name gengar --no-title
+        '';
 
         hmg = ''
           set current_gen (home-manager generations | head -n 1 | awk '{print $7}')
@@ -64,7 +58,7 @@ in
           # If you run the command with comma, running the same command
           # will not prompt for confirmation for the rest of the session
           if contains $argv[1] $__command_not_found_confirmed_commands
-            or ${pkgs.gum}/bin/gum confirm --selected.background=2 "Run using comma?"
+            or ${getExe pkgs.gum} confirm --selected.background=2 "Run using comma?"
 
             # Not bothering with capturing the status of the command, just run it again
             if not contains $argv[1] $__command_not_found_confirmed_commands

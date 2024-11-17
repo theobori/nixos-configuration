@@ -21,6 +21,7 @@ in
         teeworlds = enabled;
         taterclient-ddnet = enabled;
         supermariowar = enabled;
+        vkquake = enabled;
       };
     };
   };
