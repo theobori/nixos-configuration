@@ -6,10 +6,40 @@
   ...
 }:
 let
-  inherit (lib) mkIf getExe;
+  inherit (lib)
+    mkIf
+    getExe
+    map
+    optionals
+    fold
+    ;
   inherit (lib.${namespace}) mkBoolOpt;
-
+  inherit (lib.strings) concatMapStrings;
   cfg = config.${namespace}.cli.shells.fish;
+
+  mkPokemonCommands' =
+    isShiny:
+    { names, forms }:
+    let
+      mkCommands =
+        name:
+        let
+          p = map (form: "${getExe pkgs.krabby} name ${name} --no-title --form ${form}") forms;
+          s = map (command: command + " --shiny") p;
+        in
+        p ++ (optionals isShiny s);
+    in
+    fold (el: c: c ++ (mkCommands el)) [ ] names;
+
+  mkShinyPokemonCommands = mkPokemonCommands' true;
+
+  pokemonCommands = mkShinyPokemonCommands {
+    names = [ "gengar" ];
+    forms = [
+      "regular"
+      "gmax"
+    ];
+  };
 in
 {
   options.${namespace}.cli.shells.fish = {
@@ -46,7 +76,12 @@ in
 
       functions = {
         fish_greeting = ''
-          ${getExe pkgs.krabby} name gengar --no-title
+          # Randomize the pokemon command
+          set pokemond_commands ${concatMapStrings (command: "\"${command}\" ") pokemonCommands}
+          set pokemon_index (random 1 (count $pokemond_commands))
+          set pokemon_command $pokemond_commands[$pokemon_index]
+
+          eval $pokemon_command
         '';
 
         hmg = ''
