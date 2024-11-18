@@ -5,7 +5,7 @@
 }:
 buildPythonPackage {
   pname = "pname";
-  version = "version";
+  version = "0.0.1";
   pyproject = true;
 
   src = ./.;

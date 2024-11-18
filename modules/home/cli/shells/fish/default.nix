@@ -84,11 +84,6 @@ in
           eval $pokemon_command
         '';
 
-        hmg = ''
-          set current_gen (home-manager generations | head -n 1 | awk '{print $7}')
-          home-manager generations | awk '{print $7}' | tac | fzf --preview "echo {} | xargs -I % sh -c 'nvd --color=always diff $current_gen %' | xargs -I{} bash {}/activate"
-        '';
-
         fish_command_not_found = ''
           # If you run the command with comma, running the same command
           # will not prompt for confirmation for the rest of the session
