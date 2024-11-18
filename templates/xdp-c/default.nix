@@ -11,7 +11,7 @@
 }:
 stdenv.mkDerivation {
   pname = "pname";
-  version = "version";
+  version = "0.0.1";
 
   src = ./.;
 
