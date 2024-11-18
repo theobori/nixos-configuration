@@ -108,6 +108,18 @@ in
           name = "fzf-fish";
           inherit (pkgs.fishPlugins.fzf-fish) src;
         }
+        {
+          name = "bang-bang";
+          inherit (pkgs.${namespace}.bang-bang) src;
+        }
+        {
+          name = "spark";
+          inherit (pkgs.${namespace}.spark) src;
+        }
+        {
+          name = "sponge";
+          inherit (pkgs.fishPlugins.sponge) src;
+        }
       ];
     };
   };
