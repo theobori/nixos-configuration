@@ -22,6 +22,9 @@ in
         taterclient-ddnet = enabled;
         supermariowar = enabled;
         vkquake = enabled;
+        ninvaders = enabled;
+        space-cadet-pinball = enabled;
+        # xonotic = enabled;
       };
     };
   };

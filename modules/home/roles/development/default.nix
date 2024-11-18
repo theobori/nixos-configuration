@@ -32,6 +32,7 @@ in
           direnv = enabled;
           eza = enabled;
           fzf = enabled;
+          fastfetch = enabled;
           git = enabled;
           gpg = enabled;
           htop = enabled;
