@@ -34,6 +34,12 @@ in
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "shopify-liquid";
+          publisher = "sissel";
+          version = "4.0.1";
+          sha256 = "sha256-W4ZKGlc8MuyS46imasfPiIZlMDsnqwhdOUoKACv4DbQ=";
+        }
+        {
           name = "doxdocgen";
           publisher = "cschlosser";
           version = "1.4.0";
