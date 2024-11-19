@@ -7,5 +7,5 @@ Here are a non-exhaustive list of tasks.
 - [x] Fix `gpg-agent` not finding a pinetry binary
 - [x] Support multi-user on my user nixos module
 - [ ] Install Steam
-- [ ] Customize emacs
+- [x] Customize emacs
 - [ ] Better email accounts management

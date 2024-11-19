@@ -21,6 +21,13 @@ in
       enable = true;
 
       package = pkgs.emacs-nox;
+
+      extraConfig = ''
+        (menu-bar-mode -1)
+        (global-display-line-numbers-mode)
+        (setq standard-indent 2)
+        (setq font-lock-maximum-decoration t)
+      '';
     };
   };
 }

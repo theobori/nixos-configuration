@@ -17,29 +17,36 @@ let
   inherit (lib.strings) concatMapStrings;
   cfg = config.${namespace}.cli.shells.fish;
 
-  mkPokemonCommands' =
-    isShiny:
-    { names, forms }:
+  mkPokemon =
+    {
+      name,
+      forms ? [ "regular" ],
+      shiny ? true,
+    }:
     let
-      mkCommands =
-        name:
-        let
-          p = map (form: "${getExe pkgs.krabby} name ${name} --no-title --form ${form}") forms;
-          s = map (command: command + " --shiny") p;
-        in
-        p ++ (optionals isShiny s);
+      p = map (form: "${getExe pkgs.krabby} name ${name} --no-title --form ${form}") forms;
+      s = map (command: command + " --shiny") p;
     in
-    fold (el: c: c ++ (mkCommands el)) [ ] names;
+    p ++ (optionals shiny s);
 
-  mkShinyPokemonCommands = mkPokemonCommands' true;
+  mkPokemons = pokemons: fold (el: c: c ++ (mkPokemon el)) [ ] pokemons;
 
-  pokemonCommands = mkShinyPokemonCommands {
-    names = [ "gengar" ];
-    forms = [
-      "regular"
-      "gmax"
-    ];
-  };
+  pokemonCommands = mkPokemons [
+    {
+      name = "gengar";
+      forms = [
+        "regular"
+        "gmax"
+      ];
+    }
+    {
+      name = "mewtwo";
+      shiny = false;
+    }
+    { name = "haunter"; }
+    { name = "cloyster"; }
+    { name = "gastly"; }
+  ];
 in
 {
   options.${namespace}.cli.shells.fish = {
