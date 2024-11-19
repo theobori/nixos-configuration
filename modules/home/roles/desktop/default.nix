@@ -26,7 +26,6 @@ in
     };
 
     home.packages = with pkgs; [
-      spotify
       pavucontrol
       mplayer
       mtpfs
@@ -54,6 +53,7 @@ in
         inkscape = enabled;
         obsidian = enabled;
         qbittorrent = enabled;
+        spicetify = enabled;
       };
     };
   };
