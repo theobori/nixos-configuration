@@ -6,6 +6,7 @@ Here are a non-exhaustive list of tasks.
 - [x] Add a working GNOME desktop environment
 - [x] Fix `gpg-agent` not finding a pinetry binary
 - [x] Support multi-user on my user nixos module
-- [ ] Install Steam
+- [x] Install Steam
 - [x] Customize emacs
+- [x] Customize Spotify with [Spicetify](https://github.com/Gerg-L/spicetify-nix)
 - [ ] Better email accounts management

@@ -39,6 +39,7 @@ in
       flameshot
       grimblast
       slurp
+      xorg.xkill
     ];
 
     ${namespace} = {
