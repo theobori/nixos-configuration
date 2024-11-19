@@ -62,6 +62,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -97,6 +102,7 @@
         sops-nix.homeManagerModules.sops
         nixcord.homeManagerModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager
+        spicetify-nix.homeManagerModules.default
       ];
 
       systems = {

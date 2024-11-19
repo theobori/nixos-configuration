@@ -42,7 +42,10 @@ in
       theobori = { };
     };
 
-    roles.desktop = enabled;
+    roles = {
+      gaming = enabled;
+      desktop = enabled;
+    };
   };
 
   programs.fuse.userAllowOther = true;
