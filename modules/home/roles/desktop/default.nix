@@ -48,8 +48,11 @@ in
         development = enabled;
       };
 
+      cli.programs.fast-anime = enabled;
       multimedia.mpv = enabled;
+
       multimedia.calibre = enabled;
+
       programs = {
         inkscape = enabled;
         obsidian = enabled;

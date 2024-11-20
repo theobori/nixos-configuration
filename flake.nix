@@ -67,6 +67,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fast-anime = {
+      url = "github:Benex254/FastAnime";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
