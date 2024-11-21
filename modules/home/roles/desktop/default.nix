@@ -58,6 +58,7 @@ in
         obsidian = enabled;
         qbittorrent = enabled;
         spicetify = enabled;
+        quake-injector = enabled;
       };
     };
   };
