@@ -16,5 +16,5 @@ in
     enable = mkBoolOpt false "Enable vkquake.";
   };
 
-  config = mkIf cfg.enable { home.packages = with pkgs; [ vkquake ]; };
+  config = mkIf cfg.enable { home.packages = [ pkgs.${namespace}.vkquake ]; };
 }
