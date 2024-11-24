@@ -72,6 +72,11 @@
       url = "github:Benex254/FastAnime";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nsearch = {
+      url = "github:niksingh710/nsearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

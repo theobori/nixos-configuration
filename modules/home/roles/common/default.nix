@@ -32,7 +32,10 @@ in
       cli = {
         terminals.wezterm = enabled;
         shells.fish = enabled;
-        programs.home-manager = enabled;
+        programs = {
+          home-manager = enabled;
+          dua = enabled;
+        };
       };
 
       styles.stylix = enabled;
