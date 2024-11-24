@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   namespace,
@@ -8,16 +9,12 @@ let
   inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
-  cfg = config.${namespace}.cli.programs.eza;
+  cfg = config.${namespace}.cli.programs.screen;
 in
 {
-  options.${namespace}.cli.programs.eza = {
-    enable = mkBoolOpt false "Whether or not to enable eza.";
+  options.${namespace}.cli.programs.screen = {
+    enable = mkBoolOpt false "Whether or not to enable screen.";
   };
 
-  config = mkIf cfg.enable {
-    programs.eza = {
-      enable = true;
-    };
-  };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ screen ]; };
 }

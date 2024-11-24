@@ -41,6 +41,7 @@ in
           terraform = enabled;
           modern-unix = enabled;
           network-tools = enabled;
+          nsearch = enabled;
           nix-index = enabled;
           screen = enabled;
           ssh = enabled;
