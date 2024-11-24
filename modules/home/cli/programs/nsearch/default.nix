@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   lib,
@@ -17,5 +16,5 @@ in
     enable = mkBoolOpt false "Whether or not to enable nsearch.";
   };
 
-  config = mkIf cfg.enable { home.packages = [ inputs.nsearch.packages.${pkgs.system}.default ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ nsearch ]; };
 }

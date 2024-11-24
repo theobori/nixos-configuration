@@ -57,13 +57,15 @@ in
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
-        # There are fish intregration from home-manager module
         ${getExe pkgs.nix-your-shell} --nom fish | source
 
         set -gx GOPATH $XDG_DATA_HOME/go
         set -gx PATH /usr/local/bin /usr/bin ~/.local/bin $GOPATH/bin/ $PATH $HOME/.cargo/bin
 
         set -gx fzf_diff_highlighter delta --paging=never --line-numbers
+
+        # \c = control, \e = escape
+        bind --mode default \e\cn ${getExe pkgs.nsearch}
       '';
 
       shellAbbrs = {
