@@ -37,7 +37,6 @@ in
       pamixer
       playerctl
       flameshot
-      grimblast
       slurp
       xorg.xkill
     ];

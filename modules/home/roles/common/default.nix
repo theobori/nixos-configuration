@@ -35,6 +35,8 @@ in
         programs = {
           home-manager = enabled;
           dua = enabled;
+          killall = enabled;
+          file-tools = enabled;
         };
       };
 

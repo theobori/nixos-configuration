@@ -29,7 +29,8 @@ in
     config = mkOpt attrs {
       useQuickCss = ((trimWith' cfg.quickCss) != "");
       plugins = {
-        betterFolders = enabled;
+        # Broken for the moment
+        betterFolders = disabled;
         betterRoleContext = enabled;
         crashHandler = enabled;
         memberCount = enabled;
