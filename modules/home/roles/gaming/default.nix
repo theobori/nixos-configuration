@@ -24,6 +24,7 @@ in
         vkquake = enabled;
         ninvaders = enabled;
         space-cadet-pinball = enabled;
+        supertux = enabled;
         # xonotic = enabled;
       };
     };
