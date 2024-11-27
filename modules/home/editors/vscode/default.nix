@@ -31,6 +31,7 @@ in
         hashicorp.terraform
         ms-vscode.cpptools-extension-pack
         tomoki1207.pdf
+        elixir-lsp.vscode-elixir-ls
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
