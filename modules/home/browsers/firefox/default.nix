@@ -13,28 +13,9 @@ let
     types
     ;
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
-
-  cfg = config.${namespace}.browsers.firefox;
-
   inherit (pkgs.nur.repos.rycee) firefox-addons;
 
-  twitchnosub =
-    let
-      version = "0.7.1";
-    in
-    firefox-addons.buildFirefoxXpiAddon {
-      pname = "twitchnosub";
-      inherit version;
-      addonId = "twitchnosub@besuper.com";
-      url = "https://github.com/besuper/TwitchNoSub/releases/download/${version}/TwitchNoSub-firefox.${version}.xpi";
-      sha256 = "sha256-Z/KaWdJy6L/sZXUJlT3nyNnBOf21TxMrQHKxa3j2KD8=";
-      meta = {
-        homepage = "https://github.com/besuper/TwitchNoSub";
-        description = "An extension to watch sub only VOD on Twitch";
-        license = lib.licenses.asl20;
-        platforms = lib.platforms.all;
-      };
-    };
+  cfg = config.${namespace}.browsers.firefox;
 in
 {
   options.${namespace}.browsers.firefox = with types; {
@@ -62,7 +43,43 @@ in
       seventv
 
       # My custom addons
-      twitchnosub
+
+      (
+        let
+          version = "0.7.1";
+        in
+        buildFirefoxXpiAddon {
+          pname = "twitchnosub";
+          inherit version;
+          addonId = "twitchnosub@besuper.com";
+          url = "https://github.com/besuper/TwitchNoSub/releases/download/${version}/TwitchNoSub-firefox.${version}.xpi";
+          sha256 = "sha256-Z/KaWdJy6L/sZXUJlT3nyNnBOf21TxMrQHKxa3j2KD8=";
+          meta = {
+            homepage = "https://github.com/besuper/TwitchNoSub";
+            description = "An extension to watch sub only VOD on Twitch";
+            license = lib.licenses.gpl3;
+            platforms = lib.platforms.all;
+          };
+        }
+      )
+      (
+        let
+          version = "1.3";
+        in
+        buildFirefoxXpiAddon {
+          pname = "skip-netflix-intro";
+          inherit version;
+          addonId = "skip_netflix_intro@jonas-hellmann.de";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3898270/skip_netflix_intro-${version}.xpi";
+          sha256 = "sha256-fcoBZcMMrQi5kYh4k27DrlmnZ9lUMYcVwnkjxUPxYK4=";
+          meta = {
+            homepage = "https://addons.mozilla.org/fr/firefox/addon/skip-netflix-intro/";
+            description = "Addon to automatically skip intros on Netflix";
+            license = lib.licenses.asl20;
+            platforms = lib.platforms.all;
+          };
+        }
+      )
     ]) "Extensions to install.";
 
     policies = mkOpt attrs {
