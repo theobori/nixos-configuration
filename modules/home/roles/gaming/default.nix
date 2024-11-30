@@ -25,6 +25,7 @@ in
         ninvaders = enabled;
         space-cadet-pinball = enabled;
         supertux = enabled;
+        taisei = enabled;
         # xonotic = enabled;
       };
     };
