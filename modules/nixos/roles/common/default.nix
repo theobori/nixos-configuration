@@ -22,6 +22,10 @@ in
         locale = enabled;
       };
 
+      programs = {
+        wine = enabled;
+      };
+
       hardware = {
         networking = enabled;
       };
