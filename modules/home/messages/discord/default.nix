@@ -29,8 +29,8 @@ in
     config = mkOpt attrs {
       useQuickCss = ((trimWith' cfg.quickCss) != "");
       plugins = {
-        # Broken for the moment
-        betterFolders = disabled;
+        betterFolders = disabled; # Broken for the moment
+
         betterRoleContext = enabled;
         crashHandler = enabled;
         memberCount = enabled;
@@ -42,6 +42,29 @@ in
         webKeybinds = enabled;
         webScreenShareFixes = enabled;
         alwaysAnimate = enabled;
+        petpet = enabled;
+        betterGifAltText = enabled;
+        betterSettings = enabled;
+        callTimer = enabled;
+        copyUserURLs = enabled;
+        disableCallIdle = enabled;
+        fixImagesQuality = enabled;
+        forceOwnerCrown = enabled;
+        friendInvites = enabled;
+        friendsSince = enabled;
+        fullSearchContext = enabled;
+        moreCommands = enabled;
+        newGuildSettings = enabled;
+        noOnboardingDelay = enabled;
+        permissionsViewer = enabled;
+        previewMessage = enabled;
+        relationshipNotifier = enabled;
+        replaceGoogleSearch = enabled; # DuckDuckGo by default !
+        serverInfo = enabled;
+        shikiCodeblocks = enabled;
+        silentTyping = enabled;
+        typingTweaks = enabled;
+        viewIcons = enabled;
       };
     } "Manage the nixcord configuration.";
   };
