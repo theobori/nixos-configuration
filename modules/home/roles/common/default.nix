@@ -37,6 +37,7 @@ in
           dua = enabled;
           killall = enabled;
           file-tools = enabled;
+          xclip = enabled;
         };
       };
 
