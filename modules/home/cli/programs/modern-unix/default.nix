@@ -42,6 +42,7 @@ in
       silver-searcher
       procs
       tokei
+      scc
       trash-cli
       tailspin
       gtrash
