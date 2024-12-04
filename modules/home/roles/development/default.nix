@@ -52,6 +52,7 @@ in
           lazygit = enabled;
           tldr = enabled;
           krabby = enabled;
+          genact = enabled;
         };
       };
     };
