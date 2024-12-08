@@ -32,6 +32,7 @@ in
         ms-vscode.cpptools-extension-pack
         tomoki1207.pdf
         elixir-lsp.vscode-elixir-ls
+        njpwerner.autodocstring
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
