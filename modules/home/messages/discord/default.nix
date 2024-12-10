@@ -45,7 +45,7 @@ in
         petpet = enabled;
         betterGifAltText = enabled;
         betterSettings = enabled;
-        callTimer = enabled;
+        callTimer = disabled; # Causes voice chat crashloop for the moment
         copyUserURLs = enabled;
         disableCallIdle = enabled;
         fixImagesQuality = enabled;
