@@ -34,6 +34,7 @@ in
           fzf = enabled;
           fastfetch = enabled;
           git = enabled;
+          git-cliff = enabled;
           gpg = enabled;
           htop = enabled;
           btop = enabled;
