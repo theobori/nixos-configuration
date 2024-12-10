@@ -21,6 +21,7 @@ in
       editors = {
         vscode = enabled;
         emacs = enabled;
+        code-cursor = enabled;
       };
 
       cli = {
