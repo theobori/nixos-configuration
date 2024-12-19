@@ -230,34 +230,6 @@ in
                 url = "https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md#sec-using-stdenv";
               }
               {
-                name = "python3Packages.phylophlan: init at 3.1.1 by theobori · Pull Request #343699 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/343699";
-              }
-              {
-                name = "python3Packages.salib: init at 1.5.1 by theobori · Pull Request #343803 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/343803/files";
-              }
-              {
-                name = "python3Packages.loompy: init at 3.0.7 by theobori · Pull Request #344042 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/344042";
-              }
-              {
-                name = "reader: init at 0.4.5 by theobori · Pull Request #344489 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/344489";
-              }
-              {
-                name = "Build failure:`or-tools` on `x86_64-darwin`: no member named 'aligned_alloc' in the global namespace · Issue #272156 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/issues/272156";
-              }
-              {
-                name = "ctune: init at 1.3.2 by theobori · Pull Request #346944 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/346944";
-              }
-              {
-                name = "taterclient-ddnet: init at 8.5.4 by theobori · Pull Request #346206 · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/pull/346206";
-              }
-              {
                 name = "Documentation: guide for using `let in` vs `rec` vs `finalAttrs` · Issue #315337 · NixOS/nixpkgs";
                 url = "https://github.com/NixOS/nixpkgs/issues/315337";
               }
