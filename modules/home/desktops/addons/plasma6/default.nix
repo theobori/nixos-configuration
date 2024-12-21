@@ -114,10 +114,10 @@ in
         }
       ];
 
-      configFile = {
-        # Disabling kwallet
-        kwalletrc.Wallet.Enabled = false;
-      };
+      # configFile = {
+      # Disabling kwallet
+      # kwalletrc.Wallet.Enabled = false;
+      # };
     };
   };
 }

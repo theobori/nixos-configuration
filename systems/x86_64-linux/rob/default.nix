@@ -38,6 +38,7 @@ in
     services.virtualisation = {
       kvm = enabled;
       docker = enabled;
+      flatpak = enabled;
     };
 
     user.users = {

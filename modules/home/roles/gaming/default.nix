@@ -26,7 +26,10 @@ in
         space-cadet-pinball = enabled;
         supertux = enabled;
         taisei = enabled;
-        # xonotic = enabled;
+
+        # Flatpaks
+        sober = enabled;
+        ricochlime = enabled;
       };
     };
   };

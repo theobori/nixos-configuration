@@ -47,6 +47,8 @@ in
         development = enabled;
       };
 
+      services.flatpak = enabled;
+
       cli.programs.fast-anime = enabled;
       multimedia.mpv = enabled;
 
