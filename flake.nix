@@ -77,6 +77,8 @@
       url = "github:niksingh710/nsearch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
   };
 
   outputs =
@@ -113,6 +115,7 @@
         nixcord.homeManagerModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager
         spicetify-nix.homeManagerModules.default
+        flatpaks.homeManagerModules.declarative-flatpak
       ];
 
       systems = {

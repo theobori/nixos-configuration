@@ -88,6 +88,18 @@ Here's an overview of what my Nix configuration offers:
 - **Declarative disk partitioning**: Use [disko](https://github.com/nix-community/disko) to declare your disk and format it
   using the Nix language.
 
+- **Declarative Vencord configuration**: Use [nixcord](https://github.com/KaylorBen/nixcord) to declare your
+  Vencord settings and plugins.
+
+- **Declarative KDE Plasma configuration**: Use [plasma-manager](https://github.com/nix-community/plasma-manager) to declare your
+  Vencord settings and plugins.
+
+- **Declarative Flatpak installation**: Use [declarative-flatpak](https://github.com/GermanBread/declarative-flatpak) to manage
+  KDE Plasma with Home Manager.
+
+- **Declarative Spotify customization**: Use [spicetify-nix](https://github.com/Gerg-L/spicetify-nix) to modify Spotify.
+
+
 ## Customization
 
 My Nix configuration, based on the [SnowfallOrg lib](https://github.com/snowfallorg/lib) structure, provides a
