@@ -59,6 +59,7 @@ in
             "applications:firefox.desktop"
             "applications:vesktop.desktop"
             "applications:obsidian.desktop"
+            "applications:spotify.desktop"
           ];
         };
       }
@@ -112,6 +113,11 @@ in
           inherit (cfg) widgets;
         }
       ];
+
+      configFile = {
+        # Disabling kwallet
+        kwalletrc.Wallet.Enabled = false;
+      };
     };
   };
 }
