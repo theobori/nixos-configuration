@@ -90,6 +90,7 @@ in
   ${namespace} = {
     boot.plymouth = enabled;
     security.doas = enabled;
+    security.sudo = enabled;
 
     desktops.plasma6 = enabled;
     display-managers.sddm = enabled;

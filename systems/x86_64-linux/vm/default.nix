@@ -29,6 +29,7 @@ in
   ${namespace} = {
     security = {
       doas = enabled;
+      sudo = enabled;
     };
 
     desktops = {

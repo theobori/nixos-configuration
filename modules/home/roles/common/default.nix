@@ -38,6 +38,7 @@ in
           killall = enabled;
           file-tools = enabled;
           xclip = enabled;
+          manix = enabled;
         };
       };
 
