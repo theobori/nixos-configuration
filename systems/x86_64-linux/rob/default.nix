@@ -30,6 +30,7 @@ in
 
   ${namespace} = {
     boot.plymouth = enabled;
+    security.sudo = enabled;
     security.doas = enabled;
 
     desktops.plasma6 = enabled;
