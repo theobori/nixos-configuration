@@ -2,21 +2,25 @@
   config,
   lib,
   namespace,
+  pkgs,
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.system.nix;
 in
 {
-  options.${namespace}.system.nix = {
+  options.${namespace}.system.nix = with types; {
     enable = mkBoolOpt false "Whether or not to manage nix configuration.";
+    package = mkOpt package pkgs.lix "Which nix package to use.";
   };
 
   config = mkIf cfg.enable {
     nix = {
+      inherit (cfg) package;
+
       settings = {
         trusted-users = [
           "@wheel"

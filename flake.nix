@@ -79,6 +79,11 @@
     };
 
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
+
+    lix = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -106,6 +111,7 @@
       overlays = with inputs; [
         nur.overlay
         nixgl.overlay
+        lix.overlays.default
       ];
 
       homes.modules = with inputs; [
