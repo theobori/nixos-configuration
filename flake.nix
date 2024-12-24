@@ -140,6 +140,7 @@
         xdp-c.description = "My template for building a XDP program in C";
         python.description = "My template for a base project in Python";
         latex.description = "My template for a base project in Latex";
+        go.description = "My template for a base project in Go";
       };
     };
 }
