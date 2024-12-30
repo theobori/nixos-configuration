@@ -33,6 +33,7 @@ in
         tomoki1207.pdf
         elixir-lsp.vscode-elixir-ls
         njpwerner.autodocstring
+        tamasfe.even-better-toml
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
