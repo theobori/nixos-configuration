@@ -11,3 +11,5 @@ Here are a non-exhaustive list of tasks.
 - [x] Customize Spotify with [Spicetify](https://github.com/Gerg-L/spicetify-nix)
 - [x] Add declarative Flatpak supports with [declarative-flatpak](https://github.com/GermanBread/declarative-flatpak)
 - [ ] Better email accounts management
+- [ ] Solve TODO in the file `modules/home/roles/desktop/default.nix`
+
