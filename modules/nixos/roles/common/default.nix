@@ -31,6 +31,8 @@ in
       };
 
       styles.stylix = enabled;
+
+      networking.stevenBlackHosts = enabled;
     };
   };
 }
