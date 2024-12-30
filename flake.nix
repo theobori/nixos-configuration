@@ -84,6 +84,8 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hosts.url = "github:StevenBlack/hosts";
   };
 
   outputs =
@@ -130,6 +132,7 @@
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             disko.nixosModules.disko
+            hosts.nixosModule
           ];
         };
       };
