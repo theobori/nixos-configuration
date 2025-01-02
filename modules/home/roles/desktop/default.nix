@@ -62,6 +62,7 @@ in
         qbittorrent = enabled;
         spicetify = enabled;
         quake-injector = enabled;
+        pablodraw = enabled;
       };
     };
   };
