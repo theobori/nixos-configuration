@@ -24,6 +24,7 @@ in
         visualizer
         thumbfast
         modernx
+        autosubsync-mpv
       ];
     };
   };
