@@ -39,6 +39,7 @@ in
           file-tools = enabled;
           xclip = enabled;
           manix = enabled;
+          knock = enabled;
         };
       };
 
