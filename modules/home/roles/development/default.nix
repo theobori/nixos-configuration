@@ -52,7 +52,7 @@ in
           zoxide = enabled;
           thefuck = enabled;
           lazygit = enabled;
-          tldr = enabled;
+          tealdeer = enabled;
           krabby = enabled;
           genact = enabled;
         };
