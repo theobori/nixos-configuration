@@ -94,11 +94,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733230452,
-        "narHash": "sha256-vfWTXw9CgdIPG97EWtkA5XxIrqg/sDuhi9FsVDJYvIQ=",
+        "lastModified": 1736192636,
+        "narHash": "sha256-1nuQTOl9WrE8fE2OD49nv2H9YMItzaLXnYDI2gc7SeI=",
         "owner": "Benex254",
         "repo": "FastAnime",
-        "rev": "a79b59f72766d2888000d130b89e99f3976a4ae2",
+        "rev": "bdf49bd7ce1394e09c8dfab108f46a99ed3cd8fd",
         "type": "github"
       },
       "original": {
