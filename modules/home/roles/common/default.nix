@@ -26,6 +26,7 @@ in
       programs.bitwarden = enabled;
 
       system = {
+        filesystem = enabled;
         nix = enabled;
       };
 

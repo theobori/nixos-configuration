@@ -27,8 +27,6 @@ in
 
     # TODO: Make modules for this packages
     home.packages = with pkgs; [
-      mtpfs
-      jmtpfs
       brightnessctl
       xdg-utils
       clipse
