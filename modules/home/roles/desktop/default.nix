@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   namespace,
@@ -25,9 +24,6 @@ in
       };
     };
 
-    # TODO: Make modules for this packages
-    home.packages = with pkgs; [ xorg.xkill ];
-
     ${namespace} = {
       roles = {
         common = enabled;
@@ -44,7 +40,10 @@ in
       };
 
       cli = {
-        programs.fast-anime = enabled;
+        programs = {
+          fast-anime = enabled;
+          xkill = enabled;
+        };
         terminals = {
           syncterm = enabled;
           wezterm = enabled;
