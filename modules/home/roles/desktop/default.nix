@@ -28,17 +28,13 @@ in
     # TODO: Make modules for this packages
     home.packages = with pkgs; [
       pavucontrol
-      mplayer
       mtpfs
       jmtpfs
       brightnessctl
       xdg-utils
-      wl-clipboard
       clipse
       pamixer
-      playerctl
       flameshot
-      slurp
       xorg.xkill
     ];
 
