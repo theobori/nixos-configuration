@@ -32,7 +32,6 @@ in
       brightnessctl
       xdg-utils
       clipse
-      pamixer
       flameshot
       xorg.xkill
     ];
@@ -45,13 +44,19 @@ in
 
       services.flatpak = enabled;
 
-      cli.programs.fast-anime = enabled;
-      cli.terminals.syncterm = enabled;
+      cli = {
+        programs.fast-anime = enabled;
+        terminals = {
+          syncterm = enabled;
+          wezterm = enabled;
+        };
+      };
 
       multimedia = {
         mpv = enabled;
         calibre = enabled;
         pavucontrol = enabled;
+        pamixer = enabled;
       };
 
       programs = {
