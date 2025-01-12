@@ -30,7 +30,6 @@ in
       };
 
       cli = {
-        terminals.wezterm = enabled;
         shells.fish = enabled;
         programs = {
           home-manager = enabled;
