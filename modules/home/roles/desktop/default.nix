@@ -28,7 +28,6 @@ in
     # TODO: Make modules for this packages
     home.packages = with pkgs; [
       brightnessctl
-      xdg-utils
       xorg.xkill
     ];
 
@@ -36,6 +35,10 @@ in
       roles = {
         common = enabled;
         development = enabled;
+      };
+
+      system = {
+        xdg-utils = enabled;
       };
 
       services = {
