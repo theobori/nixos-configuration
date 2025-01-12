@@ -26,10 +26,7 @@ in
     };
 
     # TODO: Make modules for this packages
-    home.packages = with pkgs; [
-      brightnessctl
-      xorg.xkill
-    ];
+    home.packages = with pkgs; [ xorg.xkill ];
 
     ${namespace} = {
       roles = {
