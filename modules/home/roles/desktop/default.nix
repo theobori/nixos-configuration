@@ -27,7 +27,6 @@ in
 
     # TODO: Make modules for this packages
     home.packages = with pkgs; [
-      pavucontrol
       mtpfs
       jmtpfs
       brightnessctl
@@ -48,9 +47,12 @@ in
 
       cli.programs.fast-anime = enabled;
       cli.terminals.syncterm = enabled;
-      multimedia.mpv = enabled;
 
-      multimedia.calibre = enabled;
+      multimedia = {
+        mpv = enabled;
+        calibre = enabled;
+        pavucontrol = enabled;
+      };
 
       programs = {
         inkscape = enabled;
