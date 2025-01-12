@@ -40,6 +40,7 @@ in
           xclip = enabled;
           manix = enabled;
           knock = enabled;
+          sshs = enabled;
         };
       };
 
