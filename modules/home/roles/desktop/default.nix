@@ -30,7 +30,6 @@ in
       brightnessctl
       xdg-utils
       clipse
-      flameshot
       xorg.xkill
     ];
 
@@ -40,7 +39,10 @@ in
         development = enabled;
       };
 
-      services.flatpak = enabled;
+      services = {
+        flatpak = enabled;
+        flameshot = enabled;
+      };
 
       cli = {
         programs.fast-anime = enabled;
