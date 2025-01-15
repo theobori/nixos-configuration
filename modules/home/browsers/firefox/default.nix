@@ -41,9 +41,9 @@ in
       dearrow
       betterttv
       seventv
+      dracula-dark-colorscheme
 
       # My custom addons
-
       (
         let
           version = "0.7.1";
@@ -314,16 +314,11 @@ in
       enable = true;
 
       profiles = {
-        "dev-edition-default" = {
-          id = 0;
-          path = "${config.${namespace}.user.name}";
-        };
-
         ${config.${namespace}.user.name} = {
+          id = 0;
+
           inherit (cfg) extraConfig extensions bookmarks;
           inherit (config.${namespace}.user) name;
-
-          id = 1;
 
           settings = mkMerge [
             cfg.settings
