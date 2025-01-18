@@ -30,38 +30,34 @@ in
       auto-tab-discard
       user-agent-string-switcher
       return-youtube-dislikes
-      tab-stash
-      stylus
       ublock-origin
       wappalyzer
-      dearrow
       to-deepl
       private-relay
       sponsorblock
-      dearrow
       betterttv
       seventv
       dracula-dark-colorscheme
 
       # My custom addons
-      (
-        let
-          version = "0.7.1";
-        in
-        buildFirefoxXpiAddon {
-          pname = "twitchnosub";
-          inherit version;
-          addonId = "twitchnosub@besuper.com";
-          url = "https://github.com/besuper/TwitchNoSub/releases/download/${version}/TwitchNoSub-firefox.${version}.xpi";
-          sha256 = "sha256-Z/KaWdJy6L/sZXUJlT3nyNnBOf21TxMrQHKxa3j2KD8=";
-          meta = {
-            homepage = "https://github.com/besuper/TwitchNoSub";
-            description = "An extension to watch sub only VOD on Twitch";
-            license = lib.licenses.gpl3;
-            platforms = lib.platforms.all;
-          };
-        }
-      )
+      # (
+      #   let
+      #     version = "0.7.1";
+      #   in
+      #   buildFirefoxXpiAddon {
+      #     pname = "twitchnosub";
+      #     inherit version;
+      #     addonId = "twitchnosub@besuper.com";
+      #     url = "https://github.com/besuper/TwitchNoSub/releases/download/${version}/TwitchNoSub-firefox.${version}.xpi";
+      #     sha256 = "sha256-Z/KaWdJy6L/sZXUJlT3nyNnBOf21TxMrQHKxa3j2KD8=";
+      #     meta = {
+      #       homepage = "https://github.com/besuper/TwitchNoSub";
+      #       description = "An extension to watch sub only VOD on Twitch";
+      #       license = lib.licenses.gpl3;
+      #       platforms = lib.platforms.all;
+      #     };
+      #   }
+      # )
       (
         let
           version = "1.3";
@@ -349,6 +345,7 @@ in
               "extensions.htmlaboutaddons.recommendations.enabled" = false;
               "extensions.formautofill.addresses.enabled" = false;
               "extensions.formautofill.creditCards.enabled" = false;
+              "extensions.autoDisableScopes" = 0; # Automatically enable extensions
               "general.autoScroll" = false;
               "general.smoothScroll.msdPhysics.enabled" = true;
               "geo.enabled" = false;
