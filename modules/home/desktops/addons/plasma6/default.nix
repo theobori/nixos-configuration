@@ -60,6 +60,9 @@ in
             "applications:vesktop.desktop"
             "applications:obsidian.desktop"
             "applications:spotify.desktop"
+            "applications:com.ayugram.desktop"
+            "applications:taterclient-ddnet.desktop"
+            "applications:quake-injector.desktop"
           ];
         };
       }
@@ -113,11 +116,6 @@ in
           inherit (cfg) widgets;
         }
       ];
-
-      # configFile = {
-      # Disabling kwallet
-      # kwalletrc.Wallet.Enabled = false;
-      # };
     };
   };
 }
