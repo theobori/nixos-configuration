@@ -5,7 +5,6 @@ in
 {
   theobori-nix = {
     roles = {
-      social = enabled;
       desktop = enabled;
       gaming = enabled;
     };
@@ -18,6 +17,11 @@ in
     cli.programs = {
       ssh.useSops = true;
       gpg.useSops = true;
+    };
+
+    messages = {
+      discord = enabled;
+      ayugram = enabled;
     };
 
     services = {

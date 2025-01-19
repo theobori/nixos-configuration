@@ -20,6 +20,7 @@ in
       messages = {
         discord = enabled;
         thunderbird = enabled;
+        ayugram = enabled;
       };
     };
   };
