@@ -15,7 +15,6 @@ in
   options.${namespace}.services.sops = with types; {
     enable = mkBoolOpt false "Whether to enable sops.";
     defaultSopsFile = mkOpt path null "Default sops file.";
-    # "${config.home.homeDirectory}/.ssh/id_ed25519"
     sshKeyPaths = mkOpt (listOf path) [ ] "SSH Key paths to use.";
   };
 
