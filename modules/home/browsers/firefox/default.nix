@@ -39,7 +39,6 @@ in
       seventv
       dracula-dark-colorscheme
 
-      # My custom addons
       # (
       #   let
       #     version = "0.7.1";
@@ -71,6 +70,24 @@ in
           meta = {
             homepage = "https://addons.mozilla.org/fr/firefox/addon/skip-netflix-intro/";
             description = "Addon to automatically skip intros on Netflix";
+            license = lib.licenses.asl20;
+            platforms = lib.platforms.all;
+          };
+        }
+      )
+      (
+        let
+          version = "1.6.6";
+        in
+        buildFirefoxXpiAddon {
+          pname = "darkcloud";
+          inherit version;
+          addonId = "{534c6d6e-de02-417d-a38e-4007d33914b6}";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4333468/darkcloud-${version}.xpi";
+          sha256 = "sha256-8ZYOh8c7c/7UCpQ/mgeOkHfZCBj9aD973auCbTcVMzQ=";
+          meta = {
+            homepage = "http://acroma.rf.gd/darkcloud";
+            description = "Changes soundcloud.com to a dark theme";
             license = lib.licenses.asl20;
             platforms = lib.platforms.all;
           };
