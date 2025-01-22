@@ -41,6 +41,7 @@ in
           manix = enabled;
           knock = enabled;
           sshs = enabled;
+          mat = enabled;
         };
       };
 
