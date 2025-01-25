@@ -4,13 +4,13 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "twitchnosub";
-  version = "0.8.1";
+  version = "0.9";
 
   src = fetchFromGitHub {
     owner = "besuper";
     repo = "TwitchNoSub";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-xlWNUiv06ocRwMsnAAI7V7kDlG25psKmZXeODq07MoM=";
+    hash = "sha256-NSV86GC+vo50YQupPCRn/xCyysaypuyI0hfNlI2Pj9U=";
   };
 
   nativeBuildInputs = with pkgs; [ web-ext ];
@@ -23,11 +23,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     runHook postBuild
   '';
-
-  patches = [
-    # See https://github.com/besuper/TwitchNoSub/issues/156#issuecomment-2592337368
-    ./worker.patch
-  ];
 
   installPhase = ''
     runHook preInstall
