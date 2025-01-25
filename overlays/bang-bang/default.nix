@@ -2,6 +2,6 @@
 
 _final: prev: {
   fishPlugins = prev.fishPlugins // {
-    inherit (channels.unstable) bang-bang;
+    inherit (channels.unstable.fishPlugins) bang-bang;
   };
 }
