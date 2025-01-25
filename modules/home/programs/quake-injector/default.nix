@@ -16,5 +16,5 @@ in
     enable = mkBoolOpt false "Whether or not to manage Quake Injector.";
   };
 
-  config = mkIf cfg.enable { home.packages = [ pkgs.${namespace}.quake-injector ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ quake-injector ]; };
 }
