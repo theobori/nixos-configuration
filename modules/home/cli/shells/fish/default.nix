@@ -119,11 +119,11 @@ in
         }
         {
           name = "bang-bang";
-          inherit (pkgs.${namespace}.bang-bang) src;
+          inherit (pkgs.fishPlugins.bang-bang) src;
         }
         {
           name = "spark";
-          inherit (pkgs.${namespace}.spark) src;
+          inherit (pkgs.fishPlugins.spark) src;
         }
         {
           name = "sponge";
