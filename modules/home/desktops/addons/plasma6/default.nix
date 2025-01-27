@@ -60,7 +60,10 @@ in
             "applications:vesktop.desktop"
             "applications:obsidian.desktop"
             "applications:spotify.desktop"
-            "applications:com.ayugram.desktop"
+
+            # Wrong file naming upstream side
+            "applications:com.ayugram.desktop.desktop"
+
             "applications:taterclient-ddnet.desktop"
             "applications:quake-injector.desktop"
           ];
