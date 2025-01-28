@@ -30,6 +30,7 @@ in
         # Flatpaks
         sober = enabled;
         ricochlime = enabled;
+        playonlinux = enabled;
       };
     };
   };
