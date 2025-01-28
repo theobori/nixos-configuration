@@ -64,6 +64,7 @@ in
         spicetify = enabled;
         quake-injector = enabled;
         pablodraw = enabled;
+        libreoffice = enabled;
       };
     };
   };
