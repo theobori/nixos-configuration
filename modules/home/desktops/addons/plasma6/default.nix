@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf types;
+  inherit (lib) mkIf types optionalString;
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.desktops.addons.plasma6;
@@ -55,17 +55,25 @@ in
         iconTasks = {
           launchers = [
             "applications:systemsettings.desktop"
-            "applications:org.wezfurlong.wezterm.desktop"
-            "applications:firefox.desktop"
-            "applications:vesktop.desktop"
-            "applications:obsidian.desktop"
-            "applications:spotify.desktop"
+            (optionalString config.${namespace}.cli.terminals.wezterm.enable
+              "applications:org.wezfurlong.wezterm.desktop"
+            )
+            (optionalString config.${namespace}.browsers.firefox.enable "applications:firefox.desktop")
+            (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
+            (optionalString config.${namespace}.programs.obsidian.enable "applications:obsidian.desktop")
+            (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
 
             # Wrong file naming upstream side
-            "applications:com.ayugram.desktop.desktop"
+            (optionalString config.${namespace}.messages.ayugram.enable
+              "applications:com.ayugram.desktop.desktop"
+            )
 
-            "applications:taterclient-ddnet.desktop"
-            "applications:quake-injector.desktop"
+            (optionalString config.${namespace}.games.taterclient-ddnet.enable
+              "applications:taterclient-ddnet.desktop"
+            )
+            (optionalString config.${namespace}.programs.quake-injector.enable
+              "applications:quake-injector.desktop"
+            )
           ];
         };
       }
