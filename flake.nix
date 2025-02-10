@@ -87,7 +87,7 @@
 
     hosts.url = "github:StevenBlack/hosts";
 
-    ayugram-desktop.url = "github:/ayugram-port/ayugram-desktop/ayugram-v5.8.3-v0.2.0";
+    ayugram-desktop.url = "github:ayugram-port/ayugram-desktop/ayugram-v5.8.3-v0.2.0";
   };
 
   outputs =
