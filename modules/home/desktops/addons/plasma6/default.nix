@@ -55,9 +55,8 @@ in
         iconTasks = {
           launchers = [
             "applications:systemsettings.desktop"
-            (optionalString config.${namespace}.cli.terminals.wezterm.enable
-              "applications:org.wezfurlong.wezterm.desktop"
-            )
+
+            (optionalString config.${namespace}.cli.terminals.kitty.enable "applications:kitty.desktop")
             (optionalString config.${namespace}.browsers.firefox.enable "applications:firefox.desktop")
             (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
             (optionalString config.${namespace}.programs.obsidian.enable "applications:obsidian.desktop")
