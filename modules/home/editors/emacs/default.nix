@@ -6,28 +6,31 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.editors.emacs;
 in
 {
-  options.${namespace}.editors.emacs = {
+  options.${namespace}.editors.emacs = with types; {
     enable = mkBoolOpt false "Whether or not to enable emacs.";
+
+    extraConfig = mkOpt str ''
+      (global-auto-revert-mode 1)
+
+      (menu-bar-mode -1)
+      (global-display-line-numbers-mode)
+      (setq standard-indent 2)
+      (setq font-lock-maximum-decoration t)
+    '' "Emacs extra configuration.";
   };
 
   config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
-
       package = pkgs.emacs-nox;
 
-      extraConfig = ''
-        (menu-bar-mode -1)
-        (global-display-line-numbers-mode)
-        (setq standard-indent 2)
-        (setq font-lock-maximum-decoration t)
-      '';
+      inherit (cfg) extraConfig;
     };
   };
 }

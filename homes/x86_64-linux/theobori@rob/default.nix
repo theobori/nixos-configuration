@@ -32,6 +32,12 @@ in
     };
 
     desktops.addons.plasma6 = enabled;
+
+    editors.emacs.packages = {
+      neotree = enabled;
+      ivy = enabled;
+      vertico = enabled;
+    };
   };
 
   home.stateVersion = "24.11";

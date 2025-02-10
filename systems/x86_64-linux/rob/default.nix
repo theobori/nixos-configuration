@@ -34,7 +34,10 @@ in
     security.doas = enabled;
 
     desktops.plasma6 = enabled;
-    display-managers.sddm = enabled;
+    display-managers = {
+      sddm = enabled;
+      x-utility = enabled;
+    };
 
     services.virtualisation = {
       kvm = enabled;
