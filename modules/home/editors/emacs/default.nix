@@ -22,6 +22,7 @@ in
       (global-display-line-numbers-mode)
       (setq standard-indent 2)
       (setq font-lock-maximum-decoration t)
+      (setq display-line-numbers-type 'relative)
     '' "Emacs extra configuration.";
   };
 
