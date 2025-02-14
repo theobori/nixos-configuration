@@ -25,57 +25,45 @@ in
     gpuAcceleration = mkBoolOpt false "Enable GPU acceleration.";
     hardwareDecoding = mkBoolOpt false "Enable hardware video decoding.";
 
-    extensions = mkOpt (listOf package) (with firefox-addons; [
-      private-relay
-      auto-tab-discard
-      user-agent-string-switcher
-      return-youtube-dislikes
-      ublock-origin
-      wappalyzer
-      to-deepl
-      private-relay
-      sponsorblock
-      betterttv
-      seventv
-      dracula-dark-colorscheme
-      pkgs.${namespace}.skip-netflix-intro
-      (
-        let
-          version = "1.6.6";
-        in
-        buildFirefoxXpiAddon {
-          pname = "darkcloud";
-          inherit version;
-          addonId = "{534c6d6e-de02-417d-a38e-4007d33914b6}";
-          url = "https://addons.mozilla.org/firefox/downloads/file/4333468/darkcloud-${version}.xpi";
-          sha256 = "sha256-8ZYOh8c7c/7UCpQ/mgeOkHfZCBj9aD973auCbTcVMzQ=";
-          meta = {
-            homepage = "http://acroma.rf.gd/darkcloud";
-            description = "Changes soundcloud.com to a dark theme";
-            license = lib.licenses.asl20;
-            platforms = lib.platforms.all;
-          };
-        }
-      )
-      (
-        let
-          version = "2.3.10";
-        in
-        buildFirefoxXpiAddon {
-          pname = "ttv-lol-pro";
-          inherit version;
-          addonId = "{76ef94a4-e3d0-4c6f-961a-d38a429a332b}";
-          url = "https://addons.mozilla.org/firefox/downloads/file/4357094/ttv_lol_pro-${version}.xpi";
-          sha256 = "sha256-szzQzU41IVIO8jOyEXkij9reyhaDWayrTCS7saFm/No=";
-          meta = {
-            homepage = "";
-            description = "";
-            license = lib.licenses.asl20;
-            platforms = lib.platforms.all;
-          };
-        }
-      )
-    ]) "Extensions to install.";
+    extensions = mkOpt (listOf package) (
+      with firefox-addons;
+      [
+        private-relay
+        auto-tab-discard
+        user-agent-string-switcher
+        return-youtube-dislikes
+        ublock-origin
+        wappalyzer
+        to-deepl
+        private-relay
+        sponsorblock
+        betterttv
+        seventv
+        dracula-dark-colorscheme
+        (
+          let
+            version = "2.3.10";
+          in
+          buildFirefoxXpiAddon {
+            pname = "ttv-lol-pro";
+            inherit version;
+            addonId = "{76ef94a4-e3d0-4c6f-961a-d38a429a332b}";
+            url = "https://addons.mozilla.org/firefox/downloads/file/4357094/ttv_lol_pro-${version}.xpi";
+            sha256 = "sha256-szzQzU41IVIO8jOyEXkij9reyhaDWayrTCS7saFm/No=";
+            meta = {
+              homepage = "";
+              description = "";
+              license = lib.licenses.asl20;
+              platforms = lib.platforms.all;
+            };
+          }
+        )
+      ]
+      ++ (with pkgs.${namespace}; [
+        skip-netflix-intro
+        darkcloud
+      ])
+    ) "Extensions to install.";
 
     policies = mkOpt attrs {
       CaptivePortal = false;
