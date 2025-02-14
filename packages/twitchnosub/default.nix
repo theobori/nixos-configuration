@@ -4,13 +4,13 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "twitchnosub";
-  version = "0.9";
+  version = "0.9.1";
 
   src = fetchFromGitHub {
     owner = "besuper";
     repo = "TwitchNoSub";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-NSV86GC+vo50YQupPCRn/xCyysaypuyI0hfNlI2Pj9U=";
+    hash = "sha256-p0FoPa4ABtV2XRsJ5kaFXkhLOi75BRh0sUcC3cqAMmA=";
   };
 
   nativeBuildInputs = with pkgs; [ web-ext ];
