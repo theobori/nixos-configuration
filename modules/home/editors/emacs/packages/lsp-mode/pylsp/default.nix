@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkAfter;
+  inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.editors.emacs.packages.lsp-mode.pylsp;
@@ -21,16 +21,19 @@ in
     home.packages = with pkgs; [ python3Packages.python-lsp-server ];
 
     programs.emacs = {
-      extraConfig = mkAfter ''
+      extraConfig = ''
         (with-eval-after-load 'lsp-mode
           (add-to-list 'lsp-language-id-configuration '(python-mode . "python"))
 
           (lsp-register-client (make-lsp-client
             :new-connection (lsp-stdio-connection "pylsp")
             :activation-fn (lsp-activate-on "python")
-            :server-id 'pylsp)))
+            :server-id 'pylsp))
+          
+          (add-hook 'python-mode-hook #'lsp)
+          )
 
-        (add-hook 'python-mode-hook #'lsp)
+
       '';
     };
   };

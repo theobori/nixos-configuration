@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkAfter;
+  inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.editors.emacs.packages.lsp-mode.bash-language-server;
@@ -21,16 +21,19 @@ in
     home.packages = with pkgs; [ bash-language-server ];
 
     programs.emacs = {
-      extraConfig = mkAfter ''
+      extraConfig = ''
         (with-eval-after-load 'lsp-mode
           (add-to-list 'lsp-language-id-configuration '(bash-mode . "bash"))
 
           (lsp-register-client (make-lsp-client
             :new-connection (lsp-stdio-connection "bash-language-server")
             :activation-fn (lsp-activate-on "bash")
-            :server-id 'bash-language-server)))
+            :server-id 'bash-language-server))
 
-        (add-hook 'bash-mode-hook #'lsp)
+          (add-hook 'bash-mode-hook #'lsp)
+          )
+
+
       '';
     };
   };
