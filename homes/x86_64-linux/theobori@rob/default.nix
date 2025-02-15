@@ -37,6 +37,11 @@ in
       neotree = enabled;
       ivy = enabled;
       vertico = enabled;
+      lsp-mode = {
+        enable = true;
+        pylsp = enabled;
+        bash-language-server = enabled;
+      };
     };
   };
 
