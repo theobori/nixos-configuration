@@ -41,6 +41,7 @@ in
         enable = true;
         pylsp = enabled;
         bash-language-server = enabled;
+        nixd = enabled;
       };
     };
   };

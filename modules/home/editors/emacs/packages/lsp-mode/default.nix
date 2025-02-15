@@ -33,6 +33,7 @@ in
         (yas-reload-all)
         (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+        ;; Using use-package is a better pratice, but for the moment, I could not make it work.
         (require 'lsp-mode)
 
         (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
