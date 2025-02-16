@@ -6,14 +6,16 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.cli.multiplexers.tmux;
 in
 {
-  options.${namespace}.cli.multiplexers.tmux = {
+  options.${namespace}.cli.multiplexers.tmux = with types; {
     enable = mkBoolOpt false "Whether or not to enable tmux multiplexer.";
+    useMouse = mkBoolOpt false "Whether or not to enable the mouse.";
+    prefix = mkOpt str "M-B" "Configure tmux prefix key.";
   };
 
   config = mkIf cfg.enable {
@@ -24,11 +26,11 @@ in
 
     programs.tmux = {
       enable = true;
-      shell = "${pkgs.fish}/bin/fish";
+      shell = "${lib.getExe pkgs.fish}";
       terminal = "tmux-256color";
       historyLimit = 100000;
       sensibleOnTop = true;
-      mouse = true;
+      mouse = cfg.useMouse;
 
       plugins = with pkgs.tmuxPlugins; [
         better-mouse-mode
@@ -66,6 +68,11 @@ in
         set -ga update-environment TERM_PROGRAM
 
         bind-key x kill-pane
+
+        # Rebind the tmux prefix
+        unbind-key C-b
+        set-option -g prefix ${cfg.prefix}
+        bind-key ${cfg.prefix} send-prefix
       '';
     };
   };
