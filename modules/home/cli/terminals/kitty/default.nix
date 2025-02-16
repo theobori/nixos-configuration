@@ -17,6 +17,7 @@ in
       window_padding_width 6
       cursor_shape block
       cursor_blink_interval 0
+
     '' "Manage the Kitty extra configuration.";
   };
 
