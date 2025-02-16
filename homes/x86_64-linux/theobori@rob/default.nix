@@ -42,6 +42,7 @@ in
         pylsp = enabled;
         bash-language-server = enabled;
         nixd = enabled;
+        gopls = enabled;
       };
     };
   };
