@@ -33,7 +33,9 @@ in
     security.sudo = enabled;
     security.doas = enabled;
 
-    desktops.plasma6 = enabled;
+    desktops = {
+      plasma6 = enabled;
+    };
     display-managers = {
       sddm = enabled;
       x-utility = enabled;

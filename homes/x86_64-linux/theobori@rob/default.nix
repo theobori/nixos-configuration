@@ -31,7 +31,11 @@ in
       };
     };
 
-    desktops.addons.plasma6 = enabled;
+    desktops = {
+      addons = {
+        plasma6 = enabled;
+      };
+    };
 
     editors.emacs.packages = {
       neotree = enabled;
