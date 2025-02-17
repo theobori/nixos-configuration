@@ -43,6 +43,7 @@ in
       neotree = enabled;
       ivy = enabled;
       vertico = enabled;
+      obsidian = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
