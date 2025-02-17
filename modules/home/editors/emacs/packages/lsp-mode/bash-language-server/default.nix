@@ -23,17 +23,15 @@ in
     programs.emacs = {
       extraConfig = ''
         (with-eval-after-load 'lsp-mode
-          (add-to-list 'lsp-language-id-configuration '(bash-mode . "bash"))
+          (add-to-list 'lsp-language-id-configuration '(sh-mode . "bash"))
 
           (lsp-register-client (make-lsp-client
-            :new-connection (lsp-stdio-connection "bash-language-server")
+            :new-connection (lsp-stdio-connection "bash-language-server start")
             :activation-fn (lsp-activate-on "bash")
             :server-id 'bash-language-server))
 
-          (add-hook 'bash-mode-hook #'lsp)
+          (add-hook 'sh-mode-hook #'lsp)
           )
-
-
       '';
     };
   };

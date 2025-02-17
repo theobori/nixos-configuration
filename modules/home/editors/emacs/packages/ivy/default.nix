@@ -19,7 +19,8 @@ in
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.ivy ]);
       extraConfig = ''
-            (use-package ivy
+        (use-package ivy
+          :ensure t
           :commands
           ivy-mode
           :init
