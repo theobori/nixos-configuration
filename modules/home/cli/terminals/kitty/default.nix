@@ -18,6 +18,11 @@ in
       cursor_shape block
       cursor_blink_interval 0
 
+      # Mapping GNU Emacs multiple keys sequence
+      map ctrl+; send_text all \x1b[27;5;59~
+      map ctrl+' send_text all \x1b[27;5;39~
+      map ctrl+( send_text all \x1b[27;5;40~
+      map ctrl+) send_text all \x1b[27;5;41~
     '' "Manage the Kitty extra configuration.";
   };
 
