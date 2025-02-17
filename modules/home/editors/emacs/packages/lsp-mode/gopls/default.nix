@@ -32,8 +32,7 @@ in
             :activation-fn (lsp-activate-on "go")
             :server-id 'gopls))
 
-          (add-hook 'go-mode-hook #'lsp)
-          )
+          (add-hook 'go-mode-hook #'lsp))
       '';
     };
   };

@@ -36,8 +36,8 @@ in
         ;; Using use-package is a better pratice, but for the moment, I could not make it work.
         (require 'lsp-mode)
 
-        (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-        (use-package lsp-ui :commands lsp-ui-mode)
+        (use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
+        (use-package lsp-ui :ensure t :commands lsp-ui-mode)
       '';
     };
   };

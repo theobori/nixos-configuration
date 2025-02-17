@@ -1,6 +1,7 @@
 { lib, namespace, ... }:
 let
-  inherit (lib.${namespace}) enabled;
+  inherit (lib) mkForce;
+  inherit (lib.${namespace}) enabled disabled;
 in
 {
   theobori-nix = {
@@ -29,6 +30,7 @@ in
         enable = true;
         defaultSopsFile = lib.snowfall.fs.get-file "secrets/rob/theobori/secrets.yaml";
       };
+      flatpak = mkForce disabled;
     };
 
     desktops = {

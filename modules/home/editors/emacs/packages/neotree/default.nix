@@ -19,8 +19,11 @@ in
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.neotree ]);
       extraConfig = ''
-        (require 'neotree)
-        (global-set-key [f8] 'neotree-toggle)
+        (use-package neotree
+          :bind (("<f8>" . neotree-toggle)
+        	)
+          :ensure t
+        )
       '';
     };
   };

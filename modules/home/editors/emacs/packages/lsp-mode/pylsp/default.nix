@@ -30,10 +30,7 @@ in
             :activation-fn (lsp-activate-on "python")
             :server-id 'pylsp))
           
-          (add-hook 'python-mode-hook #'lsp)
-          )
-
-
+          (add-hook 'python-mode-hook #'lsp))
       '';
     };
   };
