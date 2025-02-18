@@ -48,6 +48,7 @@ in
       vterm = enabled;
       org-superstar = enabled;
       dired = enabled;
+      auto-save = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
