@@ -17,6 +17,8 @@ in
 
     extraConfig = mkOpt str ''
             (global-auto-revert-mode 1)
+            (show-paren-mode t)
+            (defalias 'yes-or-no-p 'y-or-n-p)
 
             (menu-bar-mode -1)
             (global-display-line-numbers-mode)

@@ -38,6 +38,8 @@ in
 
         (use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
         (use-package lsp-ui :ensure t :commands lsp-ui-mode)
+
+        (setq lsp-headerline-breadcrumb-icons-enable nil)
       '';
     };
   };
