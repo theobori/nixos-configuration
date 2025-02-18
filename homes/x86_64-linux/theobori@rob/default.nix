@@ -46,6 +46,8 @@ in
       rainbow-delimiters = enabled;
       doom-modeline = enabled;
       vterm = enabled;
+      org-superstar = enabled;
+      dired = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
