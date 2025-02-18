@@ -43,7 +43,9 @@ in
       neotree = enabled;
       ivy = enabled;
       vertico = enabled;
-      obsidian = enabled;
+      rainbow-delimiters = enabled;
+      doom-modeline = enabled;
+      vterm = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
