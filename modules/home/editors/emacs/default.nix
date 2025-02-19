@@ -14,6 +14,7 @@ in
 {
   options.${namespace}.editors.emacs = with types; {
     enable = mkBoolOpt false "Whether or not to enable emacs.";
+    package = mkOpt package pkgs.emacs "Whether or not to enable emacs.";
 
     extraConfig = mkOpt str ''
             (global-auto-revert-mode 1)
@@ -38,9 +39,7 @@ in
   config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
-      package = pkgs.emacs-nox;
-
-      inherit (cfg) extraConfig;
+      inherit (cfg) package extraConfig;
     };
   };
 }
