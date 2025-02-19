@@ -41,6 +41,7 @@ in
     editors.emacs.packages = {
       neotree = enabled;
       ivy = enabled;
+      rg = enabled;
       vertico = enabled;
       rainbow-delimiters = enabled;
       doom-modeline = enabled;
