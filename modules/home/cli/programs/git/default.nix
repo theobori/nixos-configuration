@@ -50,7 +50,7 @@ in
         commit.gpgsign = true;
 
         core = {
-          editor = "emacs";
+          editor = "emacs -nw";
           pager = "delta";
           filemode = "false";
         };
