@@ -1,6 +1,5 @@
 { lib, namespace, ... }:
 let
-  inherit (lib) mkForce;
   inherit (lib.${namespace}) enabled disabled;
 in
 {
@@ -30,7 +29,7 @@ in
         enable = true;
         defaultSopsFile = lib.snowfall.fs.get-file "secrets/rob/theobori/secrets.yaml";
       };
-      flatpak = mkForce disabled;
+      flatpak = disabled;
     };
 
     desktops = {
