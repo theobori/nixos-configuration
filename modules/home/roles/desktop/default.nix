@@ -35,7 +35,6 @@ in
       };
 
       services = {
-        flatpak = enabled;
         flameshot = enabled;
       };
 
