@@ -17,19 +17,49 @@ in
 
   config = mkIf cfg.enable {
     programs.emacs = {
-      extraPackages = (epkgs: [ epkgs.ivy ]);
+      extraPackages = (
+        epkgs: [
+          epkgs.ivy
+          epkgs.ivy-rich
+          epkgs.all-the-icons-ivy
+          epkgs.counsel
+        ]
+      );
       extraConfig = ''
+        (use-package counsel
+          :demand t
+          :bind (("M-x" . counsel-M-x)
+            ("C-x b" . counsel-ibuffer)
+            ("C-x C-f" . counsel-find-file)
+            ("C-M-j" . counsel-switch-buffer)
+          :map minibuffer-local-map
+            ("C-r" . 'counsel-minibuffer-history))
+          :custom
+            (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+          :config
+            (setq ivy-initial-inputs-alist nil))
+
         (use-package ivy
           :ensure t
           :commands
-          ivy-mode
+            ivy-mode
           :init
-          (ivy-mode 1)
-          (setq ivy-height 10
-                ivy-fixed-height-minibuffer t)
-          :bind (("C-x b" . ivy-switch-buffer)
-                 ("C-c r" . ivy-resume)
-        	 ("C-x C-b" . ibuffer)))
+            (ivy-mode 1)
+            (setq ivy-height 10
+                  ivy-fixed-height-minibuffer t)
+            :bind (("C-x b" . ivy-switch-buffer)
+                   ("C-c r" . ivy-resume)
+             ("C-x C-b" . ibuffer))
+          :config
+            (setq enable-recursive-minibuffers t))
+
+        (use-package ivy-rich
+          :ensure t
+          :init (ivy-rich-mode 1))
+
+        (use-package all-the-icons-ivy
+          :ensure t
+          :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup))
       '';
     };
   };
