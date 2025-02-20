@@ -59,6 +59,7 @@ in
         nixd = enabled;
         gopls = enabled;
         dockerfile = enabled;
+        terraform = enabled;
       };
     };
   };
