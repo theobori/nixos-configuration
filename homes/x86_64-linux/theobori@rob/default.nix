@@ -41,6 +41,7 @@ in
     editors.emacs.packages = {
       neotree = enabled;
       markdown = enabled;
+      yaml = enabled;
       ivy = enabled;
       dashboard = enabled;
       rg = enabled;
