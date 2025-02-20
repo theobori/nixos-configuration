@@ -20,25 +20,17 @@ in
       extraPackages = (
         epkgs: [
           epkgs.all-the-icons-dired
-          epkgs.dired-ranger
           epkgs.dired-collapse
         ]
       );
       extraConfig = ''
-        (use-package all-the-icons-dired)
+        (use-package all-the-icons-dired :ensure t)
         (use-package dired
           :ensure nil
-          :straight nil
           :defer 1
           :commands (dired dired-jump)
           :config
-            (setq dired-listing-switches "-agho --group-directories-first")
-            (setq dired-omit-files "^\\.[^.].*")
-            (setq dired-omit-verbose nil)
-            (setq dired-hide-details-hide-symlink-targets nil)
-            (put 'dired-find-alternate-file 'disabled nil)
-            (setq delete-by-moving-to-trash t)
-            (autoload 'dired-omit-mode "dired-x")
+            (setq dired-kill-when-opening-new-dired-buffer t) ;; It prevents having hundreds useless buffers
             (add-hook 'dired-load-hook
                   (lambda ()
                     (interactive)
@@ -46,13 +38,10 @@ in
             (add-hook 'dired-mode-hook
                   (lambda ()
                     (interactive)
-                    (dired-omit-mode 1)
-                    (dired-hide-details-mode 1)
                     (all-the-icons-dired-mode 1))
                     (hl-line-mode 1)))
 
-        (use-package dired-ranger)
-        (use-package dired-collapse)        
+        (use-package dired-collapse :ensure t)
       '';
     };
   };

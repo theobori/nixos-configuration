@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib.${namespace}) enabled disabled;
+  inherit (lib.${namespace}) enabled;
 in
 {
   imports = [
@@ -44,7 +44,7 @@ in
     services.virtualisation = {
       kvm = enabled;
       docker = enabled;
-      flatpak = disabled;
+      flatpak = enabled;
     };
 
     user.users = {
