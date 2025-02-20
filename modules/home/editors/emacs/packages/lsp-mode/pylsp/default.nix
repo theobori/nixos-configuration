@@ -29,7 +29,7 @@ in
             :new-connection (lsp-stdio-connection "pylsp")
             :activation-fn (lsp-activate-on "python")
             :server-id 'pylsp))
-          
+
           (add-hook 'python-mode-hook #'lsp))
       '';
     };

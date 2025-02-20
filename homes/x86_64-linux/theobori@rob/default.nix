@@ -56,6 +56,7 @@ in
         bash-language-server = enabled;
         nixd = enabled;
         gopls = enabled;
+        dockerfile = enabled;
       };
     };
   };

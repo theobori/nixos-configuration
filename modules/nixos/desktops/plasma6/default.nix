@@ -29,7 +29,7 @@ in
   config = mkIf cfg.enable {
     services.xserver = enabled;
 
-    services.packagekit = enabled;
+    # services.packagekit = enabled;
 
     services.desktopManager.plasma6 = {
       enable = true;

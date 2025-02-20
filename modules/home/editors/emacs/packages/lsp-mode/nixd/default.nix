@@ -36,13 +36,13 @@ in
         :after lsp-mode
         :ensure t
         :hook
-        (nix-mode . lsp-deferred) ;; So that envrc mode will work
+          (nix-mode . lsp-deferred) ;; So that envrc mode will work
         :mode "\\.nix\\'"
-        :config
-        (setq lsp-nix-nixd-server-path "nixd"
-              lsp-nix-nixd-formatting-command [ "nixfmt" ]
-              lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
-              ))
+        :custom
+          (setq lsp-nix-nixd-server-path "nixd"
+                lsp-nix-nixd-formatting-command [ "nixfmt" ]
+                lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
+                ))
 
         (with-eval-after-load 'lsp-mode
           (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
