@@ -39,7 +39,6 @@ in
     };
 
     editors.emacs.packages = {
-      neotree = enabled;
       markdown = enabled;
       yaml = enabled;
       ivy = enabled;
@@ -53,6 +52,7 @@ in
       dired = enabled;
       auto-save = enabled;
       org-download = enabled;
+      treemacs = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
