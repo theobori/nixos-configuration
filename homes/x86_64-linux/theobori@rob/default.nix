@@ -52,6 +52,7 @@ in
       org-superstar = enabled;
       dired = enabled;
       auto-save = enabled;
+      org-download = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
