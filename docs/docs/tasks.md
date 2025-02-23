@@ -12,4 +12,9 @@ Here are a non-exhaustive list of tasks.
 - [x] Add declarative Flatpak supports with [declarative-flatpak](https://github.com/GermanBread/declarative-flatpak)
 - [ ] Better email accounts management
 - [x] Solve TODO in the file `modules/home/roles/desktop/default.nix`
+- [ ] Add a WSL configuration
 
+## GNU Emacs
+
+- [x] Add a way to yank image from the X clipboard
+- [x] Replace `neotree` with `treemacs
