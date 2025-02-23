@@ -185,6 +185,10 @@ in
             url = "https://wiki.archlinux.org/";
           }
           {
+            name = "Remove Paywall";
+            url = "https://www.removepaywall.com/";
+          }
+          {
             name = "Nix";
             bookmarks = [
               {
