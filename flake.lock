@@ -528,11 +528,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1735342807,
-        "narHash": "sha256-bBQu5n/rMT8bEsBMmv3CtGUZ/ybCTuDw5E2GYZI5woU=",
+        "lastModified": 1740888205,
+        "narHash": "sha256-1LcNP9KBeUaeD6agnrQJOD0UN4GFMW9Rn86BjcH0yQ4=",
         "owner": "StevenBlack",
         "repo": "hosts",
-        "rev": "8c7de597e3007ce646a42ac604956d9ce4876b6a",
+        "rev": "299151a32d8cda95714ff7ad928fc5e8568f3988",
         "type": "github"
       },
       "original": {
