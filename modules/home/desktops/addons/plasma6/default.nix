@@ -59,7 +59,7 @@ in
             (optionalString config.${namespace}.cli.terminals.kitty.enable "applications:kitty.desktop")
             (optionalString config.${namespace}.browsers.firefox.enable "applications:firefox.desktop")
             (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
-            (optionalString config.${namespace}.programs.obsidian.enable "applications:obsidian.desktop")
+            (optionalString config.${namespace}.editors.emacs.enable "applications:emacs.desktop")
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
 
             # Wrong file naming upstream side
