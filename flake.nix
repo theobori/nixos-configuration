@@ -113,7 +113,7 @@
       };
 
       overlays = with inputs; [
-        nur.overlay
+        nur.overlays.default
         nixgl.overlay
         lix.overlays.default
       ];
