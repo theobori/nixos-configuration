@@ -23,6 +23,7 @@ in
       # devices = [ ];
       efiSupport = true;
       efiInstallAsRemovable = true;
+      useOSProber = true;
     };
     supportedFilesystems = [ "ntfs" ];
 
