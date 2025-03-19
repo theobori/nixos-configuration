@@ -34,6 +34,7 @@ in
           eza = enabled;
           fzf = enabled;
           fastfetch = enabled;
+          onefetch = enabled;
           git = enabled;
           git-cliff = enabled;
           gpg = enabled;
