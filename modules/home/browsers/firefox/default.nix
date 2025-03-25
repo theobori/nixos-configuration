@@ -45,6 +45,7 @@ in
         skip-netflix-intro
         darkcloud
         ttv-lol-pro
+        twitchnosub
       ])
     ) "Extensions to install.";
 
