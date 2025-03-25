@@ -20,6 +20,7 @@ in
       extraPackages = (epkgs: [ epkgs.vterm ]);
       extraConfig = ''
         (use-package vterm
+          :ensure t
           :commands vterm
           :config
             (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")

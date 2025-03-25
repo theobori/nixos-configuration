@@ -42,6 +42,7 @@ in
       markdown = enabled;
       yaml = enabled;
       magit = enabled;
+      pdf-tools = enabled;
       org-present = enabled;
       ivy = enabled;
       dashboard = enabled;
