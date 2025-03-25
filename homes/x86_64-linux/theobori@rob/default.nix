@@ -41,6 +41,7 @@ in
     editors.emacs.packages = {
       markdown = enabled;
       yaml = enabled;
+      magit = enabled;
       org-present = enabled;
       ivy = enabled;
       dashboard = enabled;
