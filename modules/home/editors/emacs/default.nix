@@ -21,10 +21,18 @@ in
       (show-paren-mode t)
       (defalias 'yes-or-no-p 'y-or-n-p)
 
-      (menu-bar-mode -1)
+      (if (display-graphic-p)
+        (progn
+          ;; Resize small font on the GUI Emacs application
+          (set-face-attribute 'default nil :height 105)
+
+          ;; Annoying displayed UI elements
+          (menu-bar-mode -1)
+          (tool-bar-mode -1)
+          (scroll-bar-mode -1)))
+
       (global-display-line-numbers-mode)
       (setq standard-indent 2)
-      (setq font-lock-maximum-decoration t)
       (setq display-line-numbers-type 'relative)
 
       ;; See https://snarfed.org/gnu_emacs_backup_files
@@ -35,6 +43,15 @@ in
       (make-directory "~/.emacs.d/autosaves/" t)
 
       (setq org-link-file-path-type 'relative)
+
+      ;; See https://themkat.net/2025/03/25/simple_smoother_emacs_scrolling.html
+      (setq scroll-conservatively 10
+        scroll-margin 15)
+
+      (setq inhibit-startup-screen t)
+
+      ;; Run Emacs server
+      (server-start)
     '' "Emacs extra configuration.";
   };
 
