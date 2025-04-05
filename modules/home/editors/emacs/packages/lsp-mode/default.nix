@@ -25,21 +25,60 @@ in
           epkgs.lsp-ivy
           epkgs.yasnippet
           epkgs.company
+          epkgs.company-box
           epkgs.lsp-ui
+          epkgs.lsp-treemacs
         ]
       );
       extraConfig = mkBefore ''
-        (require 'yasnippet)
-        (yas-reload-all)
-        (add-hook 'prog-mode-hook #'yas-minor-mode)
+        (use-package company
+          :config
+          (global-company-mode)
+          :custom
+          (company-idle-delay 0)
+          (company-echo-delay 0)
+          (company-minimum-prefix-length 1))
 
-        ;; Using use-package is a better pratice, but for the moment, I could not make it work.
-        (require 'lsp-mode)
+        (use-package company-box
+          :after company
+          :if (display-graphic-p)
+          :custom
+          (company-box-frame-behavior 'point)
+          (company-box-show-single-candidate t)
+          (company-box-doc-delay 1))
 
-        (use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
-        (use-package lsp-ui :ensure t :commands lsp-ui-mode)
+        (use-package yasnippet
+          :diminish yas-minor-mode
+          :demand t
+          :hook
+          ((prog-mode . yas-minor-mode))
+          :config
+          (yas-reload-all))
 
-        (setq lsp-headerline-breadcrumb-icons-enable nil)
+        (declare-function yas-reload-all  "yasnippet")
+
+        (use-package lsp-mode
+          :config
+          (add-to-list 'load-path (expand-file-name "lib/lsp-mode" user-emacs-directory))
+          (add-to-list 'load-path (expand-file-name "lib/lsp-mode/clients" user-emacs-directory))
+          :hook
+          ((sh-mode . lsp))
+          :commands lsp
+          :custom
+          (lsp-headerline-breadcrumb-icons-enable nil))
+
+        (use-package lsp-ivy
+          :after lsp-mode
+          :commands lsp-ivy-workspace-symbol)
+
+        (use-package lsp-ui
+          :after lsp-mode
+          :commands lsp-ui-mode)
+
+        (use-package lsp-treemacs
+          :after lsp-mode
+          :config
+          (lsp-treemacs-sync-mode 1))
       '';
     };
   };
