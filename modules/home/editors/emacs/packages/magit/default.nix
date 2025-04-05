@@ -18,6 +18,12 @@ in
   config = mkIf cfg.enable {
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.magit ]);
+      extraConfig = ''
+        (use-package magit
+          :commands magit-status
+          :bind
+          ("C-x g" . magit-status))
+      '';
     };
   };
 }

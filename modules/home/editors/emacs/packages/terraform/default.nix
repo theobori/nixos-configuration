@@ -21,9 +21,8 @@ in
       extraConfig = ''
         (use-package terraform-mode
           :hook ((terraform-mode . lsp-deferred)
-                 (terraform-mode . terraform-format-on-save-mode)))
-
-        (add-to-list 'auto-mode-alist '("\\.tf\\'" . terraform-mode))
+                 (terraform-mode . terraform-format-on-save-mode))
+          :mode "\\.tf\\'")
       '';
     };
   };

@@ -21,9 +21,8 @@ in
       extraConfig = ''
         (use-package yaml-mode
           :commands (markdown-mode gfm-mode)
-          :mode (
-            ("\\.yml\\'" . yaml-mode)
-            ("\\.yaml\\'" . yaml-mode)))
+          :mode (("\\.yml\\'" . yaml-mode)
+                 ("\\.yaml\\'" . yaml-mode)))
       '';
     };
   };

@@ -23,24 +23,23 @@ in
       );
       extraConfig = ''
         (use-package dashboard
-          :ensure t
           :after (all-the-icons)
+          :init (dashboard-setup-startup-hook)
+          :if (or (display-graphic-p) (and (not (daemonp))
+                      (= (length command-line-args) 1)))
+          :custom
+          (dashboard-startup-banner 'logo)
+          (dashboard-center-content t)
+          (dashboard-set-navigator t)
+          (dashboard-icon-type 'all-the-icons)
+          (dashboard-items '((projects . 5)
+                          (recents  . 5)))
+          (dashboard-set-file-icons t)
+          (dashboard-projects-backend 'project-el)
           :config
-          (when (or (display-graphic-p) (and (not (daemonp))
-                    (= (length command-line-args) 1)))
-            (dashboard-setup-startup-hook)
-            (setq dashboard-startup-banner 'logo
-                  dashboard-center-content t
-                  dashboard-set-navigator t
-                  dashboard-icon-type 'all-the-icons
-                  dashboard-items '((projects . 5)
-                                  (recents  . 5)))
-            (setq dashboard-banner-logo-title "This is your life")
-            (setq dashboard-set-file-icons t)
-            (setq dashboard-projects-backend 'project-el)
-            (setq initial-buffer-choice (lambda ()
-                                        (get-buffer-create "*dashboard*")
-                                        (dashboard-refresh-buffer)))))
+          (setq initial-buffer-choice (lambda ()
+                                      (get-buffer-create "*dashboard*")
+                                      (dashboard-refresh-buffer))))
       '';
     };
   };

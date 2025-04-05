@@ -20,14 +20,13 @@ in
       extraPackages = (epkgs: [ epkgs.markdown-mode ]);
       extraConfig = ''
         (use-package markdown-mode
-          :ensure t
           :commands (markdown-mode gfm-mode)
           :mode (("README\\.md\\'" . gfm-mode)
-            ("\\.md\\'" . markdown-mode)
-            ("\\.markdown\\'" . markdown-mode))
-          :init (setq markdown-command "pandoc"))
-
-        (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+                 ("\\.md\\'" . markdown-mode)
+                 ("\\.markdown\\'" . markdown-mode)
+                 ("\\.mdx\\'" . markdown-mode))
+          :custom
+          (markdown-command "pandoc"))
       '';
     };
   };

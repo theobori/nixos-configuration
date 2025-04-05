@@ -24,25 +24,42 @@ in
         ]
       );
       extraConfig = ''
-        (setq visual-fill-column-width 110
-              visual-fill-column-center-text t)
+        (use-package visual-fill-column
+          :custom
+          (visual-fill-column-width 110)
+          (visual-fill-column-center-text t))
+
+        (defvar display-line-numbers-old)
 
         (defun my/org-present-start ()
+          ;; Save the display line numbers value
           (setq
             display-line-numbers-old display-line-numbers
             display-line-numbers nil)
 
+          ;; Show images within the buffer
+          (org-display-inline-images)
+
+          ;; Center the text
           (visual-fill-column-mode 1)
           (visual-line-mode 1))
 
         (defun my/org-present-end ()
+          ;; Set back the display line numbers value used before
           (setq display-line-numbers display-line-numbers-old)
 
+          ;; Hide images
+          (org-remove-inline-images)
+
+          ;; Cancel the text centering
           (visual-fill-column-mode 0)
           (visual-line-mode 0))
 
-        (add-hook 'org-present-mode-hook 'my/org-present-start)
-        (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+        (use-package org-present
+          :after (org visual-fill-column)
+          :hook
+          ((org-present-mode . my/org-present-start)
+          (org-present-mode-quit . my/org-present-end)))
       '';
     };
   };

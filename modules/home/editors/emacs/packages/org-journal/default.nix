@@ -20,13 +20,11 @@ in
       extraPackages = (epkgs: [ epkgs.org-journal ]);
       extraConfig = ''
         (use-package org-journal
-          :ensure t
           :defer t
-          :init
-            (setq org-journal-prefix-key "C-c j ")
-          :config
-            (setq org-journal-dir "~/org/journal/"
-                  org-journal-date-format "%A, %d %B %Y"))
+          :custom
+          (org-journal-prefix-key "C-c j")
+          (org-journal-dir "~/org/journal/")
+          (org-journal-date-format "%A, %d %B %Y"))
       '';
     };
   };
