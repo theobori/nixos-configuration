@@ -40,6 +40,7 @@ in
         betterttv
         seventv
         dracula-dark-colorscheme
+        refined-github
       ]
       ++ (with pkgs.${namespace}; [
         skip-netflix-intro
