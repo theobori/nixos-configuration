@@ -20,12 +20,11 @@ in
       extraPackages = (epkgs: [ epkgs.vterm ]);
       extraConfig = ''
         (use-package vterm
-          :ensure t
           :commands vterm
-          :config
-            (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
-            (setq vterm-shell "fish")
-            (setq vterm-max-scrollback 10000))
+          :custom
+          (term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
+          (vterm-shell "fish")
+          (vterm-max-scrollback 10000))
       '';
     };
   };

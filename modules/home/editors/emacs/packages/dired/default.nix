@@ -25,23 +25,24 @@ in
       );
       extraConfig = ''
         (use-package all-the-icons-dired :ensure t)
+
         (use-package dired
           :ensure nil
+          :after (all-the-icons-dired dired-collapse)
           :defer 1
           :commands (dired dired-jump)
-          :config
-            (setq dired-kill-when-opening-new-dired-buffer t) ;; It prevents having hundreds useless buffers
-            (add-hook 'dired-load-hook
-                  (lambda ()
-                    (interactive)
-                    (dired-collapse)))
-            (add-hook 'dired-mode-hook
-                  (lambda ()
-                    (interactive)
-                    (all-the-icons-dired-mode 1))
-                    (hl-line-mode 1)))
+          :custom
+          (dired-kill-when-opening-new-dired-buffer t) ;; It prevents having hundreds useless buffers
+          :hook
+          (dired-mode .
+            (lambda ()
+              (interactive)
+              (all-the-icons-dired-mode 1)
+              (dired-collapse)
+              (hl-line-mode 1))))
 
         (use-package dired-collapse :ensure t)
+        (declare-function dired-collapse "dired-collapse")
       '';
     };
   };

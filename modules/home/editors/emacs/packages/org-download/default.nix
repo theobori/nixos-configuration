@@ -20,13 +20,12 @@ in
       extraPackages = (epkgs: [ epkgs.org-download ]);
       extraConfig = ''
         (use-package org-download
-          :ensure t
-          :config
-            (add-hook 'dired-mode-hook 'org-download-enable)
-            (setq-default
-              org-download-method 'directory
-              org-download-image-dir "Attachments"
-              org-download-heading-lvl nil))
+          :hook
+          ((dired-mode . org-download-enable))
+          :custom
+          (org-download-method 'directory)
+          (org-download-image-dir "Attachments")
+          (org-download-heading-lvl nil))
       '';
     };
   };

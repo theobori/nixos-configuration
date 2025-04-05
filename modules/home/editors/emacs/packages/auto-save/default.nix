@@ -21,16 +21,17 @@ in
       extraPackages = (_epkgs: [ pkgs.${namespace}.auto-save ]);
       extraConfig = ''
         (use-package auto-save
-          :ensure t
           :config
           (auto-save-enable)
-          (setq auto-save-silent t
-                auto-save-delete-trailing-whitespace t
-                auto-save-disable-predicates
-                '((lambda ()
-                    (string-suffix-p
-                     "gpg"
-                     (file-name-extension (buffer-name)) t)))))
+          :custom
+          (auto-save-silent t)
+          (auto-save-delete-trailing-whitespace t)
+          (auto-save-disable-predicates
+          '((lambda ()
+              (string-suffix-p
+               "gpg"
+               (file-name-extension (buffer-name)) t)))))
+        (declare-function auto-save-enable "auto-save")
       '';
     };
   };

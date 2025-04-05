@@ -32,17 +32,14 @@ in
       );
 
       extraConfig = ''
-                (use-package nix-mode
-        :after lsp-mode
-        :ensure t
-        :hook
-          (nix-mode . lsp-deferred) ;; So that envrc mode will work
-        :mode "\\.nix\\'"
-        :custom
-          (setq lsp-nix-nixd-server-path "nixd"
-                lsp-nix-nixd-formatting-command [ "nixfmt" ]
-                lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
-                ))
+        (use-package nix-mode
+          :hook
+          (nix-mode . lsp) ;; So that envrc mode will work
+          :mode "\\.nix\\'"
+          :custom
+          (lsp-nix-nixd-server-path "nixd")
+          (lsp-nix-nixd-formatting-command [ "nixfmt" ])
+          (lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"))
 
         (with-eval-after-load 'lsp-mode
           (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
@@ -51,10 +48,7 @@ in
             :new-connection (lsp-stdio-connection "nixd")
             :activation-fn (lsp-activate-on "nix")
             :priority 0
-            :server-id 'nixd))
-
-          (add-hook 'nix-mode-hook #'lsp)
-          )
+            :server-id 'nixd)))
       '';
     };
   };

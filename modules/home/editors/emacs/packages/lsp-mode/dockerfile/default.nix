@@ -23,13 +23,11 @@ in
       extraPackages = (epkgs: [ epkgs.dockerfile-mode ]);
       extraConfig = ''
          (use-package dockerfile-mode
-           :after lsp-mode
-           :ensure t
            :hook
            (nix-mode . lsp-deferred) ;; So that envrc mode will work
            :mode "\\Dockerfile?$"
            :config
-             (put 'dockerfile-image-name 'safe-local-variable #'stringp))
+           (put 'dockerfile-image-name 'safe-local-variable #'stringp))
 
         (with-eval-after-load 'lsp-mode
           (add-to-list 'lsp-language-id-configuration '(dockerfile-mode . "dockerfile"))

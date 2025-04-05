@@ -29,37 +29,35 @@ in
         (use-package counsel
           :demand t
           :bind (("M-x" . counsel-M-x)
-            ("C-x b" . counsel-ibuffer)
-            ("C-x C-f" . counsel-find-file)
-            ("C-M-j" . counsel-switch-buffer)
+                 ("C-x b" . counsel-ibuffer)
+                 ("C-x C-f" . counsel-find-file)
+                 ("C-M-j" . counsel-switch-buffer)
           :map minibuffer-local-map
-            ("C-r" . 'counsel-minibuffer-history))
+          ("C-r" . 'counsel-minibuffer-history))
           :custom
-            (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+          (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
           :config
-            (setq ivy-initial-inputs-alist nil))
+          (setq ivy-initial-inputs-alist nil))
 
         (use-package ivy
-          :ensure t
-          :commands
-            ivy-mode
+          :commands ivy-mode
           :init
-            (ivy-mode 1)
-            (setq ivy-height 10
-                  ivy-fixed-height-minibuffer t)
-            :bind (("C-x b" . ivy-switch-buffer)
-                   ("C-c r" . ivy-resume)
-             ("C-x C-b" . ibuffer))
+          (ivy-mode 1)
+          :custom
+          (ivy-height 10)
+          (ivy-fixed-height-minibuffer t)
+          :bind (("C-x b" . ivy-switch-buffer)
+                 ("C-c r" . ivy-resume)
+                 ("C-x C-b" . ibuffer))
           :config
-            (setq enable-recursive-minibuffers t))
+          (setq enable-recursive-minibuffers t))
 
         (use-package ivy-rich
-          :ensure t
           :init (ivy-rich-mode 1))
 
         (use-package all-the-icons-ivy
-          :ensure t
-          :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup))
+          :hook
+          ((after-init . all-the-icons-ivy-setup)))
       '';
     };
   };

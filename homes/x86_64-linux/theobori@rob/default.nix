@@ -55,6 +55,7 @@ in
       dired = enabled;
       auto-save = enabled;
       org-download = enabled;
+      org = enabled;
       org-journal = enabled;
       treemacs = enabled;
       lsp-mode = {

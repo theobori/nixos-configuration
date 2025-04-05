@@ -20,7 +20,6 @@ in
       extraPackages = (epkgs: [ epkgs.rainbow-delimiters ]);
       extraConfig = ''
         (use-package rainbow-delimiters
-          :ensure t
           :hook (prog-mode . rainbow-delimiters-mode))
       '';
     };

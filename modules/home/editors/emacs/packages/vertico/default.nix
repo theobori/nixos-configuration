@@ -24,8 +24,7 @@ in
         ]
       );
       extraConfig = ''
-                (use-package vertico
-          :ensure t
+        (use-package vertico
           :bind (:map vertico-map
                  ("C-j" . vertico-next)
                  ("C-k" . vertico-previous)
@@ -43,7 +42,6 @@ in
 
         (use-package marginalia
           :after vertico
-          :ensure t
           :custom
           (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
           :init

@@ -19,7 +19,7 @@ in
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.rg ]);
       extraConfig = ''
-        (require 'rg)
+        (use-package rg)
       '';
     };
   };

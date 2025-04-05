@@ -19,10 +19,9 @@ in
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.pdf-tools ]);
       extraConfig = ''
-        (use-package dashboard
-          :ensure t
+        (use-package pdf-tools
           :config
-            (pdf-tools-install))
+          (pdf-tools-install))
       '';
     };
   };

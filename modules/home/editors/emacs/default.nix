@@ -21,13 +21,15 @@ in
       (show-paren-mode t)
       (defalias 'yes-or-no-p 'y-or-n-p)
 
+      ;; Remove the menu bar
+      (menu-bar-mode -1)
+
       (if (display-graphic-p)
         (progn
           ;; Resize small font on the GUI Emacs application
           (set-face-attribute 'default nil :height 105)
 
           ;; Annoying displayed UI elements
-          (menu-bar-mode -1)
           (tool-bar-mode -1)
           (scroll-bar-mode -1)))
 
@@ -51,7 +53,9 @@ in
       (setq inhibit-startup-screen t)
 
       ;; Run Emacs server
-      (server-start)
+      (use-package server :ensure nil)
+      (unless (server-running-p)
+        (server-start))
     '' "Emacs extra configuration.";
   };
 
