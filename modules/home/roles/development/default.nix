@@ -56,6 +56,7 @@ in
           tealdeer = enabled;
           krabby = enabled;
           genact = enabled;
+          ratiomaster = enabled;
         };
       };
     };

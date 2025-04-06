@@ -1,7 +1,9 @@
-{ pkgs, ... }:
-let
-  inherit (pkgs) stdenvNoCC fetchFromGitHub;
-in
+{
+  pkgs,
+  stdenvNoCC,
+  fetchFromGitHub,
+  ...
+}:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "twitchnosub-debug";
   version = "0.9.1";
