@@ -24,12 +24,7 @@ in
     ];
 
     programs.emacs = {
-      extraPackages = (
-        epkgs: [
-          epkgs.company
-          epkgs.nix-mode
-        ]
-      );
+      extraPackages = (epkgs: [ epkgs.nix-mode ]);
 
       extraConfig = ''
         (use-package nix-mode

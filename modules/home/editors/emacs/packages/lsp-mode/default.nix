@@ -58,11 +58,9 @@ in
         (declare-function yas-reload-all  "yasnippet")
 
         (use-package lsp-mode
-          :config
-          (add-to-list 'load-path (expand-file-name "lib/lsp-mode" user-emacs-directory))
-          (add-to-list 'load-path (expand-file-name "lib/lsp-mode/clients" user-emacs-directory))
           :hook
-          ((sh-mode . lsp))
+          ((sh-mode . lsp)
+           (python-mode . lsp))
           :commands lsp
           :custom
           (lsp-headerline-breadcrumb-icons-enable nil))
