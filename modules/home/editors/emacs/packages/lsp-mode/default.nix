@@ -59,8 +59,7 @@ in
 
         (use-package lsp-mode
           :hook
-          ((sh-mode . lsp)
-           (python-mode . lsp))
+          ((sh-mode . lsp))
           :commands lsp
           :custom
           (lsp-headerline-breadcrumb-icons-enable nil))
@@ -74,7 +73,6 @@ in
           :commands lsp-ui-mode)
 
         (use-package lsp-treemacs
-          :after lsp-mode
           :config
           (lsp-treemacs-sync-mode 1))
       '';
