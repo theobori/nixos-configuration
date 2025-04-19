@@ -26,6 +26,7 @@ in
         space-cadet-pinball = enabled;
         supertux = enabled;
         taisei = enabled;
+        apotris = enabled;
 
         # Flatpaks
         sober = enabled;
