@@ -265,6 +265,11 @@ in
               }
             ];
           }
+          {
+            name = "Excalidraw";
+            url = "https://excalidraw.com";
+          }
+
         ];
       }
     ] "Preloaded bookmarks.";
