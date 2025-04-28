@@ -58,6 +58,7 @@ in
       org = enabled;
       org-journal = enabled;
       treemacs = enabled;
+      ligature = enabled;
       lsp-mode = {
         enable = true;
         pylsp = enabled;
