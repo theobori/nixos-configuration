@@ -43,7 +43,7 @@ in
 
         monospace = {
           package = pkgs.${namespace}.monolisa;
-          name = "MonoLisa Nerd Font";
+          name = "MonoLisa";
         };
 
         emoji = {

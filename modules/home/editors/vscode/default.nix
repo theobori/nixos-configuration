@@ -66,6 +66,7 @@ in
         "workbench.colorTheme" = "Dracula Theme Soft";
         "nix.enableLanguageServer" = "true";
         "nix.serverPath" = "nixd";
+        "editor.fontLigatures" = "true";
       };
     };
 
