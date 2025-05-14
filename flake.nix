@@ -122,7 +122,7 @@
         nix-index-database.hmModules.nix-index
         stylix.homeManagerModules.stylix
         sops-nix.homeManagerModules.sops
-        nixcord.homeManagerModules.nixcord
+        nixcord.homeModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager
         spicetify-nix.homeManagerModules.default
         flatpaks.homeManagerModules.declarative-flatpak
