@@ -294,7 +294,13 @@ in
         ${config.${namespace}.user.name} = {
           id = 0;
 
-          inherit (cfg) extraConfig extensions bookmarks;
+          bookmarks = {
+            force = true;
+            settings = cfg.bookmarks;
+          };
+          extensions.packages = cfg.extensions;
+
+          inherit (cfg) extraConfig;
           inherit (config.${namespace}.user) name;
 
           settings = mkMerge [

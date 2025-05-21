@@ -16,6 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    stylix.targets.librewolf.profileNames = [ config.${namespace}.user.name ];
     programs.librewolf = {
       enable = true;
     };

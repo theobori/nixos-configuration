@@ -20,13 +20,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ kleopatra ];
+    home.packages = with pkgs; [ kdePackages.kleopatra ];
 
     programs.gpg = enabled;
 
     services.gpg-agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
+      pinentry.package = pkgs.pinentry-curses;
     };
 
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {

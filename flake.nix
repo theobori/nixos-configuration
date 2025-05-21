@@ -2,14 +2,14 @@
   description = "theobori's Nix/NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # We assume this version of nixpkgs is more updated than the `nixpkgs` input.
     # Will be used within overlay to get the latest version of specific packages.
     unstable.url = "github:nixos/nixpkgs";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-25.05";
     nixgl.url = "github:nix-community/nixGL";
     nix-index-database.url = "github:nix-community/nix-index-database";
 
@@ -120,7 +120,7 @@
 
       homes.modules = with inputs; [
         nix-index-database.hmModules.nix-index
-        stylix.homeManagerModules.stylix
+        stylix.homeModules.stylix
         sops-nix.homeManagerModules.sops
         nixcord.homeModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager

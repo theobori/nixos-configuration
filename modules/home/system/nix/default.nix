@@ -17,13 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    nixpkgs = {
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
-      };
-    };
-
     home.packages = with pkgs; [
       nix-output-monitor
       nixgl.nixGLIntel

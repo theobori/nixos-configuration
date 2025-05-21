@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.pulseaudio = disabled;
+    services.pulseaudio = disabled;
     security.rtkit = enabled;
     services.pipewire = {
       enable = true;

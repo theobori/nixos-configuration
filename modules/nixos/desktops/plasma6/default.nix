@@ -12,7 +12,7 @@ let
   # See https://github.com/Toomoch/nixos-config/blob/master/system/modules/de.nix#L4-L12
   discover-wrapped = pkgs.symlinkJoin {
     name = "discover-flatpak-backend";
-    paths = with pkgs; [ libsForQt5.discover ];
+    paths = with pkgs; [ kdePackages.discover ];
     buildInputs = with pkgs; [ makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/plasma-discover --add-flags "--backends flatpak"

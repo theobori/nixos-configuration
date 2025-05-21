@@ -42,7 +42,7 @@ in
         enabledCustomApps = with spicePkgs.apps; [ lyricsPlus ];
 
         theme = spicePkgs.themes.dracula;
-        colorScheme = "dracula";
+        # colorScheme = "dracula";
       };
   };
 }

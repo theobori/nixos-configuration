@@ -58,15 +58,16 @@ in
     programs.vscode = {
       enable = true;
 
-      inherit (cfg) extensions;
-
-      userSettings = {
-        "files.autoSave" = "afterDelay";
-        "window.menuBarVisibility" = "toggle";
-        "workbench.colorTheme" = "Dracula Theme Soft";
-        "nix.enableLanguageServer" = "true";
-        "nix.serverPath" = "nixd";
-        "editor.fontLigatures" = "true";
+      profiles.default = {
+        inherit (cfg) extensions;
+        userSettings = {
+          "files.autoSave" = "afterDelay";
+          "window.menuBarVisibility" = "toggle";
+          "workbench.colorTheme" = "Dracula Theme Soft";
+          "nix.enableLanguageServer" = "true";
+          "nix.serverPath" = "nixd";
+          "editor.fontLigatures" = "true";
+        };
       };
     };
 
