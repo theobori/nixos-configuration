@@ -18,6 +18,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    nixpkgs = {
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+    };
+
     nix = {
       inherit (cfg) package;
 

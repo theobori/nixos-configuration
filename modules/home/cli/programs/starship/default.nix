@@ -23,7 +23,7 @@ in
       enableFishIntegration = true;
 
       settings = {
-        palette = "custom";
+        # palette = "custom";
         palettes.custom = {
           rosewater = "#${colors.base06}";
           flamingo = "#${colors.base0F}";
