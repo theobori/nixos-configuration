@@ -23,7 +23,11 @@ in
       enableFishIntegration = true;
 
       settings = {
-        # palette = "custom";
+        character = {
+          success_symbol = "[λ](bold green)";
+          error_symbol = "[λ](bold red)";
+        };
+
         palettes.custom = {
           rosewater = "#${colors.base06}";
           flamingo = "#${colors.base0F}";
