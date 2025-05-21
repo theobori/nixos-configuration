@@ -10,6 +10,7 @@ let
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.styles.stylix;
+  my-base16-schemes = pkgs.${namespace}.my-base16-schemes;
 in
 {
   options.${namespace}.styles.stylix = {
@@ -20,7 +21,8 @@ in
     stylix = {
       enable = true;
       autoEnable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+      base16Scheme = "${my-base16-schemes}/share/themes/dracula.yaml";
+
       homeManagerIntegration.autoImport = false;
       homeManagerIntegration.followSystem = false;
 
