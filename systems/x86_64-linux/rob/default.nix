@@ -39,13 +39,15 @@ in
     };
     display-managers = {
       sddm = enabled;
-      x-utility = enabled;
     };
 
-    services.virtualisation = {
-      kvm = enabled;
-      docker = enabled;
-      flatpak = enabled;
+    services = {
+      virtualisation = {
+        kvm = enabled;
+        docker = enabled;
+        flatpak = enabled;
+      };
+      xremap = enabled;
     };
 
     user.users = {
