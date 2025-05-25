@@ -94,10 +94,13 @@ in
 
     desktops.plasma6 = enabled;
     display-managers.sddm = enabled;
-
-    services.virtualisation = {
-      kvm = enabled;
-      docker = enabled;
+    services = {
+      virtualisation = {
+        kvm = enabled;
+        docker = enabled;
+        flatpak = enabled;
+      };
+      xremap = enabled;
     };
 
     user.users = {

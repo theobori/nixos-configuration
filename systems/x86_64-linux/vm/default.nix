@@ -40,9 +40,13 @@ in
     # display-managers.gdm = enabled;
 
     roles.desktop = enabled;
-    services.virtualisation = {
-      kvm = enabled;
-      docker = enabled;
+    services = {
+      virtualisation = {
+        kvm = enabled;
+        docker = enabled;
+        flatpak = enabled;
+      };
+      xremap = enabled;
     };
 
     user.users = {
