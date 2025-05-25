@@ -67,6 +67,7 @@ in
         gopls = enabled;
         dockerfile = enabled;
         terraform = enabled;
+        latex = enabled;
       };
     };
   };

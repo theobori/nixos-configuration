@@ -50,10 +50,9 @@ in
         (use-package yasnippet
           :diminish yas-minor-mode
           :demand t
-          :hook
-          ((prog-mode . yas-minor-mode))
           :config
-          (yas-reload-all))
+          (yas-reload-all)
+          (yas-global-mode 1))
 
         (declare-function yas-reload-all  "yasnippet")
 
