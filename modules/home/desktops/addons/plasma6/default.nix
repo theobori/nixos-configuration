@@ -61,6 +61,9 @@ in
             (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
             (optionalString config.${namespace}.editors.emacs.enable "applications:emacs.desktop")
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
+            (optionalString config.${namespace}.multimedia.resonance.enable
+              "applications:io.github.nate_xyz.Resonance.desktop"
+            )
 
             # Wrong file naming upstream side
             (optionalString config.${namespace}.messages.ayugram.enable
