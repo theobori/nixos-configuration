@@ -54,6 +54,7 @@ in
         calibre = enabled;
         pavucontrol = enabled;
         pamixer = enabled;
+        resonance = enabled;
       };
 
       programs = {
