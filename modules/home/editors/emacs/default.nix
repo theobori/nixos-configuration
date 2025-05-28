@@ -33,9 +33,9 @@ in
           (tool-bar-mode -1)
           (scroll-bar-mode -1)))
 
-      (global-display-line-numbers-mode)
       (setq standard-indent 2)
       (setq display-line-numbers-type 'relative)
+      (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
       ;; See https://snarfed.org/gnu_emacs_backup_files
       (custom-set-variables
