@@ -29,14 +29,7 @@ in
           (visual-fill-column-width 110)
           (visual-fill-column-center-text t))
 
-        (defvar display-line-numbers-old)
-
         (defun my/org-present-start ()
-          ;; Save the display line numbers value
-          (setq
-            display-line-numbers-old display-line-numbers
-            display-line-numbers nil)
-
           ;; Show images within the buffer
           (org-display-inline-images)
 
@@ -45,9 +38,6 @@ in
           (visual-line-mode 1))
 
         (defun my/org-present-end ()
-          ;; Set back the display line numbers value used before
-          (setq display-line-numbers display-line-numbers-old)
-
           ;; Hide images
           (org-remove-inline-images)
 
