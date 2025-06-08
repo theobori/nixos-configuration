@@ -6,14 +6,28 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace})
+    mkBoolOpt
+    enabled
+    disabled
+    mkOpt
+    ;
 
   cfg = config.${namespace}.hardware.audio;
 in
 {
-  options.${namespace}.hardware.audio = {
+  options.${namespace}.hardware.audio = with types; {
     enable = mkBoolOpt false "Enable or disable hardware audio support.";
+    extraConfig = mkOpt attrs {
+      pipewire = {
+        "99-disable-x11-bell" = {
+          "context.properties" = {
+            "module.x11.bell" = false;
+          };
+        };
+      };
+    } "PipeWire service extra configuration.";
   };
 
   config = mkIf cfg.enable {
@@ -28,6 +42,8 @@ in
       pulse = enabled;
       jack = enabled;
       wireplumber = enabled;
+
+      inherit (cfg) extraConfig;
     };
     programs.noisetorch = enabled;
 
