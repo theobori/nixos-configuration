@@ -2,6 +2,7 @@
   config,
   lib,
   namespace,
+  pkgs,
   ...
 }:
 let
@@ -16,6 +17,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ pandoc ];
+
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.markdown-mode ]);
       extraConfig = ''

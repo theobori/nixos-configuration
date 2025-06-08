@@ -37,7 +37,7 @@ flake switch
 
 Feel free to use my minimal bootable disk image [x86_64-install-iso/minimal](/systems/x86_64-install-iso/minimal/default.nix). The aim is to load this bootable iso on a target machine to have a usable OpenSSH server to deploy our NixOS configuration.
 
-You can build it with the following command. 
+You can build it with the following command.
 
 ```bash
 nix build .#install-isoConfigurations.minimal
@@ -52,7 +52,7 @@ result/
 ...
 ```
 
-Once loaded on the target machine, you can use a deployment tool such as [nixos-anywhere](https://numtide.com/projects/nixos-anywhere/) to deploy NixOS over SSH. 
+Once loaded on the target machine, you can use a deployment tool such as [nixos-anywhere](https://numtide.com/projects/nixos-anywhere/) to deploy NixOS over SSH.
 
 Here's an example.
 
@@ -146,10 +146,9 @@ customize your Nix environment while maintaining flexibility and modularity.
 
 My NixOS KDE Plasma 6 environment looks like this.
 
-![sddm](./docs/docs/images/sddm.png)
-![home](./docs/docs/images/home.png)
-![launcher](./docs/docs/images/launcher.png)
-![neofetch](./docs/docs/images/neofetch.png)
+![desktop](./docs/docs/images/desktop.png)
+![emacs-coding](./docs/docs/images/emacs-coding.png)
+![emacs_launcher](./docs/docs/images/emacs_launcher.png)
 
 ## Resources
 
@@ -158,4 +157,3 @@ Other configurations from where I learned and copied:
 - [hmajid2301/nixicle](https://gitlab.com/hmajid2301/nixicle)
 - [khaneliman/khanelinix](https://github.com/khaneliman/khanelinix)
 - [JakeHamilton/config](https://github.com/jakehamilton/config)
-
