@@ -78,7 +78,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/stable-v3";
 
     lix = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
@@ -126,7 +126,7 @@
         nixcord.homeModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager
         spicetify-nix.homeManagerModules.default
-        flatpaks.homeManagerModules.declarative-flatpak
+        flatpaks.homeModule
       ];
 
       systems = {
