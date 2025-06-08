@@ -6,13 +6,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "twitchnosub-debug";
-  version = "0.9.1";
+  version = "0.9.2";
 
   src = fetchFromGitHub {
     owner = "besuper";
     repo = "TwitchNoSub";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-p0FoPa4ABtV2XRsJ5kaFXkhLOi75BRh0sUcC3cqAMmA=";
+    hash = "sha256-91vY8iwD7+s7AzeJH702MYgr0AtGncgVald+dlwjr24=";
   };
 
   nativeBuildInputs = with pkgs; [ web-ext ];
