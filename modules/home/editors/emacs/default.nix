@@ -37,6 +37,9 @@ in
       (setq display-line-numbers-type 'relative)
       (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+      ;; Disable the ring bell sound
+      (setq ring-bell-function 'ignore)
+
       ;; See https://snarfed.org/gnu_emacs_backup_files
       (custom-set-variables
         '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
