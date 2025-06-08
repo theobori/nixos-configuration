@@ -17,4 +17,4 @@ Here are a non-exhaustive list of tasks.
 ## GNU Emacs
 
 - [x] Add a way to yank image from the X clipboard
-- [x] Replace `neotree` with `treemacs
+- [x] Replace `neotree` with `treemacs`
