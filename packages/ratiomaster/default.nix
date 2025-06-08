@@ -5,6 +5,8 @@
   stdenvNoCC,
   makeWrapper,
   gtk2,
+  makeDesktopItem,
+  copyDesktopItems,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ratiomaster";
@@ -18,7 +20,25 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   buildInputs = [ gtk2 ];
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    makeWrapper
+    copyDesktopItems
+  ];
+
+  desktopItems = [
+    (makeDesktopItem {
+      exec = finalAttrs.meta.mainProgram;
+      name = "RatioMaster";
+      icon = "ratiomaster";
+      comment = "Torrent tracker upload and download faker";
+      desktopName = "RatioMaster";
+      categories = [
+        "Utility"
+        "Network"
+      ];
+      keywords = [ "Internet" ];
+    })
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -32,6 +52,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     makeWrapper "${mono}/bin/mono" $out/bin/RatioMaster \
       --add-flags "$dst" \
       --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ gtk2 ]}
+
+    # Install the RatioMaster icon
+    install -D ${./ratiomaster.png} "$out/share/icons/hicolor/256x256/apps/ratiomaster.png"
 
     runHook postInstall
   '';
