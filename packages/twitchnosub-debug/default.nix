@@ -11,7 +11,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "besuper";
     repo = "TwitchNoSub";
-    rev = "refs/tags/${finalAttrs.version}";
+    tag = finalAttrs.version;
     hash = "sha256-91vY8iwD7+s7AzeJH702MYgr0AtGncgVald+dlwjr24=";
   };
 
