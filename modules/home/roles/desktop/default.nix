@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
+  inherit (lib.${namespace}) mkBoolOpt enabled;
 
   cfg = config.${namespace}.roles.desktop;
 in
@@ -61,7 +61,7 @@ in
         inkscape = enabled;
         obsidian = enabled;
         qbittorrent = enabled;
-        spicetify = disabled;
+        spicetify = enabled;
         quake-injector = enabled;
         pablodraw = enabled;
         libreoffice = enabled;
