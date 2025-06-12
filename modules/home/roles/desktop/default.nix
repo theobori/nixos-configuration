@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
 
   cfg = config.${namespace}.roles.desktop;
 in
@@ -54,7 +54,8 @@ in
         calibre = enabled;
         pavucontrol = enabled;
         pamixer = enabled;
-        resonance = enabled;
+        resonance = disabled;
+        tauon = enabled;
       };
 
       programs = {

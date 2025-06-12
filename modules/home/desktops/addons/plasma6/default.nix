@@ -64,6 +64,7 @@ in
             (optionalString config.${namespace}.multimedia.resonance.enable
               "applications:io.github.nate_xyz.Resonance.desktop"
             )
+            (optionalString config.${namespace}.multimedia.tauon.enable "applications:tauonmb.desktop")
 
             # Wrong file naming upstream side
             (optionalString config.${namespace}.messages.ayugram.enable
