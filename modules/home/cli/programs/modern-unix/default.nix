@@ -59,7 +59,6 @@ in
       templ
       sqlc
       golines
-      gotools
 
       # go-task
       go-mockery
