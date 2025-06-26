@@ -24,6 +24,10 @@ in
         code-cursor = enabled;
       };
 
+      programs = {
+        sqlitebrowser = enabled;
+      };
+
       cli = {
         multiplexers.tmux = enabled;
 
