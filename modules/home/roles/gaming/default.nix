@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
 
   cfg = config.${namespace}.roles.gaming;
 in
@@ -19,7 +19,7 @@ in
     ${namespace} = {
       games = {
         teeworlds = enabled;
-        taterclient-ddnet = enabled;
+        taterclient-ddnet = disabled;
         supermariowar = enabled;
         vkquake = enabled;
         ninvaders = enabled;
