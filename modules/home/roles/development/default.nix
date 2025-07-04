@@ -7,7 +7,7 @@
 with lib;
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) enabled;
+  inherit (lib.${namespace}) enabled disabled;
 
   cfg = config.${namespace}.roles.development;
 in
@@ -21,7 +21,8 @@ in
       editors = {
         vscode = enabled;
         emacs = enabled;
-        code-cursor = enabled;
+        code-cursor = disabled;
+        pycharm = disabled;
       };
 
       programs = {
