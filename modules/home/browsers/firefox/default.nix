@@ -47,6 +47,7 @@ in
         darkcloud
         ttv-lol-pro
         twitchnosub
+        alerte-sur-les-sites-genai
       ])
     ) "Extensions to install.";
 

@@ -11,7 +11,7 @@ firefox-addons.buildFirefoxXpiAddon {
   sha256 = "sha256-EzymNANCbKPto6mLsQgdp8CZevW/xS7S+4Z/IxE5NBk=";
   meta = {
     homepage = "https://github.com/besuper/TwitchNoSub";
-    description = "An extension to watch sub only VOD on Twitch ";
+    description = "An extension to watch sub only VOD on Twitch";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
