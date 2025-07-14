@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf types;
+  inherit (lib) mkIf types mkForce;
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.desktops.addons.gnome;
@@ -32,8 +32,6 @@ in
       clipboard-history
       gtile
       dash-in-panel
-      pkgs.${namespace}.my-remove-clock
-      pkgs.${namespace}.gnome-ext-hanabi
     ]) "List of gnome extensions";
 
     settings = mkOpt attrs (nested-default-attrs {
@@ -53,7 +51,6 @@ in
           ++ lib.optional config.${namespace}.editors.emacs.enable "emacs.desktop"
           ++ lib.optional config.${namespace}.programs.spicetify.enable "spotify.desktop"
           ++ lib.optional config.${namespace}.multimedia.tauon.enable "tauonmb.desktop"
-
           ++ lib.optional config.${namespace}.games.taterclient-ddnet.enable "taterclient-ddnet.desktop"
           ++ lib.optional config.${namespace}.programs.quake-injector.enable "quake-injector.desktop";
       };
@@ -111,7 +108,7 @@ in
       };
 
       "org/gnome/desktop/interface" = {
-        # Was overrided by Stylix
+        # Is overrided by Stylix
         font-name = "Adwaita Sans 11";
         enable-hot-corners = false;
       };
@@ -149,6 +146,7 @@ in
         center-box-order = [ "dash" ];
 
         right-box-order = [
+          "dateMenu"
           "gTile@vibou"
           "Clipboard History Indicator"
           "keyboard"
@@ -165,7 +163,7 @@ in
       };
 
       "org/gnome/shell/extensions/dash-in-panel" = {
-        button-margin = 2;
+        button-margin = 4;
         center-dash = false;
         dim-dot = true;
         icon-size = 32;
@@ -199,8 +197,18 @@ in
       iconTheme = {
         package = pkgs.adwaita-icon-theme;
         name = "Adwaita";
-
       };
+    };
+
+    stylix.fonts.sansSerif = mkForce {
+      name = "Adwaita Sans";
+      package = pkgs.adwaita-fonts;
+    };
+
+    stylix.fonts.sizes = mkForce {
+      terminal = 11;
+      applications = 11;
+      popups = 12;
     };
 
     dconf = {
