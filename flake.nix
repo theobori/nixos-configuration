@@ -120,7 +120,7 @@
       ];
 
       homes.modules = with inputs; [
-        nix-index-database.hmModules.nix-index
+        nix-index-database.homeModules.nix-index
         stylix.homeModules.stylix
         sops-nix.homeManagerModules.sops
         nixcord.homeModules.nixcord

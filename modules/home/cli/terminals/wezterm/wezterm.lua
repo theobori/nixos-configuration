@@ -9,7 +9,7 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     default_prog = { "fish" },
     font = wezterm.font_with_fallback {
-        "MonoLisa Nerd Font",
+        "MonoLisa",
 		"Fira Code",
 		"Noto Color Emoji",
     },
@@ -18,5 +18,4 @@ return {
     initial_rows = 34,
     initial_cols = 113,
     front_end = "WebGpu",
-    enable_wayland = false
 }
