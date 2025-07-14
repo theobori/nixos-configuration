@@ -34,7 +34,8 @@ in
 
     desktops = {
       addons = {
-        plasma6 = enabled;
+        plasma6 = disabled;
+        gnome = enabled;
       };
     };
 

@@ -228,29 +228,30 @@ in
                 url = "https://www.berlinale.de/en/home.html";
               }
               {
-                name = "ANORA - Festival de Cannes";
-                url = "https://www.festival-cannes.com/f/anora/";
-              }
-              {
                 name = "(337) SHOWING UP - Bande-annonce - YouTube";
                 url = "https://www.youtube.com/watch?v=uTckrM6O8lQ&ab_channel=DiaphanaDistribution";
               }
               {
-                name = "Fermer les yeux de Víctor Erice - Recherche Google";
+                name = "Fermer les yeux de Víctor Erice";
                 url = "https://www.google.com/search?client=firefox-b-d&sca_esv=ee9f43d054edb7e5&sxsrf=ADLYWIJjIEqIOXSd0s0dBh1XxAlTSIiKFg:1728745583391&q=Fermer+les+yeux+de+V%C3%ADctor+Erice&source=lnms&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgTlosgQSuzBMlnAdio07UCId2t1azIRgowYJD0nDbqEIN7XYIyS3uBYzHmWPp2pnW1aUeS8cvBgTxtkh0oXYZb9sk4SqfagNzG1TA2KSV_2jiE2u7h5ECeKS1944y5sV2XkToJp-7trbMLUYyqf9k9WkJ34l8HUxr-bw8aCHxPE1stW0M&sa=X&ved=2ahUKEwjMuZ6Tj4mJAxWCT6QEHUT4GUEQ0pQJegQIEhAB&biw=1920&bih=950&dpr=1";
               }
               {
-                name = "Art et culture - Télécharger Des Magazines, Journaux et Livres Gratuitement";
-                url = "https://telecharger-magazines.org/art-et-culture";
+                name = "SensCritique";
+                url = "https://www.senscritique.com";
               }
               {
-                name = "Emilia Pérez - Film (2024) - SensCritique";
-                url = "https://www.senscritique.com/film/emilia_perez/54313969";
+                name = "Letterboxd";
+                url = "https://letterboxd.com/";
               }
               {
-                name = "The Dark Knight - Le Chevalier noir - Film (2008) - SensCritique";
-                url = "https://www.senscritique.com/film/the_dark_knight_le_chevalier_noir/419456";
+                name = "Cahiers du cinéma";
+                url = "https://www.cahiersducinema.com/fr-fr";
               }
+              {
+                name = "Will never pay for yggtorrent";
+                url = "https://www.yggtorrent.top";
+              }
+
             ];
           }
           {

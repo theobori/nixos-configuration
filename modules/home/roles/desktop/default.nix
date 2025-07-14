@@ -60,6 +60,7 @@ in
 
       programs = {
         inkscape = enabled;
+        cambalache = enabled;
         obsidian = enabled;
         qbittorrent = enabled;
         spicetify = enabled;

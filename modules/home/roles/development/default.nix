@@ -21,8 +21,9 @@ in
       editors = {
         vscode = enabled;
         emacs = enabled;
-        code-cursor = disabled;
+        code-cursor = enabled;
         pycharm = disabled;
+        gnome-builder = enabled;
       };
 
       programs = {

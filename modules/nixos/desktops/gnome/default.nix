@@ -7,57 +7,44 @@
 }:
 let
   inherit (lib) types mkIf;
-  inherit (lib.${namespace}) mkBoolOpt mkOpt;
+  inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.desktops.gnome;
-
-  defaultExtensions = with pkgs.gnomeExtensions; [
-    appindicator
-    aylurs-widgets
-    dash-to-dock
-    gsconnect
-    gtile
-    just-perfection
-    logo-menu
-    no-overview
-    remove-app-menu
-    space-bar
-    top-bar-organizer
-    wireless-hid
-  ];
-
 in
 {
   options.${namespace}.desktops.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use Gnome as the desktop environment.";
-    extensions = mkOpt (listOf package) [ ] "Extra Gnome extensions to install.";
   };
 
   config = mkIf cfg.enable {
-    environment = {
-      systemPackages =
-        with pkgs;
-        [
-          gnome-tweaks
-          nautilus-python
-          wl-clipboard
-        ]
-        ++ defaultExtensions
-        ++ cfg.extensions;
+    environment.systemPackages =
+      with pkgs;
+      [
+        gnome-tweaks
+        nautilus-python
+        wl-clipboard
+        pkgs.${namespace}.my-dracula-theme
+        dracula-icon-theme
+      ]
+      ++ (with pkgs.gnomeExtensions; [
+        logo-menu
+        no-overview
+        space-bar
+        top-bar-organizer
+        wireless-hid
+        blur-my-shell
+        rounded-window-corners-reborn
+        clipboard-history
+        gtile
+        dash-in-panel
+        pkgs.${namespace}.my-remove-clock
+        pkgs.${namespace}.gnome-ext-hanabi
+      ]);
 
-      gnome.excludePackages = with pkgs; [
-        epiphany
-        geary
-        gnome-font-viewer
-        gnome-maps
-        gnome-system-monitor
-        gnome-tour
-      ];
-    };
+    programs.dconf.enable = true;
 
-    # Required for app indicators
     services = {
-      udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+      udev.packages = [ pkgs.gnome-settings-daemon ];
       libinput.enable = true;
 
       xserver = {
