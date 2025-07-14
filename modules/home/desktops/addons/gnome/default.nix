@@ -2,6 +2,7 @@
   config,
   lib,
   namespace,
+  pkgs,
   ...
 }:
 let
@@ -9,13 +10,74 @@ let
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.desktops.addons.gnome;
+  default-attrs = lib.mapAttrs (_name: lib.mkDefault);
+  nested-default-attrs = lib.mapAttrs (_name: default-attrs);
 in
 {
   options.${namespace}.desktops.addons.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to enable GNOME addons.";
-    settings = mkOpt attrs {
+    extraPackages = mkOpt (listOf package) (with pkgs; [
+      fragments
+      pkgs.${namespace}.my-dracula-theme
+      dracula-icon-theme
+    ]) "Extra packages to install.";
+    extensions = mkOpt (listOf package) (with pkgs.gnomeExtensions; [
+      logo-menu
+      no-overview
+      space-bar
+      top-bar-organizer
+      wireless-hid
+      blur-my-shell
+      rounded-window-corners-reborn
+      clipboard-history
+      gtile
+      dash-in-panel
+      pkgs.${namespace}.my-remove-clock
+      pkgs.${namespace}.gnome-ext-hanabi
+    ]) "List of gnome extensions";
+
+    settings = mkOpt attrs (nested-default-attrs {
+      "org/gnome/shell" = {
+        enabled-extensions = (map (extension: extension.extensionUuid) cfg.extensions) ++ [
+          "native-window-placement@gnome-shell-extensions.gcampax.github.com"
+          "drive-menu@gnome-shell-extensions.gcampax.github.com"
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+        ];
+
+        disabled-extensions = [ ];
+        disable-user-extensions = false;
+        favorite-apps =
+          lib.optional config.${namespace}.cli.terminals.kitty.enable "kitty.desktop"
+          ++ lib.optional config.${namespace}.browsers.firefox.enable "firefox.desktop"
+          ++ lib.optional config.${namespace}.messages.discord.enable "vesktop.desktop"
+          ++ lib.optional config.${namespace}.editors.emacs.enable "emacs.desktop"
+          ++ lib.optional config.${namespace}.programs.spicetify.enable "spotify.desktop"
+          ++ lib.optional config.${namespace}.multimedia.tauon.enable "tauonmb.desktop"
+
+          ++ lib.optional config.${namespace}.games.taterclient-ddnet.enable "taterclient-ddnet.desktop"
+          ++ lib.optional config.${namespace}.programs.quake-injector.enable "quake-injector.desktop";
+      };
+
+      "org/gnome/mutter" = {
+        dynamic-workspaces = false;
+      };
+
       "org/gnome/desktop/wm/preferences" = {
         num-workspaces = 4;
+        resize-with-right-button = true;
+        theme = "Dracula";
+      };
+
+      "gnome/desktop/peripherals/mouse" = {
+        accel-profile = "flat";
+        natural-scroll = false;
+        speed = 0.9;
+      };
+
+      "gnome/desktop/peripherals/touchpad" = {
+        edge-scrolling-enabled = false;
+        natural-scroll = false;
+        two-finger-scrolling-enabled = true;
       };
 
       "org/gnome/desktop/wm/keybindings" = {
@@ -28,6 +90,8 @@ in
         move-to-workspace-2 = [ "<Shift><Super>2" ];
         move-to-workspace-3 = [ "<Shift><Super>3" ];
         move-to-workspace-4 = [ "<Shift><Super>4" ];
+
+        show-screenshot-ui = [ "<Shift><Super>s" ];
       };
 
       "org/gnome/shell/keybindings" = {
@@ -42,64 +106,51 @@ in
         switch-to-application-8 = [ ];
         switch-to-application-9 = [ ];
         switch-to-application-10 = [ ];
+
+        show-screenshot-ui = [ "<Shift><Super>s" ];
       };
 
-      "org/gnome/shell/extensions/dash-to-dock" = {
-        autohide = true;
-        dock-fixed = false;
-        dock-position = "BOTTOM";
-        pressure-threshold = 200.0;
-        require-pressure-to-show = true;
-        show-favorites = true;
-        hot-keys = false;
+      "org/gnome/desktop/interface" = {
+        # Was overrided by Stylix
+        font-name = "Adwaita Sans 11";
+        enable-hot-corners = false;
       };
 
-      "org/gnome/shell/extensions/just-perfection" = {
-        panel-size = 48;
-        activities-button = false;
+      "org/gtk/settings/file-chooser" = {
+        sort-directories-first = true;
+      };
+
+      "org/gnome/shell/extensions/blur-my-shell" = {
+        brightness = 0.85;
+        dash-opacity = 0.25;
+        sigma = 15;
+        static-blur = true;
+      };
+
+      "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
+        tweak-kitty-terminal = true;
       };
 
       "org/gnome/shell/extensions/Logo-menu" = {
         hide-softwarecentre = true;
 
-        # Use right click to open Activities.
         menu-button-icon-click-type = 3;
-
-        # Use the NixOS logo.
         menu-button-icon-image = 23;
-      };
-
-      "org/gnome/shell/extensions/aylurs-widgets" = {
-        background-clock = false;
-        battery-bar = false;
-        dash-board = false;
-        date-menu-date-format = "%H:%M  %B %m";
-        date-menu-hide-clocks = true;
-        date-menu-hide-system-levels = true;
-        date-menu-hide-user = true;
-
-        # Hide the indincator
-        date-menu-indicator-position = 2;
-
-        media-player = false;
-        media-player-prefer = "firefox";
-        notification-indicator = false;
-        power-menu = false;
-        quick-toggles = false;
-        workspace-indicator = false;
+        symbolic-icon = true;
+        use-custom-icon = false;
       };
 
       "org/gnome/shell/extensions/top-bar-organizer" = {
         left-box-order = [
-          "menuButton"
-          "activities"
-          "dateMenu"
-          "appMenu"
+          "LogoMenu"
+          "Space Bar"
         ];
 
-        center-box-order = [ "Space Bar" ];
+        center-box-order = [ "dash" ];
 
         right-box-order = [
+          "gTile@vibou"
+          "Clipboard History Indicator"
           "keyboard"
           "EmojisMenu"
           "wireless-hid"
@@ -113,19 +164,48 @@ in
         ];
       };
 
+      "org/gnome/shell/extensions/dash-in-panel" = {
+        button-margin = 2;
+        center-dash = false;
+        dim-dot = true;
+        icon-size = 32;
+        panel-height = 37;
+        show-apps = false;
+        show-dash = false;
+        show-label = false;
+        show-running = false;
+      };
+
       "org/gnome/shell/extensions/space-bar/shortcuts" = {
         enable-activate-workspace-shortcuts = false;
       };
 
       "org/gnome/shell/extensions/space-bar/behavior" = {
-        show-empty-workspaces = false;
+        show-empty-workspaces = true;
       };
-    } "Manage the dconf settings.";
+    }) "Manage the dconf settings.";
   };
 
   config = mkIf cfg.enable {
+    home.packages =
+      with pkgs;
+      [
+        gnome-tweaks
+      ]
+      ++ cfg.extraPackages;
+
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+
+      };
+    };
+
     dconf = {
       enable = true;
+
       inherit (cfg) settings;
     };
   };

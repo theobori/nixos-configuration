@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib.${namespace}) enabled;
+  inherit (lib.${namespace}) enabled disabled;
 in
 {
   imports = [
@@ -35,17 +35,19 @@ in
     security.doas = enabled;
 
     desktops = {
-      plasma6 = enabled;
+      plasma6 = disabled;
+      gnome = enabled;
     };
     display-managers = {
-      sddm = enabled;
+      sddm = disabled;
+      gdm = enabled;
     };
 
     services = {
       virtualisation = {
         kvm = enabled;
         docker = enabled;
-        flatpak = enabled;
+        # flatpak = enabled;
       };
       xremap = enabled;
     };
