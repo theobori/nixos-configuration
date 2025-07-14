@@ -18,6 +18,7 @@ in
     enable = mkBoolOpt false "Whether or not to enable GNOME addons.";
     extraPackages = mkOpt (listOf package) (with pkgs; [
       fragments
+      keypunch
       pkgs.${namespace}.my-dracula-theme
       dracula-icon-theme
     ]) "Extra packages to install.";
