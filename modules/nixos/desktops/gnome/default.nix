@@ -17,29 +17,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages =
-      with pkgs;
-      [
-        gnome-tweaks
-        nautilus-python
-        wl-clipboard
-        pkgs.${namespace}.my-dracula-theme
-        dracula-icon-theme
-      ]
-      ++ (with pkgs.gnomeExtensions; [
-        logo-menu
-        no-overview
-        space-bar
-        top-bar-organizer
-        wireless-hid
-        blur-my-shell
-        rounded-window-corners-reborn
-        clipboard-history
-        gtile
-        dash-in-panel
-        pkgs.${namespace}.my-remove-clock
-        pkgs.${namespace}.gnome-ext-hanabi
-      ]);
+    environment.systemPackages = with pkgs; [
+      gnome-tweaks
+      nautilus-python
+      wl-clipboard
+      pkgs.${namespace}.my-dracula-theme
+      dracula-icon-theme
+    ];
 
     programs.dconf.enable = true;
 

@@ -191,7 +191,8 @@ in
       [
         gnome-tweaks
       ]
-      ++ cfg.extraPackages;
+      ++ cfg.extraPackages
+      ++ cfg.extensions;
 
     gtk = {
       enable = true;
