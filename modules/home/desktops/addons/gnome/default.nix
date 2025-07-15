@@ -125,6 +125,12 @@ in
         static-blur = true;
       };
 
+      "org/gnome/shell/extensions/gtile" = {
+        auto-close = true;
+        follow-cursor = false;
+        moveresize-enabled = false;
+      };
+
       "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
         tweak-kitty-terminal = true;
       };
