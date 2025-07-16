@@ -17,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      services.flatpak.packages = [ ":${./sober.flatpakref}" ];
+      # services.flatpak.packages = [ ":${./sober.flatpakref}" ];
     };
   };
 }

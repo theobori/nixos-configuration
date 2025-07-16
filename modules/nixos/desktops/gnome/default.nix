@@ -6,13 +6,13 @@
   ...
 }:
 let
-  inherit (lib) types mkIf;
+  inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.desktops.gnome;
 in
 {
-  options.${namespace}.desktops.gnome = with types; {
+  options.${namespace}.desktops.gnome = {
     enable = mkBoolOpt false "Whether or not to use Gnome as the desktop environment.";
   };
 

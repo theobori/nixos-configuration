@@ -126,7 +126,7 @@
         nixcord.homeModules.nixcord
         plasma-manager.homeManagerModules.plasma-manager
         spicetify-nix.homeManagerModules.default
-        flatpaks.homeModule
+        # flatpaks.homeModule
       ];
 
       systems = {

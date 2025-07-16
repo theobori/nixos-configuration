@@ -47,7 +47,7 @@ in
       virtualisation = {
         kvm = enabled;
         docker = enabled;
-        # flatpak = enabled;
+        flatpak = enabled;
       };
       xremap = enabled;
     };

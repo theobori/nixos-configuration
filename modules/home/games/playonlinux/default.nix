@@ -17,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      services.flatpak.packages = [ "flathub:app/com.playonlinux.PlayOnLinux4//stable" ];
+      # services.flatpak.packages = [ "flathub:app/com.playonlinux.PlayOnLinux4//stable" ];
     };
   };
 }
