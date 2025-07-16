@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.services.virtualisation.flatpak;
 in
@@ -15,5 +15,9 @@ in
     enable = mkBoolOpt false "Enable flatpak virtualisation.";
   };
 
-  config = mkIf cfg.enable { services.flatpak = enabled; };
+  config = mkIf cfg.enable {
+    services.flatpak = {
+      enable = true;
+    };
+  };
 }

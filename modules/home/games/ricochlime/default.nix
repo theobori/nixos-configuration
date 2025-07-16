@@ -17,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      services.flatpak.packages = [ "flathub:app/com.adilhanney.ricochlime//stable" ];
+      # services.flatpak.packages = [ "flathub:app/com.adilhanney.ricochlime//stable" ];
     };
   };
 }

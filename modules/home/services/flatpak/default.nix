@@ -23,8 +23,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.flatpak = {
-      inherit (cfg) packages remotes;
-    };
+    # services.flatpak = {
+    #   inherit (cfg) packages remotes;
+    # };
   };
 }

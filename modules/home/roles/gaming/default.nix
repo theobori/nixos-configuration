@@ -28,9 +28,9 @@ in
         taisei = enabled;
 
         # Flatpaks
-        sober = enabled;
-        ricochlime = enabled;
-        playonlinux = enabled;
+        # sober = enabled;
+        # ricochlime = enabled;
+        # playonlinux = enabled;
       };
     };
   };
