@@ -85,59 +85,6 @@ in
         toolbar = true;
         bookmarks = [
           {
-            name = "Aesthetics";
-            bookmarks = [
-              {
-                name = "Vampire | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Vampire";
-              }
-              {
-                name = "Y2K | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Y2K#Music";
-              }
-              {
-                name = "Traumacore | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Traumacore#Playlists";
-              }
-              {
-                name = "Pale Grunge | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Pale_Grunge";
-              }
-              {
-                name = "Plant Mom | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Plant_Mom";
-              }
-              {
-                name = "Rococo | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Rococo";
-              }
-              {
-                name = "Bloomcore | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Bloomcore";
-              }
-              {
-                name = "Cyber Fairy Grunge | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Cyber_Fairy_Grunge";
-              }
-              {
-                name = "Devilcore | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Devilcore";
-              }
-              {
-                name = "Darkest Academia | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Darkest_Academia";
-              }
-              {
-                name = "Fairycore | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Fairycore";
-              }
-              {
-                name = "Light Academia | Aesthetics Wiki | Fandom";
-                url = "https://aesthetics.fandom.com/wiki/Light_Academia";
-              }
-            ];
-          }
-          {
             name = "Zines";
             bookmarks = [
               {
