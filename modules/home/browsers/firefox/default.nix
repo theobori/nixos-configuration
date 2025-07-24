@@ -78,7 +78,8 @@ in
       Preferences = { };
     } "Policies to apply to firefox.";
 
-    # I dont want to copy paste the whole submodule type
+    # I dont want to copy paste the whole submodule type,
+    # so I use (listOf attrs).
     bookmarks = mkOpt (listOf attrs) [
       {
         name = "Barre personnelle";
@@ -164,8 +165,12 @@ in
             url = "https://repology.org/maintainer/theo1.bori@epitech.eu";
           }
           {
-            name = "AI Chat";
+            name = "AI";
             url = "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1";
+          }
+          {
+            name = "No AI";
+            url = "https://noai.duckduckgo.com";
           }
           {
             name = "Cinéma";
@@ -173,14 +178,6 @@ in
               {
                 name = "| Berlinale |";
                 url = "https://www.berlinale.de/en/home.html";
-              }
-              {
-                name = "(337) SHOWING UP - Bande-annonce - YouTube";
-                url = "https://www.youtube.com/watch?v=uTckrM6O8lQ&ab_channel=DiaphanaDistribution";
-              }
-              {
-                name = "Fermer les yeux de Víctor Erice";
-                url = "https://www.google.com/search?client=firefox-b-d&sca_esv=ee9f43d054edb7e5&sxsrf=ADLYWIJjIEqIOXSd0s0dBh1XxAlTSIiKFg:1728745583391&q=Fermer+les+yeux+de+V%C3%ADctor+Erice&source=lnms&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgTlosgQSuzBMlnAdio07UCId2t1azIRgowYJD0nDbqEIN7XYIyS3uBYzHmWPp2pnW1aUeS8cvBgTxtkh0oXYZb9sk4SqfagNzG1TA2KSV_2jiE2u7h5ECeKS1944y5sV2XkToJp-7trbMLUYyqf9k9WkJ34l8HUxr-bw8aCHxPE1stW0M&sa=X&ved=2ahUKEwjMuZ6Tj4mJAxWCT6QEHUT4GUEQ0pQJegQIEhAB&biw=1920&bih=950&dpr=1";
               }
               {
                 name = "SensCritique";
@@ -195,7 +192,7 @@ in
                 url = "https://www.cahiersducinema.com/fr-fr";
               }
               {
-                name = "Will never pay for yggtorrent";
+                name = "I Will never pay for yggtorrent";
                 url = "https://www.yggtorrent.top";
               }
 
