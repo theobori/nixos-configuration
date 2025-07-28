@@ -69,7 +69,7 @@
     };
 
     fast-anime = {
-      url = "github:Benex254/FastAnime/v2.9.9"; # The version on the master branch is not building
+      url = "github:Benex254/FastAnime";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
