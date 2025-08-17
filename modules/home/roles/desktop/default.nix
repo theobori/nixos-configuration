@@ -40,7 +40,6 @@ in
 
       cli = {
         programs = {
-          fast-anime = enabled;
           xkill = enabled;
         };
         terminals = {
