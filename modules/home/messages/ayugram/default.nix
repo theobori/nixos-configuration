@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   lib,
@@ -18,6 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop ];
+    home.packages = with pkgs; [ ayugram-desktop ];
   };
 }
