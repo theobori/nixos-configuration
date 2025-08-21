@@ -51,7 +51,8 @@ in
           "nix"
           "power"
           "docker"
-        ] ++ user.extraGroups;
+        ]
+        ++ user.extraGroups;
       }
       // user.extraOptions
     ) cfg.users;

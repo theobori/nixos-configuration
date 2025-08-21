@@ -20,6 +20,7 @@ in
       system = {
         nix = enabled;
         locale = enabled;
+        uutils-coreutils = enabled;
       };
 
       programs = {

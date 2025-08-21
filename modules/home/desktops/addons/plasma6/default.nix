@@ -117,7 +117,8 @@ in
 
       workspace = {
         enableMiddleClickPaste = true;
-      } // cfg.extraWorkspace;
+      }
+      // cfg.extraWorkspace;
 
       inherit (cfg) kscreenlocker;
 
