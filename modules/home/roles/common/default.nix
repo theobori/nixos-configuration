@@ -25,6 +25,10 @@ in
 
       programs.bitwarden = enabled;
 
+      services = {
+        lorri = enabled;
+      };
+
       system = {
         filesystem = enabled;
         nix = enabled;
