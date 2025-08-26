@@ -86,56 +86,6 @@ in
         toolbar = true;
         bookmarks = [
           {
-            name = "Zines";
-            bookmarks = [
-              {
-                name = "OpenBSD Webzine";
-                url = "https://webzine.puffy.cafe/";
-              }
-              {
-                name = "wizard zines";
-                url = "https://wizardzines.com/";
-              }
-            ];
-          }
-          {
-            name = "Intéressants";
-            bookmarks = [
-              {
-                name = "hashbang/shell-server: #! shell server base images, ready to boot and allow user logins.";
-                url = "https://github.com/hashbang/shell-server";
-              }
-              {
-                name = "Webring";
-                url = "https://webring.xxiivv.com/#icons";
-              }
-              {
-                name = "hundred rabbits";
-                url = "https://100r.co/";
-              }
-              {
-                name = "icyphox";
-                url = "https://icyphox.sh/";
-              }
-              {
-                name = "Accueil | JdLL";
-                url = "https://jdll.org/";
-              }
-              {
-                name = "DevOps Roadmap & Learning Path | Kodekloud";
-                url = "https://kodekloud.com/learning-path/devops/";
-              }
-              {
-                name = "Site search » Telechargement gratuit des bd comics et mangas";
-                url = "https://planete-bd.org/";
-              }
-            ];
-          }
-          {
-            name = "ArchWiki";
-            url = "https://wiki.archlinux.org/";
-          }
-          {
             name = "Remove Paywall";
             url = "https://www.removepaywall.com/";
           }
