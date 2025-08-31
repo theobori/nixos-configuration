@@ -75,11 +75,6 @@
 
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/stable-v3";
 
-    lix = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hosts.url = "github:StevenBlack/hosts";
 
     xremap-flake.url = "github:xremap/nix-flake";
@@ -110,7 +105,6 @@
       overlays = with inputs; [
         nur.overlays.default
         nixgl.overlay
-        lix.overlays.default
       ];
 
       homes.modules = with inputs; [
