@@ -34,10 +34,15 @@ in
     security.sudo = enabled;
     security.doas = enabled;
 
+    hardware = {
+      corsair = enabled;
+    };
+
     desktops = {
       plasma6 = enabled;
       # gnome = enabled;
     };
+
     display-managers = {
       sddm = enabled;
       # gdm = enabled;
