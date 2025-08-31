@@ -14,7 +14,7 @@ in
 {
   options.${namespace}.system.nix = with types; {
     enable = mkBoolOpt false "Whether or not to manage nix configuration.";
-    package = mkOpt package pkgs.lix "Which nix package to use.";
+    package = mkOpt package pkgs.lixPackageSets.stable.lix "Which nix package to use.";
   };
 
   config = mkIf cfg.enable {
