@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib.${namespace}) enabled;
+  inherit (lib.${namespace}) disabled enabled;
 in
 {
   imports = [
@@ -29,13 +29,14 @@ in
 
   };
 
-  ${namespace} = {
+  ${namespace} = rec {
     boot.plymouth = enabled;
     security.sudo = enabled;
     security.doas = enabled;
 
     hardware = {
-      corsair = enabled;
+      corsair = disabled; # Not using my CORSAIR keyboard anymore.
+      razer = enabled;
     };
 
     desktops = {
@@ -58,7 +59,9 @@ in
     };
 
     user.users = {
-      theobori = { };
+      theobori = {
+        extraGroups = lib.optional hardware.razer.enable "openrazer";
+      };
     };
 
     roles = {
