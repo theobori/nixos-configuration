@@ -112,7 +112,7 @@
         stylix.homeModules.stylix
         sops-nix.homeManagerModules.sops
         nixcord.homeModules.nixcord
-        plasma-manager.homeManagerModules.plasma-manager
+        plasma-manager.homeModules.plasma-manager
         spicetify-nix.homeManagerModules.default
         # flatpaks.homeModule
       ];
