@@ -65,6 +65,7 @@ in
         silentTyping = enabled;
         typingTweaks = enabled;
         viewIcons = enabled;
+        clearURLs = enabled;
       };
     } "Manage the nixcord configuration.";
   };
