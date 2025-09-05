@@ -37,6 +37,9 @@ in
       (setq display-line-numbers-type 'relative)
       (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+      ;; Needed to request GPG passphrase with Emacs
+      (setq epa-pinentry-mode 'loopback)
+
       ;; Disable the ring bell sound
       (setq ring-bell-function 'ignore)
 
