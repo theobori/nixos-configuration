@@ -26,7 +26,11 @@ in
 
     services.gpg-agent = {
       enable = true;
-      pinentry.package = pkgs.pinentry-curses;
+      pinentry.package = pkgs.pinentry-qt;
+
+      extraConfig = ''
+        allow-loopback-pinentry
+      '';
     };
 
     sops.secrets = mkIf (config."${namespace}".services.sops.enable && cfg.useSops) {
