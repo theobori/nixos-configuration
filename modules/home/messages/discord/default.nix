@@ -66,6 +66,7 @@ in
         typingTweaks = enabled;
         viewIcons = enabled;
         clearURLs = enabled;
+        imageFilename = enabled;
       };
     } "Manage the nixcord configuration.";
   };
