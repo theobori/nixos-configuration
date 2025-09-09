@@ -49,6 +49,7 @@ in
         twitchnosub
         alerte-sur-les-sites-genai
         nitter
+        imginn
       ])
     ) "Extensions to install.";
 
