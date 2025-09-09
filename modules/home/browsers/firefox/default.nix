@@ -48,6 +48,7 @@ in
         ttv-lol-pro
         twitchnosub
         alerte-sur-les-sites-genai
+        nitter
       ])
     ) "Extensions to install.";
 
