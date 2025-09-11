@@ -99,6 +99,9 @@ in
       };
     };
 
-    home.packages = with pkgs; [ gitmoji-cli ];
+    home.packages = with pkgs; [
+      gitmoji-cli
+      commitizen
+    ];
   };
 }
