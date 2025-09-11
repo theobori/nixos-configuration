@@ -1,11 +1,7 @@
 { lib, pkgs, ... }:
-let
-  inherit (pkgs.nur.repos.rycee) firefox-addons;
-  version = "1.3";
-in
-firefox-addons.buildFirefoxXpiAddon {
+pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon rec {
   pname = "skip-netflix-intro";
-  inherit version;
+  version = "1.3";
   addonId = "skip_netflix_intro@jonas-hellmann.de";
   url = "https://addons.mozilla.org/firefox/downloads/file/3898270/skip_netflix_intro-${version}.xpi";
   sha256 = "sha256-fcoBZcMMrQi5kYh4k27DrlmnZ9lUMYcVwnkjxUPxYK4=";
