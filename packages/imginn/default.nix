@@ -1,11 +1,7 @@
 { lib, pkgs, ... }:
-let
-  inherit (pkgs.nur.repos.rycee) firefox-addons;
-  version = "3.9";
-in
-firefox-addons.buildFirefoxXpiAddon {
+pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon rec {
   pname = "imginn";
-  inherit version;
+  version = "3.9";
   addonId = "{4c62644f-fc4b-4d44-8b51-12f3fb7423b2}";
   url = "https://addons.mozilla.org/firefox/downloads/file/4250290/imginn-${version}.xpi";
   sha256 = "sha256-SMUDzDLZCQk+yM8lJUVJ2LXhtIWD1yNvKu9L6yeb12I=";
