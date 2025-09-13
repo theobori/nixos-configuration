@@ -67,6 +67,10 @@ in
         viewIcons = enabled;
         clearURLs = enabled;
         imageFilename = enabled;
+        showHiddenChannels = {
+          enable = true;
+          showMode = "muted";
+        };
       };
     } "Manage the nixcord configuration.";
   };
