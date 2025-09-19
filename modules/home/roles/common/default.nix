@@ -19,6 +19,7 @@ in
     ${namespace} = {
       browsers = {
         firefox = enabled;
+        floorp = enabled;
         librewolf = enabled;
         lagrange = enabled;
       };
