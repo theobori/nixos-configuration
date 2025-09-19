@@ -1,4 +1,7 @@
 {
+  browserName ? "firefox",
+}:
+{
   config,
   lib,
   pkgs,
@@ -15,11 +18,11 @@ let
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
   inherit (pkgs.nur.repos.rycee) firefox-addons;
 
-  cfg = config.${namespace}.browsers.firefox;
+  cfg = config.${namespace}.browsers.${browserName};
 in
 {
-  options.${namespace}.browsers.firefox = with types; {
-    enable = mkBoolOpt false "Enable firefox browser.";
+  options.${namespace}.browsers.${browserName} = with types; {
+    enable = mkBoolOpt false "Enable ${browserName} browser.";
 
     extraConfig = mkOpt str "" "Extra configuration for the user profile JS file.";
     gpuAcceleration = mkBoolOpt false "Enable GPU acceleration.";
@@ -78,7 +81,7 @@ in
         "wikipedia@search.mozilla.org".installation_mode = "blocked";
       };
       Preferences = { };
-    } "Policies to apply to firefox.";
+    } "Policies to apply to ${browserName}.";
 
     # I dont want to copy paste the whole submodule type,
     # so I use (listOf attrs).
@@ -95,11 +98,11 @@ in
             name = "Nix";
             bookmarks = [
               {
-                name = "Issues · NixOS/nixpkgs";
+                name = "Nixpkgs issues";
                 url = "https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue+is%3Aopen+label%3A%220.kind%3A+packaging+request%22";
               }
               {
-                name = "nixpkgs/doc/languages-frameworks/python.section.md at master · NixOS/nixpkgs";
+                name = "Python Nix documentation";
                 url = "https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md#sec-using-stdenv";
               }
               {
@@ -107,8 +110,8 @@ in
                 url = "https://github.com/NixOS/nixpkgs/issues/315337";
               }
               {
-                name = "nixpkgs/pkgs at master · NixOS/nixpkgs";
-                url = "https://github.com/NixOS/nixpkgs/tree/master/pkgs#reviewing-contributions";
+                name = "Nixpkgs";
+                url = "https://github.com/NixOS/nixpkgs";
               }
             ];
           }
@@ -176,16 +179,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.firefox.profileNames = [ config.${namespace}.user.name ];
+    stylix.targets.${browserName}.profileNames = [ config.${namespace}.user.name ];
 
     xdg.mimeApps.defaultApplications = {
-      "text/html" = [ "firefox.desktop" ];
-      "text/xml" = [ "firefox.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" ];
+      "text/html" = [ "${browserName}.desktop" ];
+      "text/xml" = [ "${browserName}.desktop" ];
+      "x-scheme-handler/http" = [ "${browserName}.desktop" ];
+      "x-scheme-handler/https" = [ "${browserName}.desktop" ];
     };
 
-    programs.firefox = {
+    programs.${browserName} = {
       enable = true;
 
       profiles = {

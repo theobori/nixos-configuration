@@ -31,11 +31,11 @@
               with pkgs;
               [
                 python3
-                pypy
               ]
               ++ (with pkgs.python3Packages; [
                 pip
                 venvShellHook
+                pytest
               ]);
           };
         };
