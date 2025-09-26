@@ -66,6 +66,7 @@ in
 
     roles = {
       desktop = enabled;
+      gaming = enabled;
     };
   };
 
