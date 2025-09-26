@@ -62,7 +62,7 @@ in
           tealdeer = enabled;
           krabby = enabled;
           genact = enabled;
-          ratiomaster = enabled;
+          lazydocker = enabled;
         };
       };
     };

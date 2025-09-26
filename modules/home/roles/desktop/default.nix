@@ -40,6 +40,7 @@ in
 
       cli = {
         programs = {
+          ratiomaster = enabled;
           xkill = enabled;
         };
         terminals = {
