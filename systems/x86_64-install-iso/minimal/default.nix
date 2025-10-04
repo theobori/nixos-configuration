@@ -21,10 +21,13 @@ in
     openssh = enabled;
   };
 
-  environment.systemPackages = map lib.lowPrio [
-    pkgs.curl
-    pkgs.gitMinimal
-  ];
+  environment.systemPackages = map lib.lowPrio (
+    with pkgs;
+    [
+      curl
+      gitMinimal
+    ]
+  );
 
   ${namespace} = {
     system = {
