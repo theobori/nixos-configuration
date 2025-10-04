@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project"
+version = "0.0.1"
+dependencies = []
+requires-python = ">=3.13.5"
+authors = [
+  {name = "Théo Bori", email = "nagi@tilde.team"}
+]
+maintainers = [
+  {name = "Théo Bori", email = "nagi@tilde.team"}
+]
+description = ""
+readme = "README.md"
+license-files = ["LICENSE"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/theobori/project"
+Documentation = "https://github.com/theobori/project"
+Repository = "https://github.com/theobori/project"
+
+[tool.setuptools]
+packages = ["project"]

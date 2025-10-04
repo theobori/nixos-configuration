@@ -2,6 +2,7 @@
   lib,
   buildPythonPackage,
   setuptools,
+  pytestCheckHook,
 }:
 buildPythonPackage {
   pname = "pname";
@@ -10,16 +11,17 @@ buildPythonPackage {
 
   src = ./.;
 
-  dependencies = [ ];
+  build-system = [ setuptools ];
 
-  nativeBuildInputs = [ setuptools ];
+  pythonImportsCheck = [ "project" ];
 
-  pythonImportsCheck = [ "complete" ];
+  nativeCheckInputs = [
+    pytestCheckHook
+  ];
 
   meta = {
     description = "My project description";
     homepage = "My project homepage";
     license = lib.licenses.mit;
-    mainProgram = "program name";
   };
 }
