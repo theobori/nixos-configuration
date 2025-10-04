@@ -7,6 +7,11 @@ buildGoModule {
 
   vendorHash = lib.fakeHash;
 
+  ldflags = [
+    "-s"
+    "-w"
+  ];
+
   meta = {
     description = "My project description";
     homepage = "My project homepage";

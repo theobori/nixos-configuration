@@ -16,12 +16,13 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+
+        inherit (pkgs) python3Packages;
       in
       {
         packages = {
-          default = pkgs.callPackage ./. { inherit (pkgs.python3Packages) buildPythonPackage setuptools; };
+          default = python3Packages.callPackage ./. { };
         };
 
         devShells = {
@@ -32,7 +33,7 @@
               [
                 python3
               ]
-              ++ (with pkgs.python3Packages; [
+              ++ (with python3Packages; [
                 pip
                 venvShellHook
                 pytest
