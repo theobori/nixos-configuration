@@ -26,7 +26,7 @@ in
     services = {
       sops = {
         enable = true;
-        defaultSopsFile = lib.snowfall.fs.get-file "secrets/laptop/theobori/secrets.yaml";
+        defaultSopsFile = lib.snowfall.fs.get-file "secrets/brian/theobori/secrets.yaml";
       };
     };
 
