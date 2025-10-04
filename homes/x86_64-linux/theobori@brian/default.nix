@@ -1,6 +1,6 @@
 { lib, namespace, ... }:
 let
-  inherit (lib.${namespace}) enabled disabled;
+  inherit (lib.${namespace}) enabled;
 in
 {
   theobori-nix = {
@@ -9,9 +9,6 @@ in
       desktop = enabled;
       gaming = enabled;
     };
-
-    # xonotic-data is too long to download
-    games.xonotic = disabled;
 
     user = {
       enable = true;
