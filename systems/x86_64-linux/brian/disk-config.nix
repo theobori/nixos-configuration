@@ -22,6 +22,15 @@
                 mountpoint = "/boot";
               };
             };
+            lfs = {
+              name = "LFS";
+              size = "150G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/mnt/lfs";
+              };
+            };
             luks = {
               size = "100%";
               content = {
