@@ -73,7 +73,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/stable-v3";
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
 
     hosts.url = "github:StevenBlack/hosts";
 
