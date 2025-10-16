@@ -58,6 +58,8 @@ in
       "nix.enableLanguageServer" = "true";
       "nix.serverPath" = "nixd";
       "editor.fontLigatures" = "true";
+      "workbench.secondarySideBar.defaultVisibility" = "hidden";
+
     } "User settings.";
   };
 
