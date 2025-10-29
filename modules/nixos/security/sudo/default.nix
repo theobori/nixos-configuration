@@ -15,5 +15,7 @@ in
     enable = mkBoolOpt false "Whether or not to replace sudo with sudo.";
   };
 
-  config = mkIf cfg.enable { security.sudo = enabled; };
+  config = mkIf cfg.enable {
+    security.sudo-rs = enabled;
+  };
 }
