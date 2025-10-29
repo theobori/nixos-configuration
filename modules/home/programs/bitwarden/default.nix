@@ -16,5 +16,5 @@ in
     enable = mkBoolOpt false "Whether or not to manage bitwarden.";
   };
 
-  config = mkIf cfg.enable { home.packages = with pkgs; [ bitwarden ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ bitwarden-desktop ]; };
 }
