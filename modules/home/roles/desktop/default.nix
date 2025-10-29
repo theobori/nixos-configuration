@@ -50,7 +50,7 @@ in
       };
 
       hardware = {
-        razer = enabled;
+        razer = disabled;
       };
 
       multimedia = {
@@ -64,7 +64,7 @@ in
 
       programs = {
         inkscape = enabled;
-        cambalache = enabled;
+        cambalache = disabled;
         obsidian = enabled;
         qbittorrent = enabled;
         spicetify = enabled;
