@@ -249,6 +249,21 @@ in
               "signon.generation.enabled" = false;
               "signon.management.page.breach-alerts.enabled" = false;
               "xpinstall.signatures.required" = false;
+              "browser.ml.enable" = false;
+              "browser.ml.chat.enabled" = false;
+              "browser.ml.chat.menu" = false;
+              "browser.ml.chat.page" = false;
+              "browser.ml.chat.page.footerBadge" = false;
+              "browser.ml.chat.page.menuBadge" = false;
+              "cookiebanners.service.mode.privateBrowsing" = 2;
+              "cookiebanners.service.mode" = 2;
+              "privacy.donottrackheader.enabled" = true;
+              "privacy.fingerprintingProtection" = true;
+              "privacy.resistFingerprinting" = true;
+              "privacy.trackingprotection.emailtracking.enabled" = true;
+              "privacy.trackingprotection.enabled" = true;
+              "privacy.trackingprotection.fingerprinting.enabled" = true;
+              "privacy.trackingprotection.socialtracking.enabled" = true;
             }
             (optionalAttrs cfg.gpuAcceleration {
               "dom.webgpu.enabled" = true;
