@@ -88,6 +88,11 @@ in
     };
   };
 
+  # See https://dataswamp.org/~solene/2022-01-13-nixos-hardened.html
+  # disable coredump that could be exploited later
+  # and also slow down the system when something crash
+  systemd.coredump.enable = false;
+
   ${namespace} = rec {
     boot.plymouth = enabled;
     security.sudo = enabled;
