@@ -31,6 +31,10 @@ in
         networking = enabled;
       };
 
+      services = {
+        clamav = enabled;
+      };
+
       styles.stylix = enabled;
 
       networking.stevenBlackHosts = enabled;
