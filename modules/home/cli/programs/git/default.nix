@@ -18,7 +18,7 @@ in
 
     signByDefault = mkOpt bool true "Whether to sign commits by default.";
     signingKey =
-      mkOpt str "EEFBCC3AC529CFD1943DA75CBDD57BE99D555965"
+      mkOpt str "063656A56E315FFDBE4685226D22B0682CCF9294"
         "The GnuPG signing key fingerprint sign commits with.";
     userName = mkOpt str user.fullName "The name to configure git with.";
     userEmail = mkOpt str user.email "The email to configure git with.";

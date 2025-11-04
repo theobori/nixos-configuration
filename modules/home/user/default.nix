@@ -20,7 +20,7 @@ in
 {
   options.${namespace}.user = {
     enable = mkOpt types.bool false "Whether to configure the user account.";
-    email = mkOpt types.str "theo1.bori@epitech.eu" "The email of the user.";
+    email = mkOpt types.str "theobori@disroot.org" "The email of the user.";
     fullName = mkOpt types.str "Théo Bori" "The full name of the user.";
     home = mkOpt (types.nullOr types.str) home-directory "The user's home directory.";
     name = mkOpt (types.nullOr types.str) config.snowfallorg.user.name "The user account.";
