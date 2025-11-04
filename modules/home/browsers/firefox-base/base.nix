@@ -92,7 +92,7 @@ in
         bookmarks = [
           {
             name = "Remove Paywall";
-            url = "https://www.removepaywall.com/";
+            url = "https://www.removepaywall.com";
           }
           {
             name = "Nix";
@@ -140,7 +140,7 @@ in
               }
               {
                 name = "Letterboxd";
-                url = "https://letterboxd.com/";
+                url = "https://letterboxd.com";
               }
               {
                 name = "Cahiers du cinéma";
@@ -170,7 +170,31 @@ in
             name = "Excalidraw";
             url = "https://excalidraw.com";
           }
-
+          {
+            name = "Disroot";
+            url = "https://disroot.org";
+          }
+          {
+            name = "Link aggregators";
+            bookmarks = [
+              {
+                name = "Journal du hacker";
+                url = "https://www.journalduhacker.net";
+              }
+              {
+                name = "Tilde news";
+                url = "https://tilde.news";
+              }
+              {
+                name = "Lobsters";
+                url = "https://lobste.rs/";
+              }
+              {
+                name = "Hacker News";
+                url = "https://news.ycombinator.com/";
+              }
+            ];
+          }
         ];
       }
     ] "Preloaded bookmarks.";
