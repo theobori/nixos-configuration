@@ -60,6 +60,7 @@ in
             (optionalString config.${namespace}.editors.emacs.enable "applications:emacs.desktop")
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
             (optionalString config.${namespace}.messages.deltachat.enable "applications:deltachat.desktop")
+            (optionalString config.${namespace}.messages.thunderbird.enable "applications:thunderbird.desktop")
             (optionalString config.${namespace}.games.taterclient-ddnet.enable
               "applications:taterclient-ddnet.desktop"
             )
@@ -108,7 +109,7 @@ in
       enable = true;
 
       workspace = {
-        enableMiddleClickPaste = true;
+        enableMiddleClickPaste = false;
       }
       // cfg.extraWorkspace;
 
