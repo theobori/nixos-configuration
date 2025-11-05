@@ -54,20 +54,12 @@ in
       {
         iconTasks = {
           launchers = [
-            "applications:systemsettings.desktop"
-
             (optionalString config.${namespace}.cli.terminals.kitty.enable "applications:kitty.desktop")
             (optionalString config.${namespace}.browsers.floorp.enable "applications:floorp.desktop")
             (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
             (optionalString config.${namespace}.editors.emacs.enable "applications:emacs.desktop")
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
-            (optionalString config.${namespace}.multimedia.tauon.enable "applications:tauonmb.desktop")
-
-            # Wrong file naming upstream side
-            (optionalString config.${namespace}.messages.ayugram.enable
-              "applications:com.ayugram.desktop.desktop"
-            )
-
+            (optionalString config.${namespace}.messages.deltachat.enable "applications:deltachat.desktop")
             (optionalString config.${namespace}.games.taterclient-ddnet.enable
               "applications:taterclient-ddnet.desktop"
             )

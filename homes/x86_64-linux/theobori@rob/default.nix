@@ -21,7 +21,7 @@ in
 
     messages = {
       discord = enabled;
-      ayugram = enabled;
+      deltachat = enabled;
     };
 
     services = {
