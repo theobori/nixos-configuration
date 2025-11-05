@@ -7,6 +7,7 @@ in
     roles = {
       desktop = enabled;
       gaming = enabled;
+      social = enabled;
     };
 
     user = {
@@ -17,11 +18,6 @@ in
     cli.programs = {
       ssh.useSops = true;
       gpg.useSops = true;
-    };
-
-    messages = {
-      discord = enabled;
-      deltachat = enabled;
     };
 
     services = {
