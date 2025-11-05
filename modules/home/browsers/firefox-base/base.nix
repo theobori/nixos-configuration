@@ -195,6 +195,27 @@ in
               }
             ];
           }
+          {
+            name = "Pubnixes I use";
+            bookmarks = [
+              {
+                name = "~team";
+                url = "https://tilde.team";
+              }
+              {
+                name = "~town";
+                url = "https://tilde.town";
+              }
+              {
+                name = "~pink";
+                url = "https://tilde.pink";
+              }
+              {
+                name = "Comsic Voyage";
+                url = "https://cosmic.voyage";
+              }
+            ];
+          }
         ];
       }
     ] "Preloaded bookmarks.";
