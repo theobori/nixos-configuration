@@ -117,7 +117,7 @@ in
           }
           {
             name = "Repology";
-            url = "https://repology.org/maintainer/theo1.bori@epitech.eu";
+            url = "https://repology.org/maintainer/theobori@disroot.org";
           }
           {
             name = "AI";
