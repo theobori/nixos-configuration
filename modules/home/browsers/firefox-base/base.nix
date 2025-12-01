@@ -211,7 +211,7 @@ in
                 url = "https://tilde.pink";
               }
               {
-                name = "Comsic Voyage";
+                name = "Cosmic Voyage";
                 url = "https://cosmic.voyage";
               }
             ];
