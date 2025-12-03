@@ -46,14 +46,16 @@ in
         betterGifAltText = enabled;
         betterSettings = enabled;
         callTimer = disabled; # Causes voice chat crashloop for the moment
-        copyUserURLs = enabled;
         disableCallIdle = enabled;
         fixImagesQuality = enabled;
         forceOwnerCrown = enabled;
         friendInvites = enabled;
         friendsSince = enabled;
         fullSearchContext = enabled;
-        moreCommands = enabled;
+        moreCommands = {
+          # Upstream has decided to make this plugin Equicord only
+          inherit (config.programs.nixcord.discord.equicord) enable;
+        };
         newGuildSettings = enabled;
         noOnboardingDelay = enabled;
         permissionsViewer = enabled;
@@ -65,11 +67,11 @@ in
         silentTyping = enabled;
         typingTweaks = enabled;
         viewIcons = enabled;
-        clearURLs = enabled;
+        clearUrLs = enabled;
         imageFilename = enabled;
         showHiddenChannels = {
           enable = true;
-          showMode = "muted";
+          showMode = 1;
         };
       };
     } "Manage the nixcord configuration.";
