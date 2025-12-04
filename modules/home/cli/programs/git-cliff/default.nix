@@ -13,7 +13,6 @@ in
 {
   options.${namespace}.cli.programs.git-cliff = {
     enable = mkBoolOpt false "Whether or not to enable git-cliff.";
-
   };
 
   config = mkIf cfg.enable {

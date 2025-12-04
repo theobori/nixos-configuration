@@ -45,6 +45,7 @@ in
         graph = "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order";
         stashes = "stash list";
         count = "rev-list --count HEAD";
+        pf = "push -f";
       };
 
       extraConfig = {
