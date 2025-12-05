@@ -81,6 +81,7 @@ in
         cdi = "zi";
         curl = "curlie";
         tree = "eza --tree";
+        v = "vkquake -window -width 1920 -height 1080";
       };
 
       functions = {
