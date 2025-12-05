@@ -34,6 +34,7 @@ in
         elixir-lsp.vscode-elixir-ls
         njpwerner.autodocstring
         tamasfe.even-better-toml
+        usernamehw.errorlens
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
