@@ -56,9 +56,9 @@ in
       "files.autoSave" = "afterDelay";
       "window.menuBarVisibility" = "toggle";
       "workbench.colorTheme" = "Dracula Theme Soft";
-      "nix.enableLanguageServer" = "true";
+      "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
-      "editor.fontLigatures" = "true";
+      "editor.fontLigatures" = true;
       "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
     } "User settings.";
