@@ -74,10 +74,12 @@ in
         SkipOnboarding = true;
       };
       ExtensionSettings = {
-        "ebay@search.mozilla.org".installation_mode = "blocked";
+        # keep-sorted start
         "amazondotcom@search.mozilla.org".installation_mode = "blocked";
         "bing@search.mozilla.org".installation_mode = "blocked";
         "ddg@search.mozilla.org".installation_mode = "blocked";
+        "ebay@search.mozilla.org".installation_mode = "blocked";
+        # keep-sorted end
         "wikipedia@search.mozilla.org".installation_mode = "blocked";
       };
       Preferences = { };
@@ -252,6 +254,7 @@ in
           settings = mkMerge [
             cfg.settings
             {
+              # keep-sorted start
               "accessibility.typeaheadfind.enablesound" = false;
               "accessibility.typeaheadfind.flashBar" = 0;
               "browser.aboutConfig.showWarning" = false;
@@ -259,6 +262,12 @@ in
               "browser.bookmarks.autoExportHTML" = true;
               "browser.bookmarks.showMobileBookmarks" = true;
               "browser.meta_refresh_when_inactive.disabled" = true;
+              "browser.ml.chat.enabled" = false;
+              "browser.ml.chat.menu" = false;
+              "browser.ml.chat.page" = false;
+              "browser.ml.chat.page.footerBadge" = false;
+              "browser.ml.chat.page.menuBadge" = false;
+              "browser.ml.enable" = false;
               "browser.newtabpage.activity-stream.default.sites" = "";
               "browser.newtabpage.activity-stream.showSponsored" = false;
               "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
@@ -271,14 +280,16 @@ in
               "browser.startup.page" = 3;
               "browser.urlbar.keepPanelOpenDuringImeComposition" = true;
               "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+              "cookiebanners.service.mode" = 2;
+              "cookiebanners.service.mode.privateBrowsing" = 2;
               "devtools.chrome.enabled" = true;
               "devtools.debugger.remote-enabled" = true;
-              "dom.storage.next_gen" = true;
               "dom.forms.autocomplete.formautofill" = true;
-              "extensions.htmlaboutaddons.recommendations.enabled" = false;
+              "dom.storage.next_gen" = true;
+              "extensions.autoDisableScopes" = 0; # Automatically enable extensions
               "extensions.formautofill.addresses.enabled" = false;
               "extensions.formautofill.creditCards.enabled" = false;
-              "extensions.autoDisableScopes" = 0; # Automatically enable extensions
+              "extensions.htmlaboutaddons.recommendations.enabled" = false;
               "general.autoScroll" = false;
               "general.smoothScroll.msdPhysics.enabled" = true;
               "geo.enabled" = false;
@@ -288,20 +299,6 @@ in
               "intl.accept_languages" = "en-US,en";
               "media.eme.enabled" = true;
               "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
-              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-              "signon.autofillForms" = false;
-              "signon.firefoxRelay.feature" = "disabled";
-              "signon.generation.enabled" = false;
-              "signon.management.page.breach-alerts.enabled" = false;
-              "xpinstall.signatures.required" = false;
-              "browser.ml.enable" = false;
-              "browser.ml.chat.enabled" = false;
-              "browser.ml.chat.menu" = false;
-              "browser.ml.chat.page" = false;
-              "browser.ml.chat.page.footerBadge" = false;
-              "browser.ml.chat.page.menuBadge" = false;
-              "cookiebanners.service.mode.privateBrowsing" = 2;
-              "cookiebanners.service.mode" = 2;
               "privacy.donottrackheader.enabled" = true;
               "privacy.fingerprintingProtection" = true;
               "privacy.resistFingerprinting" = true;
@@ -309,6 +306,13 @@ in
               "privacy.trackingprotection.enabled" = true;
               "privacy.trackingprotection.fingerprinting.enabled" = true;
               "privacy.trackingprotection.socialtracking.enabled" = true;
+              "signon.autofillForms" = false;
+              "signon.firefoxRelay.feature" = "disabled";
+              "signon.generation.enabled" = false;
+              "signon.management.page.breach-alerts.enabled" = false;
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+              "xpinstall.signatures.required" = false;
+              # keep-sorted end
             }
             (optionalAttrs cfg.gpuAcceleration {
               "dom.webgpu.enabled" = true;

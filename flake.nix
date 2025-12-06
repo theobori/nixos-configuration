@@ -78,6 +78,8 @@
     hosts.url = "github:StevenBlack/hosts";
 
     xremap-flake.url = "github:xremap/nix-flake";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
@@ -103,33 +105,45 @@
       };
 
       overlays = with inputs; [
-        nur.overlays.default
+        # keep-sorted start
         nixgl.overlay
+        nur.overlays.default
+        # keep-sorted end
       ];
 
       homes.modules = with inputs; [
+        # keep-sorted start
         nix-index-database.homeModules.nix-index
-        stylix.homeModules.stylix
-        sops-nix.homeManagerModules.sops
         nixcord.homeModules.nixcord
         plasma-manager.homeModules.plasma-manager
+        sops-nix.homeManagerModules.sops
         spicetify-nix.homeManagerModules.default
+        stylix.homeModules.stylix
         # flatpaks.homeModule
+        # keep-sorted end
       ];
 
       systems = {
         modules = {
           nixos = with inputs; [
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
+            # keep-sorted start
             disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
             hosts.nixosModule
+            stylix.nixosModules.stylix
             xremap-flake.nixosModules.default
+            # keep-sorted end
           ];
         };
       };
 
-      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
+      outputs-builder = channels: {
+        formatter =
+          let
+            treefmtEval = inputs.treefmt-nix.lib.evalModule channels.nixpkgs ./treefmt.nix;
+          in
+          treefmtEval.config.build.wrapper;
+      };
 
       templates = {
         xdp-c.description = "My template for building a XDP program in C";

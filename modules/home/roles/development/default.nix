@@ -18,6 +18,45 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
+      # keep-sorted start block=yes newline_separated=yes
+      cli = {
+        multiplexers.tmux = enabled;
+
+        programs = {
+          # keep-sorted start block=yes
+          age = enabled;
+          bat = enabled;
+          btop = enabled;
+          direnv = enabled;
+          eza = enabled;
+          fastfetch = enabled;
+          fzf = enabled;
+          genact = enabled;
+          git = enabled;
+          git-cliff = enabled;
+          gpg = enabled;
+          htop = enabled;
+          k8s = enabled;
+          krabby = enabled;
+          lazydocker = enabled;
+          lazygit = enabled;
+          modern-unix = enabled;
+          network-tools = enabled;
+          nix-index = enabled;
+          nsearch = enabled;
+          onefetch = enabled;
+          screen = enabled;
+          ssh = enabled;
+          starship = enabled;
+          tealdeer = enabled;
+          terraform = enabled;
+          thefuck = enabled;
+          yazi = enabled;
+          zoxide = enabled;
+          # keep-sorted end
+        };
+      };
+
       editors = {
         vscode = enabled;
         emacs = enabled;
@@ -29,42 +68,7 @@ in
       programs = {
         sqlitebrowser = enabled;
       };
-
-      cli = {
-        multiplexers.tmux = enabled;
-
-        programs = {
-          age = enabled;
-          bat = enabled;
-          direnv = enabled;
-          eza = enabled;
-          fzf = enabled;
-          fastfetch = enabled;
-          onefetch = enabled;
-          git = enabled;
-          git-cliff = enabled;
-          gpg = enabled;
-          htop = enabled;
-          btop = enabled;
-          k8s = enabled;
-          terraform = enabled;
-          modern-unix = enabled;
-          network-tools = enabled;
-          nsearch = enabled;
-          nix-index = enabled;
-          screen = enabled;
-          ssh = enabled;
-          starship = enabled;
-          yazi = enabled;
-          zoxide = enabled;
-          thefuck = enabled;
-          lazygit = enabled;
-          tealdeer = enabled;
-          krabby = enabled;
-          genact = enabled;
-          lazydocker = enabled;
-        };
-      };
+      # keep-sorted end
     };
   };
 }

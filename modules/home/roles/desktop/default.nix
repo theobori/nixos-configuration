@@ -25,19 +25,7 @@ in
     };
 
     ${namespace} = {
-      roles = {
-        common = enabled;
-        development = enabled;
-      };
-
-      system = {
-        xdg-utils = enabled;
-      };
-
-      services = {
-        flameshot = enabled;
-      };
-
+      # keep-sorted start block=yes newline_separated=yes
       cli = {
         programs = {
           ratiomaster = enabled;
@@ -73,6 +61,20 @@ in
         libreoffice = enabled;
         localsend = enabled;
       };
+
+      roles = {
+        common = enabled;
+        development = enabled;
+      };
+
+      services = {
+        flameshot = enabled;
+      };
+
+      system = {
+        xdg-utils = enabled;
+      };
+      # keep-sorted end block=yes
     };
   };
 }
