@@ -45,12 +45,12 @@ in
           nix-index = enabled;
           nsearch = enabled;
           onefetch = enabled;
+          pay-respects = enabled;
           screen = enabled;
           ssh = enabled;
           starship = enabled;
           tealdeer = enabled;
           terraform = enabled;
-          pay-respects = enabled;
           yazi = enabled;
           zoxide = enabled;
           # keep-sorted end
