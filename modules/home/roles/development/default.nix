@@ -50,7 +50,7 @@ in
           starship = enabled;
           tealdeer = enabled;
           terraform = enabled;
-          thefuck = enabled;
+          pay-respects = enabled;
           yazi = enabled;
           zoxide = enabled;
           # keep-sorted end

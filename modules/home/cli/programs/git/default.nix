@@ -30,25 +30,18 @@ in
     programs.git = {
       enable = true;
       package = pkgs.gitFull;
-      inherit (cfg) userName userEmail;
 
       signing = {
         key = cfg.signingKey;
         inherit (cfg) signByDefault;
       };
 
-      aliases = {
-        dlc = "diff --cached HEAD^";
-        incoming = "log HEAD..@{upstream}";
-        outgoing = "log @{upstream}..HEAD";
-        cam = "commit --amend";
-        graph = "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order";
-        stashes = "stash list";
-        count = "rev-list --count HEAD";
-        pf = "push -f";
-      };
+      settings = {
+        user = {
+          name = cfg.userName;
+          email = cfg.userEmail;
+        };
 
-      extraConfig = {
         commit.gpgsign = true;
 
         core = {
@@ -92,10 +85,22 @@ in
             "~/${namespace}/"
             "/etc/nixos"
           ];
+
         };
 
         init = {
           defaultBranch = "main";
+        };
+
+        alias = {
+          dlc = "diff --cached HEAD^";
+          incoming = "log HEAD..@{upstream}";
+          outgoing = "log @{upstream}..HEAD";
+          cam = "commit --amend";
+          graph = "log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order";
+          stashes = "stash list";
+          count = "rev-list --count HEAD";
+          pf = "push -f";
         };
       };
     };

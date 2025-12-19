@@ -1,5 +1,6 @@
 {
   browserName ? "firefox",
+  packageName ? null,
 }:
 {
   config,
@@ -19,6 +20,8 @@ let
   inherit (pkgs.nur.repos.rycee) firefox-addons;
 
   cfg = config.${namespace}.browsers.${browserName};
+
+  package = if (packageName != null) then pkgs.${packageName} else pkgs.${browserName};
 in
 {
   options.${namespace}.browsers.${browserName} = with types; {
@@ -28,7 +31,8 @@ in
     gpuAcceleration = mkBoolOpt false "Enable GPU acceleration.";
     hardwareDecoding = mkBoolOpt false "Enable hardware video decoding.";
 
-    extensions = mkOpt (listOf package) (
+    # Should be (listOf package)
+    extensions = mkOpt (listOf anything) (
       with firefox-addons;
       [
         private-relay
@@ -237,19 +241,21 @@ in
 
     programs.${browserName} = {
       enable = true;
+      inherit package;
 
       profiles = {
         ${config.${namespace}.user.name} = {
           id = 0;
+          inherit (config.${namespace}.user) name;
 
           bookmarks = {
             force = true;
             settings = cfg.bookmarks;
           };
+
           extensions.packages = cfg.extensions;
 
           inherit (cfg) extraConfig;
-          inherit (config.${namespace}.user) name;
 
           settings = mkMerge [
             cfg.settings

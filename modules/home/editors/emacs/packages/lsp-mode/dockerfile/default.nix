@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf (lsp-mode.enable && cfg.enable) {
-    home.packages = with pkgs; [ dockerfile-language-server-nodejs ];
+    home.packages = with pkgs; [ dockerfile-language-server ];
 
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.dockerfile-mode ]);
