@@ -5,7 +5,9 @@ can download and install it from the official
 [Nix website](https://nixos.org/download.html) or from the
 [Determinate Systems installer](https://github.com/DeterminateSystems/nix-installer).
 
-### Clone this repository to your local machine
+## Clone this repository to your local machine
+
+You can clone the git repository then build and use the system with the following command lines.
 
 ```bash
 git clone https://github.com/theobori/nixos-configuration.git
@@ -18,7 +20,22 @@ sudo nixos-rebuild switch --flake .
 flake switch
 ```
 
-### Deploy on a remote machine
+If you want to create disk partitions with disko then install my NixOS configuration in the mounted filesystem, you can run the following command lines.
+
+```bash
+# Create partitions with disko (make backup before if needed)
+# Also don't forget to change the device value in the disko configuration if needed
+sudo nix \
+    --experimental-features "nix-command flakes" \
+    run github:nix-community/disko -- \
+    --mode disko \
+    systems/x86_64-linux/rob/disk-config.nix # example filepath
+
+# Install NixOS
+sudo nixos-install --root /mnt --flake '/mnt/etc/nixos#nixos'
+```
+
+## Deploy on a remote machine
 
 Feel free to use my minimal bootable disk image [x86_64-install-iso/minimal](/systems/x86_64-install-iso/minimal/default.nix). The aim is to load this bootable iso on a target machine to have a usable OpenSSH server to deploy our NixOS configuration.
 
