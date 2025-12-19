@@ -25,7 +25,7 @@ in
         ninvaders = enabled;
         space-cadet-pinball = enabled;
         supertux = enabled;
-        taisei = enabled;
+        taisei = disabled; # Broken for the moment
 
         # Flatpaks
         # sober = enabled;

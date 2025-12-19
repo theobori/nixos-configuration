@@ -23,6 +23,7 @@ in
   config = mkIf cfg.enable {
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
 
       includes = lib.optional sopsEnable config.sops.secrets.ssh_config.path;
     };

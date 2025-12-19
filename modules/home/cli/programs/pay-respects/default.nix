@@ -8,15 +8,15 @@ let
   inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
-  cfg = config.${namespace}.cli.programs.thefuck;
+  cfg = config.${namespace}.cli.programs.pay-respects;
 in
 {
-  options.${namespace}.cli.programs.thefuck = {
-    enable = mkBoolOpt false "Whether or not to enable thefuck.";
+  options.${namespace}.cli.programs.pay-respects = {
+    enable = mkBoolOpt false "Whether or not to enable pay-respects.";
   };
 
   config = mkIf cfg.enable {
-    programs.thefuck = {
+    programs.pay-respects = {
       enable = true;
       enableFishIntegration = false;
     };
