@@ -59,7 +59,8 @@ in
             (optionalString config.${namespace}.messages.discord.enable "applications:vesktop.desktop")
             (optionalString config.${namespace}.editors.emacs.enable "applications:emacs.desktop")
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
-            (optionalString config.${namespace}.messages.dino.enable "applications:im.dino.Dino.desktop")
+            # (optionalString config.${namespace}.messages.dino.enable "applications:im.dino.Dino.desktop")
+            (optionalString config.${namespace}.messages.pidgin.enable "applications:pidgin.desktop")
 
             (optionalString config.${namespace}.messages.thunderbird.enable "applications:thunderbird.desktop")
             (optionalString config.${namespace}.games.taterclient-ddnet.enable
