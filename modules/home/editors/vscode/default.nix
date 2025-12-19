@@ -60,6 +60,7 @@ in
       "nix.serverPath" = "nixd";
       "editor.fontLigatures" = true;
       "workbench.secondarySideBar.defaultVisibility" = "hidden";
+      "chat.commandCenter.enabled" = false;
 
     } "User settings.";
   };
