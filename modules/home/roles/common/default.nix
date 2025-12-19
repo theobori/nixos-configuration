@@ -17,13 +17,6 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      browsers = {
-        firefox = enabled;
-        floorp = enabled;
-        librewolf = enabled;
-        lagrange = enabled;
-      };
-
       programs.bitwarden = enabled;
 
       services = {

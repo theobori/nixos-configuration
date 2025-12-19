@@ -26,6 +26,14 @@ in
 
     ${namespace} = {
       # keep-sorted start block=yes newline_separated=yes
+      browsers = {
+        firefox = enabled;
+        floorp = enabled;
+        librewolf = enabled;
+        lagrange = enabled;
+        gophie = enabled;
+      };
+
       cli = {
         programs = {
           ratiomaster = enabled;
