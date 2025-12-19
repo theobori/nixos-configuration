@@ -13,6 +13,7 @@ Here are a non-exhaustive list of tasks.
 - [ ] Better email accounts management
 - [x] Solve TODO in the file `modules/home/roles/desktop/default.nix`
 - [ ] Add a WSL configuration
+- [x] Update from `25.05` to `25.11`
 
 ## GNU Emacs
 

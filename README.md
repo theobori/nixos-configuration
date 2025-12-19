@@ -28,6 +28,21 @@ sudo nixos-rebuild switch --flake .
 flake switch
 ```
 
+If you want to create disk partitions with disko then install my NixOS configuration in the mounted filesystem, you can run the following command lines.
+
+```bash
+# Create partitions with disko (make backup before if needed)
+# Also don't forget to change the device value in the disko configuration if needed
+sudo nix \
+    --experimental-features "nix-command flakes" \
+    run github:nix-community/disko -- \
+    --mode disko \
+    systems/x86_64-linux/rob/disk-config.nix # example filepath
+
+# Install NixOS
+sudo nixos-install --root /mnt --flake '/mnt/etc/nixos#nixos'
+```
+
 ### Deploy on a remote machine
 
 Feel free to use my minimal bootable disk image [x86_64-install-iso/minimal](/systems/x86_64-install-iso/minimal/default.nix). The aim is to load this bootable iso on a target machine to have a usable OpenSSH server to deploy our NixOS configuration.
