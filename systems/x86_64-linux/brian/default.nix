@@ -18,12 +18,24 @@ in
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.grub = {
-      # no need to set devices, disko will add all devices that have a EF02 partition to the list already
-      # devices = [ ];
-      efiSupport = true;
-      efiInstallAsRemovable = true;
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+
+      grub = {
+        # no need to set devices, disko will add all devices that have a EF02 partition to the list already
+        # devices = [ ];
+        efiSupport = true;
+        useOSProber = true;
+        extraEntries = ''
+          menuentry "UEFI Firmware Settings" {
+            fwsetup
+          }
+        '';
+      };
     };
+
     supportedFilesystems = [ "ntfs" ];
 
     kernel.sysctl = {
@@ -115,5 +127,5 @@ in
 
   programs.fuse.userAllowOther = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

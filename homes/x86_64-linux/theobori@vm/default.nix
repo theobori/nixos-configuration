@@ -31,5 +31,5 @@ in
     desktops.addons.plasma6 = enabled;
   };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
