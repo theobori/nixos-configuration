@@ -63,10 +63,24 @@ in
         set -gx PATH /usr/local/bin /usr/bin ~/.local/bin $GOPATH/bin/ $PATH $HOME/.cargo/bin
 
         set -gx fzf_diff_highlighter delta --paging=never --line-numbers
-
-        # \c = control, \e = escape
-        bind --mode default \e\cn ${getExe pkgs.nsearch}
       '';
+
+      binds = {
+        "ctrl-alt-n" = {
+          mode = "default";
+          command = getExe pkgs.nsearch;
+        };
+
+        # https://fishshell.com/docs/current/relnotes.html#new-or-improved-bindings
+        #
+        # I use the old ctrl/alt bindings to kill text
+        # Thanks to https://github.com/fish-shell/fish-shell/issues/12122#issuecomment-3602424666
+        "alt-backspace".command = "backward-kill-word";
+        "ctrl-alt-h".command = "backward-kill-word";
+        "ctrl-backspace".command = "backward-kill-token";
+        "alt-delete".command = "kill-word";
+        "ctrl-delete".command = "kill-token";
+      };
 
       shellAbbrs = {
         la = "exa -lahg --git";

@@ -18,7 +18,7 @@ in
   config = mkIf cfg.enable {
     programs.pay-respects = {
       enable = true;
-      enableFishIntegration = false;
+      enableFishIntegration = true; # Broken for some reasons
     };
   };
 }
