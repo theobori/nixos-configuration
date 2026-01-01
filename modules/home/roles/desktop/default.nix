@@ -63,6 +63,7 @@ in
         cambalache = disabled;
         obsidian = enabled;
         qbittorrent = enabled;
+        qdirstat = enabled;
         spicetify = disabled;
         quake-injector = enabled;
         pablodraw = enabled;
