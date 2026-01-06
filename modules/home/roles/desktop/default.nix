@@ -65,7 +65,6 @@ in
         qbittorrent = enabled;
         qdirstat = enabled;
         spicetify = disabled;
-        quake-injector = enabled;
         pablodraw = enabled;
         libreoffice = enabled;
         localsend = enabled;

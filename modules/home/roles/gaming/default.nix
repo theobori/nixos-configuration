@@ -32,6 +32,10 @@ in
         # ricochlime = enabled;
         # playonlinux = enabled;
       };
+
+      programs = {
+        quake-injector = enabled;
+      };
     };
   };
 }
