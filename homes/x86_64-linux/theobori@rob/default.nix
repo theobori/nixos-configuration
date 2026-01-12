@@ -67,6 +67,7 @@ in
         dockerfile = enabled;
         terraform = enabled;
         latex = enabled;
+        typescript = enabled;
       };
       all-the-icons-ibuffer = enabled;
     };
