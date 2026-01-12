@@ -41,10 +41,12 @@ in
       magit = enabled;
       pdf-tools = enabled;
       org-present = enabled;
-      ivy = enabled;
+      ivy = disabled;
       dashboard = enabled;
       rg = enabled;
       vertico = enabled;
+      consult = enabled;
+      orderless = enabled;
       rainbow-delimiters = enabled;
       doom-modeline = enabled;
       vterm = enabled;
