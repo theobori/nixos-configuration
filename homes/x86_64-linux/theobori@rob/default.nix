@@ -68,6 +68,7 @@ in
         terraform = enabled;
         latex = enabled;
       };
+      all-the-icons-ibuffer = enabled;
     };
   };
 
