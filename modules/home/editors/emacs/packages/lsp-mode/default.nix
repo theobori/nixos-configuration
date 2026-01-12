@@ -5,10 +5,18 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkBefore;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib)
+    mkIf
+    mkBefore
+    optional
+    optionalString
+    ;
+  inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.editors.emacs.packages.lsp-mode;
+
+  isIvyEnabled = config.${namespace}.editors.emacs.packages.ivy.enable;
+  isConsultEnabled = config.${namespace}.editors.emacs.packages.consult.enable;
 in
 {
   options.${namespace}.editors.emacs.packages.lsp-mode = {
@@ -16,65 +24,68 @@ in
   };
 
   config = mkIf cfg.enable {
-    ${namespace}.editors.emacs.packages.ivy = enabled;
-
     programs.emacs = {
       extraPackages = (
-        epkgs: [
+        epkgs:
+        [
           epkgs.lsp-mode
-          epkgs.lsp-ivy
           epkgs.yasnippet
           epkgs.company
           epkgs.company-box
           epkgs.lsp-ui
           epkgs.lsp-treemacs
         ]
+        ++ (optional isIvyEnabled epkgs.lsp-ivy)
+        ++ (optional isConsultEnabled epkgs.consult-lsp)
       );
-      extraConfig = mkBefore ''
-        (use-package company
-          :config
-          (global-company-mode)
-          :custom
-          (company-idle-delay 0)
-          (company-echo-delay 0)
-          (company-minimum-prefix-length 1))
+      extraConfig = mkBefore (
+        ''
+          (use-package company
+            :config
+            (global-company-mode)
+            :custom
+            (company-idle-delay 0)
+            (company-echo-delay 0)
+            (company-minimum-prefix-length 1))
 
-        (use-package company-box
-          :after company
-          :if (display-graphic-p)
-          :custom
-          (company-box-frame-behavior 'point)
-          (company-box-show-single-candidate t)
-          (company-box-doc-delay 1))
+          (use-package company-box
+            :after company
+            :if (display-graphic-p)
+            :custom
+            (company-box-frame-behavior 'point)
+            (company-box-show-single-candidate t)
+            (company-box-doc-delay 1))
 
-        (use-package yasnippet
-          :diminish yas-minor-mode
-          :demand t
-          :config
-          (yas-reload-all)
-          (yas-global-mode 1))
+          (use-package yasnippet
+            :diminish yas-minor-mode
+            :demand t
+            :config
+            (yas-reload-all)
+            (yas-global-mode 1))
 
-        (declare-function yas-reload-all  "yasnippet")
+          (declare-function yas-reload-all  "yasnippet")
 
-        (use-package lsp-mode
-          :hook
-          ((sh-mode . lsp))
-          :commands lsp
-          :custom
-          (lsp-headerline-breadcrumb-icons-enable nil))
+          (use-package lsp-mode
+            :hook
+            ((sh-mode . lsp))
+            :commands lsp
+            :custom
+            (lsp-headerline-breadcrumb-icons-enable nil))
 
-        (use-package lsp-ivy
-          :after lsp-mode
-          :commands lsp-ivy-workspace-symbol)
+          (use-package lsp-ui
+            :after lsp-mode
+            :commands lsp-ui-mode)
 
-        (use-package lsp-ui
-          :after lsp-mode
-          :commands lsp-ui-mode)
-
-        (use-package lsp-treemacs
-          :config
-          (lsp-treemacs-sync-mode 1))
-      '';
+          (use-package lsp-treemacs
+            :config
+            (lsp-treemacs-sync-mode 1))
+        ''
+        + (optionalString isIvyEnabled ''
+          (use-package lsp-ivy
+                    :after lsp-mode
+                    :commands lsp-ivy-workspace-symbol)'')
+        + (optionalString isConsultEnabled '''')
+      );
     };
   };
 }
