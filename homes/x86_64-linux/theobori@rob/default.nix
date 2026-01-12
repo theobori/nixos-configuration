@@ -70,6 +70,7 @@ in
         typescript = enabled;
       };
       all-the-icons-ibuffer = enabled;
+      direnv = enabled;
     };
   };
 
