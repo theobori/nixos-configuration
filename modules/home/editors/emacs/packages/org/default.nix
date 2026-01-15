@@ -27,7 +27,8 @@ in
           (org-hide-emphasis-markers t)
           (org-image-actual-width nil)
           (org-support-shift-select t)
-          (org-pretty-entities t))
+          (org-pretty-entities t)
+          (org-agenda-files '("~/.emacs-org-agenda")))
       '';
     };
   };

@@ -33,7 +33,8 @@ in
           (dashboard-set-navigator t)
           (dashboard-icon-type 'all-the-icons)
           (dashboard-items '((projects . 5)
-                          (recents  . 5)))
+                          (recents  . 5)
+                          (agenda . 5)))
           (dashboard-set-file-icons t)
           (dashboard-projects-backend 'project-el)
           :config
