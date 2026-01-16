@@ -42,6 +42,7 @@ in
           lazygit = enabled;
           modern-unix = enabled;
           network-tools = enabled;
+          nix-converter = enabled;
           nix-index = enabled;
           nsearch = enabled;
           onefetch = enabled;
