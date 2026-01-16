@@ -84,7 +84,7 @@ in
           (use-package lsp-ivy
                     :after lsp-mode
                     :commands lsp-ivy-workspace-symbol)'')
-        + (optionalString isConsultEnabled '''')
+        + (optionalString isConsultEnabled "")
       );
     };
   };
