@@ -52,6 +52,7 @@ in
       multimedia = {
         mpv = enabled;
         calibre = enabled;
+        obs-studio = enabled;
         pavucontrol = enabled;
         pamixer = enabled;
         resonance = disabled;
