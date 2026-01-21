@@ -69,6 +69,8 @@ in
         pablodraw = enabled;
         libreoffice = enabled;
         localsend = enabled;
+        shutter = enabled;
+        bitwarden = enabled;
       };
 
       roles = {
