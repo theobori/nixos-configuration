@@ -17,8 +17,6 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      programs.bitwarden = enabled;
-
       services = {
         lorri = enabled;
       };
