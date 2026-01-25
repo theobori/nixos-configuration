@@ -61,6 +61,7 @@ in
 
       programs = {
         inkscape = enabled;
+        libresprite = enabled;
         cambalache = disabled;
         obsidian = enabled;
         qbittorrent = enabled;
