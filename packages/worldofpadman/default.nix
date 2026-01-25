@@ -83,8 +83,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   meta = {
-    description = "";
-    homepage = "";
+    description = "incredibly carefully designed and colorful freeware fun shooter";
+    homepage = "https://worldofpadman.net/en/";
     license = with lib.licenses; [ gpl3Plus ];
     maintainers = with lib.maintainers; [ theobori ];
     mainProgram = "wop";
