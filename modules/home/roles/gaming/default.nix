@@ -27,6 +27,7 @@ in
         supertux = enabled;
         worldofpadman = enabled;
         taisei = disabled; # Broken for the moment
+        srb2 = enabled;
 
         # Flatpaks
         # sober = enabled;
