@@ -28,7 +28,8 @@ in
           :if (or (display-graphic-p) (and (not (daemonp))
                       (= (length command-line-args) 1)))
           :custom
-          (dashboard-startup-banner 'logo)
+          (dashboard-startup-banner '("${./04_padman.png}" . "${./04_padman.txt}"))
+          (dashboard-banner-logo-title "I'm the King, I'm PADMAN.")
           (dashboard-center-content t)
           (dashboard-set-navigator t)
           (dashboard-icon-type 'all-the-icons)
@@ -37,6 +38,16 @@ in
                           (agenda . 5)))
           (dashboard-set-file-icons t)
           (dashboard-projects-backend 'project-el)
+          (dashboard-footer-messages '("Don't run, Don't jump, only hold still. It's better for me to frag you.."
+                                       "Quit crying Freak, you were born as a loser..hehe"
+                                       "do that again, bitch."
+                                       "I bet you have to put a lot of effort into being that stupid."
+                                       "Wow, is that my brain on the wall..?"
+                                       "That wasn't luck, I just went easy on you."
+                                       "Nobody can stop me."
+                                       "Okay, here is PADMAN and it's time to frag you..!"
+                                       "Oh, PADGiRL is looking for me, she wants to go to bed..!"))
+
           :config
           (setq initial-buffer-choice (lambda ()
                                       (get-buffer-create "*dashboard*")
