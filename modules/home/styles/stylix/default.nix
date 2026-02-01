@@ -6,15 +6,16 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib) mkIf types;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.styles.stylix;
   my-base16-schemes = pkgs.${namespace}.my-base16-schemes;
 in
 {
-  options.${namespace}.styles.stylix = {
+  options.${namespace}.styles.stylix = with types; {
     enable = mkBoolOpt false "Enable stylix.";
+    image = mkOpt str (builtins.toString pkgs.${namespace}.wallpapers.talulah) "A wallpaper filepath.";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in
       enable = true;
       base16Scheme = "${my-base16-schemes}/share/themes/dracula.yaml";
 
-      image = pkgs.${namespace}.wallpapers.nix-simple;
+      inherit (cfg) image;
 
       fonts = {
         sizes = {

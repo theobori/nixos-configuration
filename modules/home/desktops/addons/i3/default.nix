@@ -10,7 +10,6 @@ let
 
   cfg = config.${namespace}.desktops.addons.i3;
 in
-# wallpaper = pkgs.${namespace}.wallpapers.nix-simple;
 {
   options.${namespace}.desktops.addons.i3 = {
     enable = mkBoolOpt false "Whether or not to enable i3 addons.";
