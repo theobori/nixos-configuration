@@ -62,7 +62,7 @@ in
             # (optionalString config.${namespace}.messages.dino.enable "applications:im.dino.Dino.desktop")
             (optionalString config.${namespace}.messages.pidgin.enable "applications:pidgin.desktop")
 
-            (optionalString config.${namespace}.messages.thunderbird.enable "applications:thunderbird.desktop")
+            # (optionalString config.${namespace}.messages.thunderbird.enable "applications:thunderbird.desktop")
             (optionalString config.${namespace}.games.taterclient-ddnet.enable
               "applications:taterclient-ddnet.desktop"
             )
