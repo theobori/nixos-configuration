@@ -69,6 +69,11 @@ Here's an example.
 ```bash
 nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config systems/x86_64-linux/vm/hardware-configuration.nix nixos@<destination> --flake .#<system-name>
 ```
+
+## Secrets
+
+The input `my-secrets` refers to my private GitHub repository which contains my secrets used in my NixOS configuration, notably through sops-nix. To retrieve this repository, you need to be able to authenticate via SSH. If you wish to use certain features exposed on Nix Flake, such as `packages`, I strongly recommend that you fork this repository and comment out the `my-secrets` input on Nix Flake. Otherwise you'll get an error due to a lack of permissions.
+
 ## Screenshots
 
 My NixOS KDE Plasma 6 environment looks like this.
