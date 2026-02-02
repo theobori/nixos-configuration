@@ -19,7 +19,6 @@ in
     ${namespace} = {
       messages = {
         discord = enabled;
-        thunderbird = enabled;
         deltachat = enabled;
         dino = enabled;
         element-desktop = enabled;
