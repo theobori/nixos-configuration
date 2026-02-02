@@ -6,7 +6,11 @@ stdenv.mkDerivation {
   src = ./MonoLisa;
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/share/fonts
     cp -R $src $out/share/fonts/truetype/
+
+    runHook postInstall
   '';
 }

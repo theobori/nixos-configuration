@@ -510,6 +510,24 @@
         "type": "github"
       }
     },
+    "my-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770039998,
+        "narHash": "sha256-7rnquAzCS8IeoQ16G7ivJM0vDqJ5SImZctK1xNZ/omE=",
+        "ref": "main",
+        "rev": "208a056942dbe5a73da0fd1c0881ab0e7ecb7ae8",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/theobori/nixos-configuration-secrets"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/theobori/nixos-configuration-secrets"
+      }
+    },
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
@@ -1153,6 +1171,7 @@
         "home-manager": "home-manager",
         "hosts": "hosts",
         "mkdocs-flake": "mkdocs-flake",
+        "my-secrets": "my-secrets",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
         "nixgl": "nixgl",

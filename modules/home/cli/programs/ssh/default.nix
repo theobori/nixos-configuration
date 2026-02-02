@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   namespace,
@@ -11,7 +12,7 @@ let
   inherit (config.${namespace}) user;
 
   cfg = config.${namespace}.cli.programs.ssh;
-  sopsFile = lib.snowfall.fs.get-file "secrets/${host}/${user.name}/secrets.yaml";
+  sopsFile = "${inputs.my-secrets}/secrets/${host}/${user.name}/secrets.yaml";
   sopsEnable = config."${namespace}".services.sops.enable && cfg.useSops;
 in
 {

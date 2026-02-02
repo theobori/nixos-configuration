@@ -1,4 +1,9 @@
-{ lib, namespace, ... }:
+{
+  inputs,
+  lib,
+  namespace,
+  ...
+}:
 let
   inherit (lib.${namespace}) enabled;
 in
@@ -23,7 +28,7 @@ in
     services = {
       sops = {
         enable = true;
-        defaultSopsFile = lib.snowfall.fs.get-file "secrets/brian/theobori/secrets.yaml";
+        defaultSopsFile = "${inputs.my-secrets}/secrets/brian/theobori/secrets.yaml";
       };
     };
 
