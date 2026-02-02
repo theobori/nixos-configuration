@@ -49,7 +49,7 @@ in
       ripgrep
       sd
       xcp
-      yq-go
+      yq
       viddy
 
       # go

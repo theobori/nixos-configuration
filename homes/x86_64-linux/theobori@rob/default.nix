@@ -9,6 +9,10 @@ let
 in
 {
   theobori-nix = {
+    accounts = {
+      email = enabled;
+    };
+
     roles = {
       desktop = enabled;
       gaming = enabled;
@@ -76,6 +80,7 @@ in
       };
       all-the-icons-ibuffer = enabled;
       direnv = enabled;
+      notmuch = enabled;
     };
   };
 
