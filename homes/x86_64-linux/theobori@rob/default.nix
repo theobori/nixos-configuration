@@ -81,6 +81,7 @@ in
       all-the-icons-ibuffer = enabled;
       direnv = enabled;
       notmuch = enabled;
+      sphinx-doc = enabled;
     };
   };
 
