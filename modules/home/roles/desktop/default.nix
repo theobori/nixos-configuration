@@ -64,6 +64,7 @@ in
         libresprite = enabled;
         cambalache = disabled;
         obsidian = enabled;
+        xclicker = enabled;
         qbittorrent = enabled;
         qdirstat = enabled;
         spicetify = disabled;
