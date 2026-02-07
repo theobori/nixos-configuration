@@ -6,6 +6,7 @@
       url = "git+ssh://git@github.com/theobori/nixos-configuration-secrets?shallow=1&ref=main";
       flake = false;
     };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     # We assume this version of nixpkgs is more updated than the `nixpkgs` input.

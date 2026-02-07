@@ -33,6 +33,7 @@ in
       ssh_key = {
         inherit sopsFile;
         path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+        mode = "0400"; # Explicit file mode for preventing unexpected openssh client weird behaviors
       };
 
       ssh_config = {
