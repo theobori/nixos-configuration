@@ -64,7 +64,7 @@ in
         inkscape = enabled;
         libresprite = enabled;
         cambalache = disabled;
-        obsidian = enabled;
+        obsidian = disabled;
         xclicker = enabled;
         qbittorrent = enabled;
         qdirstat = enabled;
