@@ -27,6 +27,20 @@ in
          ((default-modes
            (pushnew 'nyxt/mode/reduce-tracking:reduce-tracking-mode %slot-value%))))
 
+       (defvar *my-search-engines*
+         (list
+          '("python3" "https://docs.python.org/3/search.html?q=~a" "https://docs.python.org/3")
+          '("DuckDuckGo" "https://duckduckgo.com/ac/?q=~a" "https://duckduckgo.com"))
+         "List of search engines.")
+
+       (define-configuration context-buffer
+         "Go through the search engines above and make-search-engine out of them."
+         ((search-engines
+           (append
+            (mapcar (lambda (engine) (apply 'make-search-engine engine))
+                    *my-search-engines*)
+            %slot-default%))))
+
        (nyxt::load-lisp "${./statusline.lisp}")
        (nyxt::load-lisp "${./stylesheet.lisp}")
     '' "Manage the Nyxt configuration.";
