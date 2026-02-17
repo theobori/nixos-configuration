@@ -15,7 +15,9 @@ in
 {
   options.${namespace}.styles.stylix = with types; {
     enable = mkBoolOpt false "Enable stylix.";
-    image = mkOpt str (builtins.toString pkgs.${namespace}.wallpapers.talulah) "A wallpaper filepath.";
+    image = mkOpt str (builtins.toString
+      pkgs.${namespace}.wallpapers.td-industrial-frame-2
+    ) "A wallpaper filepath.";
   };
 
   config = mkIf cfg.enable {
