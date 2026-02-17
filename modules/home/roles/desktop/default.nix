@@ -27,11 +27,12 @@ in
     ${namespace} = {
       # keep-sorted start block=yes newline_separated=yes
       browsers = {
-        firefox = enabled;
+        firefox = disabled;
         floorp = enabled;
         librewolf = enabled;
         lagrange = enabled;
         gophie = enabled;
+        nyxt = enabled;
       };
 
       cli = {
