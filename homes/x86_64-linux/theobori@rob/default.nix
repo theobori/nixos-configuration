@@ -82,6 +82,7 @@ in
       direnv = enabled;
       notmuch = enabled;
       sphinx-doc = enabled;
+      tldr = enabled;
     };
   };
 
