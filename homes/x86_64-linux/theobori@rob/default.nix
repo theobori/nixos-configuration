@@ -83,6 +83,7 @@ in
       notmuch = enabled;
       sphinx-doc = enabled;
       tldr = enabled;
+      multiple-cursors = enabled;
     };
   };
 
