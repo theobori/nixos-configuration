@@ -84,6 +84,7 @@ in
       sphinx-doc = enabled;
       tldr = enabled;
       multiple-cursors = enabled;
+      elfeed = enabled;
     };
   };
 
