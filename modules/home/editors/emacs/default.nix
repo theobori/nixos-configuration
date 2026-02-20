@@ -24,14 +24,13 @@ in
       ;; Remove the menu bar
       (menu-bar-mode -1)
 
-      (if (display-graphic-p)
-        (progn
-          ;; Resize small font on the GUI Emacs application
-          (set-face-attribute 'default nil :height 105)
+      (when (display-graphic-p)
+        ;; Resize small font on the GUI Emacs application
+        (set-face-attribute 'default nil :height 105)
 
-          ;; Annoying displayed UI elements
-          (tool-bar-mode -1)
-          (scroll-bar-mode -1)))
+        ;; Annoying displayed UI elements
+        (tool-bar-mode -1)
+        (scroll-bar-mode -1))
 
       (setq standard-indent 2)
       (setq display-line-numbers-type 'relative)
