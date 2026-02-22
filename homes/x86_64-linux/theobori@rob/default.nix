@@ -77,6 +77,7 @@ in
         terraform = enabled;
         latex = enabled;
         typescript = enabled;
+        ccls = enabled;
       };
       all-the-icons-ibuffer = enabled;
       direnv = enabled;
