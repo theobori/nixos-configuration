@@ -40,7 +40,6 @@ in
         user-agent-string-switcher
         return-youtube-dislikes
         ublock-origin
-        wappalyzer
         to-deepl
         private-relay
         sponsorblock
@@ -152,11 +151,6 @@ in
                 name = "Cahiers du cinéma";
                 url = "https://www.cahiersducinema.com/fr-fr";
               }
-              {
-                name = "I Will never pay for yggtorrent";
-                url = "https://www.yggtorrent.top";
-              }
-
             ];
           }
           {
