@@ -20,7 +20,7 @@ in
   config = mkIf (lsp-mode.enable && cfg.enable) {
     home.packages = with pkgs; [
       nixd
-      nixfmt-rfc-style
+      nixfmt
     ];
 
     programs.emacs = {

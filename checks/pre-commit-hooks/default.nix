@@ -41,7 +41,7 @@ pre-commit-hooks-nix.lib.${pkgs.stdenv.hostPlatform.system}.run {
         stages = [ "pre-push" ];
       };
 
-      nixfmt-rfc-style.enable = true;
+      nixfmt.enable = true;
 
       pre-commit-hook-ensure-sops.enable = true;
 
