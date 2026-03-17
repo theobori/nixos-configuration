@@ -26,7 +26,7 @@ in
         space-cadet-pinball = enabled;
         supertux = enabled;
         worldofpadman = enabled;
-        taisei = disabled; # Broken for the moment
+        taisei = enabled;
         srb2 = enabled;
 
         # Flatpaks
