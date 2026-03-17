@@ -47,10 +47,6 @@ in
         };
       };
 
-      hardware = {
-        razer = disabled;
-      };
-
       multimedia = {
         mpv = enabled;
         calibre = enabled;

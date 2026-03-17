@@ -10,7 +10,11 @@ in
 {
   theobori-nix = {
     accounts = {
-      email = enabled;
+      email = disabled; # uneeded for the moment
+    };
+
+    hardware = {
+      razer = enabled;
     };
 
     roles = {
