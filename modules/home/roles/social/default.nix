@@ -22,6 +22,7 @@ in
         dino = enabled;
         element-desktop = enabled;
         pidgin = enabled;
+        simplex-chat-desktop = enabled;
       };
     };
   };
