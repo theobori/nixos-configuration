@@ -20,7 +20,6 @@ in
     home.packages = with pkgs; [
       file
       mediainfo
-      mediainfo-gui
     ];
   };
 }
