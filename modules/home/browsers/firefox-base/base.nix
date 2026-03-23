@@ -136,7 +136,7 @@ in
             name = "Cinéma";
             bookmarks = [
               {
-                name = "| Berlinale |";
+                name = "Berlinale";
                 url = "https://www.berlinale.de/en/home.html";
               }
               {
@@ -150,6 +150,14 @@ in
               {
                 name = "Cahiers du cinéma";
                 url = "https://www.cahiersducinema.com/fr-fr";
+              }
+              {
+                name = "YGG-LEAK";
+                url = "https://ygg.gratis";
+              }
+              {
+                name = "C411";
+                url = "https://c411.org";
               }
             ];
           }
