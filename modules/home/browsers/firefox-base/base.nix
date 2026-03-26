@@ -228,6 +228,23 @@ in
               }
             ];
           }
+          {
+            name = "Fediverse";
+            bookmarks = [
+              {
+                name = "La Quadrature du Net";
+                url = "https://mamot.fr";
+              }
+              {
+                name = "Mastoot";
+                url = "https://mastoot.fr";
+              }
+              {
+                name = "Town of Merveilles";
+                url = "https://merveilles.town";
+              }
+            ];
+          }
         ];
       }
     ] "Preloaded bookmarks.";
