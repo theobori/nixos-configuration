@@ -31,6 +31,7 @@ in
           eza = enabled;
           fastfetch = enabled;
           fzf = enabled;
+          gef = enabled;
           genact = enabled;
           git = enabled;
           git-cliff = enabled;
