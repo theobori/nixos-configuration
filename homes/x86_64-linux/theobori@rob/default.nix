@@ -90,6 +90,7 @@ in
       tldr = enabled;
       multiple-cursors = enabled;
       elfeed = enabled;
+      qbittorrent-transient = enabled;
     };
   };
 

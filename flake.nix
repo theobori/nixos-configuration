@@ -8,6 +8,7 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    qbittorrent-transient.url = "github:theobori/qbittorrent-transient";
 
     # We assume this version of nixpkgs is more updated than the `nixpkgs` input.
     # Will be used within overlay to get the latest version of specific packages.
