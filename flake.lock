@@ -1236,11 +1236,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1774642445,
-        "narHash": "sha256-yTMPoUq0EVK2qLViFwt2T39mTDcSjGiSVm+w0v39eWo=",
+        "lastModified": 1774811603,
+        "narHash": "sha256-FuJQFrZ2s6bop+m8qyp8kGpcjqqZ0QJF6Ogq3NIQOVk=",
         "owner": "theobori",
         "repo": "qbittorrent-transient",
-        "rev": "2a94eb0540d24b0404673cac3a2959392b782d6a",
+        "rev": "8de9c8c4b79694f839f410f0b6735e5f30d812e9",
         "type": "github"
       },
       "original": {
