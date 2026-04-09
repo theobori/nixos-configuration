@@ -19,7 +19,7 @@ in
 
     roles = {
       desktop = enabled;
-      gaming = enabled;
+      gaming = disabled; # disabled for the moment
       social = enabled;
     };
 
