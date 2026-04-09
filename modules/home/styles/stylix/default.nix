@@ -16,7 +16,7 @@ in
   options.${namespace}.styles.stylix = with types; {
     enable = mkBoolOpt false "Enable stylix.";
     image = mkOpt str (builtins.toString
-      pkgs.${namespace}.wallpapers.td-industrial-frame-2
+      pkgs.${namespace}.wallpapers.landscape-1
     ) "A wallpaper filepath.";
   };
 
