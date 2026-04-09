@@ -9,6 +9,9 @@ let
 in
 {
   theobori-nix = {
+    programs.quake-injector = enabled;
+    games.vkquake = enabled;
+
     accounts = {
       email = disabled; # uneeded for the moment
     };
