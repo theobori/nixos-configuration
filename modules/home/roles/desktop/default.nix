@@ -55,6 +55,7 @@ in
         pamixer = enabled;
         resonance = disabled;
         tauon = enabled;
+        openshot = enabled;
       };
 
       programs = {
