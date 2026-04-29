@@ -71,6 +71,7 @@ in
         flatpak = enabled;
       };
       xremap = enabled;
+      excalidraw = enabled;
     };
 
     user.users = {
