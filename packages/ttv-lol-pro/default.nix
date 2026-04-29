@@ -6,8 +6,8 @@ pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon rec {
   url = "https://addons.mozilla.org/firefox/downloads/file/4638568/ttv_lol_pro-${version}.xpi";
   sha256 = "sha256-gutff9ZQZxnoYZe5c95ypfTo76s6t+sS6CMxfkxU+vM=";
   meta = {
-    homepage = "";
-    description = "";
+    homepage = "https://github.com/younesaassila/ttv-lol-pro";
+    description = "TTV LOL PRO removes most livestream ads from Twitch";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
