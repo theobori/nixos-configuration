@@ -49,7 +49,6 @@ in
         refined-github
       ]
       ++ (with pkgs.${namespace}; [
-        skip-netflix-intro
         darkcloud
         ttv-lol-pro
         twitchnosub
