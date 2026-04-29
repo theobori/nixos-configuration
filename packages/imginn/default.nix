@@ -1,10 +1,10 @@
 { lib, pkgs, ... }:
 pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon rec {
   pname = "imginn";
-  version = "3.9";
+  version = "4.0";
   addonId = "{4c62644f-fc4b-4d44-8b51-12f3fb7423b2}";
-  url = "https://addons.mozilla.org/firefox/downloads/file/4250290/imginn-${version}.xpi";
-  sha256 = "sha256-SMUDzDLZCQk+yM8lJUVJ2LXhtIWD1yNvKu9L6yeb12I=";
+  url = "https://addons.mozilla.org/firefox/downloads/file/4620508/imginn-${version}.xpi";
+  sha256 = "sha256-opLTlCcgmju631g3KMsCoGK8drqGXjk7P9xZ61YMdq4=";
   meta = {
     homepage = "";
     description = "View Instagram without an account";
