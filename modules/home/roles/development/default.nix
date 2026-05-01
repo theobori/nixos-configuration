@@ -62,7 +62,6 @@ in
       editors = {
         vscode = enabled;
         emacs = enabled;
-        code-cursor = enabled;
         pycharm = disabled;
         gnome-builder = enabled;
       };
