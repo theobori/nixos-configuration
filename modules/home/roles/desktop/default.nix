@@ -79,10 +79,6 @@ in
         development = enabled;
       };
 
-      services = {
-        flameshot = enabled;
-      };
-
       system = {
         xdg-utils = enabled;
       };
