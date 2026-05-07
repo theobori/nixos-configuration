@@ -168,6 +168,10 @@ in
                 url = "https://www.quaddicted.com";
               }
               {
+                name = "Slipseer";
+                url = "https://www.slipseer.com";
+              }
+              {
                 name = "vkQuake";
                 url = "https://github.com/Novum/vkQuake";
               }
