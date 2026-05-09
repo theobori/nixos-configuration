@@ -24,6 +24,12 @@ in
                  ("C->" . mc/mark-next-like-this)
                  ("C-<" . mc/mark-previous-like-this)
                  ("C-c C-<" . mc/mark-all-like-this)))
+
+        (use-package multiple-cursors-core
+          :bind (:map mc/keymap
+                ("<return>" . nil)
+                ("C-<return>" . multiple-cursors-mode)))
+
       '';
     };
   };
