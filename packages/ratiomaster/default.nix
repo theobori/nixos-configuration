@@ -10,15 +10,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ratiomaster";
-  version = "0.43";
+  version = "0-unstable-2026-04-13";
 
   src = fetchzip {
-    url = "https://github.com/NikolayIT/RatioMaster.NET/releases/download/${finalAttrs.version}/RatioMaster.NET_${finalAttrs.version}.zip";
-    hash = "sha256-F45kWitfysAGQg0MgLaLXiKsK8wHbAS+5Ltjtk8YuAQ=";
+    url = "https://github.com/HdiaSaad/RatioMaster.NET/releases/download/https_fix/RatioMaster.NET.zip";
+    hash = "sha256-VZnCFEiBrhhq0CKw3Qjex9el57EmsEb7SLx2gVZQoyY=";
     stripRoot = false;
   };
-
-  buildInputs = [ gtk2 ];
 
   nativeBuildInputs = [
     makeWrapper
@@ -54,7 +52,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ gtk2 ]}
 
     # Install the RatioMaster icon
-    install -D ${./ratiomaster.png} "$out/share/icons/hicolor/256x256/apps/ratiomaster.png"
+    install -D ${./ratiomaster-https-fix.png} "$out/share/icons/hicolor/256x256/apps/ratiomaster.png"
 
     runHook postInstall
   '';
