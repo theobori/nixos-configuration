@@ -41,7 +41,7 @@ in
         webKeybinds = enabled;
         webScreenShareFixes = enabled;
         alwaysAnimate = enabled;
-        petpet = enabled;
+        petpet = enabled; # Renaming to PetPet does not work for the moment
         betterGifAltText = enabled;
         betterSettings = enabled;
         callTimer = disabled; # Causes voice chat crashloop for the moment
