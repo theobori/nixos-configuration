@@ -16,7 +16,7 @@ in
   options.${namespace}.styles.stylix = with types; {
     enable = mkBoolOpt false "Enable stylix.";
     image = mkOpt str (builtins.toString
-      pkgs.${namespace}.wallpapers.nasa-moon-and-earth
+      pkgs.${namespace}.wallpapers."true-detective"
     ) "A wallpaper filepath.";
   };
 
