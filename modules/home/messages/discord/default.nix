@@ -30,7 +30,6 @@ in
       useQuickCss = ((trimWith' cfg.quickCss) != "");
       plugins = {
         betterFolders = disabled; # Broken for the moment
-
         betterRoleContext = enabled;
         crashHandler = enabled;
         memberCount = enabled;
