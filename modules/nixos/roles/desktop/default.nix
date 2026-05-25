@@ -26,6 +26,10 @@ in
         bluetoothctl = enabled;
       };
 
+      programs = {
+        coolercontrol = enabled;
+      };
+
       cli.programs = {
         nh = enabled;
       };
