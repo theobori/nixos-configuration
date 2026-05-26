@@ -91,6 +91,7 @@ in
       multiple-cursors = enabled;
       elfeed = enabled;
       qbittorrent-transient = enabled;
+      grip = enabled;
     };
   };
 
