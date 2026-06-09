@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      wineWowPackages.stable # 32-bit and 64-bit applications support
+      wineWow64Packages.stable # 32-bit and 64-bit applications support
     ];
   };
 }

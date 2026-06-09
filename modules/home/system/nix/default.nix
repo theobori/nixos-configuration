@@ -27,6 +27,12 @@ in
 
     ${namespace}.cli.programs.home-manager = enabled;
 
+    nixpkgs = {
+      config = {
+        allowUnfree = true;
+      };
+    };
+
     nix = {
       settings = {
         substituters = [

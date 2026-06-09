@@ -22,7 +22,7 @@ in
       choose
       curlie
       chafa
-      dogdns
+      # dogdns // Unsecure
       doggo
       duf
       delta

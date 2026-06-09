@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
 
   cfg = config.${namespace}.roles.common;
 in
@@ -24,7 +24,7 @@ in
       };
 
       programs = {
-        wine = enabled;
+        wine = disabled; # Will be enabled when available in binary cache
       };
 
       hardware = {

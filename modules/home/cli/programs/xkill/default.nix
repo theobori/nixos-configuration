@@ -16,5 +16,5 @@ in
     enable = mkBoolOpt false "Whether or not to enable xkill.";
   };
 
-  config = mkIf cfg.enable { home.packages = with pkgs; [ xorg.xkill ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ xkill ]; };
 }

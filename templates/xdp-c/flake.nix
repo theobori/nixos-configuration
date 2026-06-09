@@ -26,13 +26,10 @@
 
         devShells = {
           default = pkgs.mkShell {
-            packages =
-              with pkgs;
-              [
-                bpftop
-                bpftools
-              ]
-              ++ self.packages.${system}.default.buildInputs;
+            packages = builtins.attrValues {
+              inherit (pkgs) bpftop bpftools;
+              inherit (self.packages.${system}.default) buildInputs;
+            };
           };
         };
 

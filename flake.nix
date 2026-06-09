@@ -7,7 +7,7 @@
       flake = false;
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     qbittorrent-transient.url = "github:theobori/qbittorrent-transient";
 
     # We assume this version of nixpkgs is more updated than the `nixpkgs` input.
@@ -15,7 +15,7 @@
     unstable.url = "github:nixos/nixpkgs";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -37,7 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:danth/stylix/release-26.05";
 
     nixgl.url = "github:nix-community/nixGL";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -109,6 +109,7 @@
     lib.mkFlake {
       channels-config = {
         allowUnfree = true;
+        permittedInsecurePackages = [ "electron-39.8.10" ];
       };
 
       overlays = with inputs; [

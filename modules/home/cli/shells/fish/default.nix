@@ -11,7 +11,7 @@ let
     getExe
     map
     optionals
-    fold
+    foldr
     ;
   inherit (lib.${namespace}) mkBoolOpt;
   inherit (lib.strings) concatMapStrings;
@@ -29,7 +29,7 @@ let
     in
     p ++ (optionals shiny s);
 
-  mkPokemons = pokemons: fold (el: c: c ++ (mkPokemon el)) [ ] pokemons;
+  mkPokemons = pokemons: foldr (el: c: c ++ (mkPokemon el)) [ ] pokemons;
 
   pokemonCommands = mkPokemons [
     {

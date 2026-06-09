@@ -58,7 +58,7 @@ in
     ) cfg.users;
 
     home-manager = {
-      useGlobalPkgs = true;
+      useGlobalPkgs = false;
       useUserPackages = true;
     };
   };

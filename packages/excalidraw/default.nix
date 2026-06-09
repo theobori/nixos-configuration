@@ -10,25 +10,25 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "excalidraw-app";
-  version = "0.18.1";
+  version = "0-unstable-2026-06-07";
 
   src = fetchFromGitHub {
     owner = "excalidraw";
     repo = "excalidraw";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-XhxNXi6JwBq5vw+/6HQTp6NPX3etmCkdBdNboeBru/k=";
+    rev = "61fe15a51d1a74e5edd564b366889ea8789aec1c";
+    hash = "sha256-rkBIFV8nO2sHcnFEQrOS8XwIioRwtfuKJ45DRyOmkr8=";
   };
 
   yarnOfflineCache = fetchYarnDeps {
     yarnLock = "${finalAttrs.src}/yarn.lock";
-    hash = "sha256-otUEr4bGhOGYQmfELShqc8lXbRs0gA0ycbGHzyCW8tc=";
+    hash = "sha256-c8xy+/fXrPVCsdUXo3doDq8afrXVr3cCUA3C2ANijqE=";
   };
 
   strictDeps = true;
   nativeBuildInputs = [
+    nodejs
     yarnConfigHook
     yarnBuildHook
-    nodejs
   ];
 
   yarnBuildScript = "build:app:docker";

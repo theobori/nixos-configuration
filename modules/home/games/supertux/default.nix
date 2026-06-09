@@ -16,5 +16,5 @@ in
     enable = mkBoolOpt false "Enable supertux.";
   };
 
-  config = mkIf cfg.enable { home.packages = with pkgs; [ superTux ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ supertux ]; };
 }

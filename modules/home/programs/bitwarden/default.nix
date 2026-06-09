@@ -16,5 +16,7 @@ in
     enable = mkBoolOpt false "Whether or not to manage bitwarden.";
   };
 
-  config = mkIf cfg.enable { home.packages = with pkgs; [ bitwarden-desktop ]; };
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [ (bitwarden-desktop.override { electron_39 = electron_39-bin; }) ];
+  };
 }
