@@ -61,6 +61,9 @@ in
       "editor.fontLigatures" = true;
       "workbench.secondarySideBar.defaultVisibility" = "hidden";
       "chat.commandCenter.enabled" = false;
+      "telemetry.telemetryLevel" = "off";
+      "workbench.enableExperiments" = false;
+      "chat.disableAIFeatures" = true;
     } "User settings.";
   };
 
