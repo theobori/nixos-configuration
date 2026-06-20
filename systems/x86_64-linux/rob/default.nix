@@ -7,6 +7,7 @@
 }:
 let
   inherit (lib.${namespace}) disabled enabled;
+  inherit (lib) mkForce;
 in
 {
   imports = [
@@ -45,6 +46,11 @@ in
   systemd.coredump.enable = false;
 
   ${namespace} = rec {
+    # See https://github.com/NixOS/nixpkgs/issues/525573
+    #
+    # It makes the QEMU dnsmasq server crash, it means my VMs cannot received DHCP responses
+    networking.stevenBlackHosts = mkForce disabled;
+
     boot.plymouth = enabled;
     security.sudo = enabled;
     security.doas = enabled;

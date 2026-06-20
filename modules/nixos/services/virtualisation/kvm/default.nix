@@ -25,6 +25,8 @@ in
       virt-viewer
     ];
 
+    networking.firewall.trustedInterfaces = [ "virbr0" ];
+
     virtualisation = {
       kvmgt.enable = true;
       spiceUSBRedirection.enable = true;
