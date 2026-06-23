@@ -66,7 +66,7 @@ in
         silentTyping = enabled;
         typingTweaks = enabled;
         viewIcons = enabled;
-        ClearURLs = enabled;
+        clearUrls = enabled;
         imageFilename = enabled;
         showHiddenChannels = {
           enable = true;
