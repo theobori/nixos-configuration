@@ -10,13 +10,13 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "excalidraw-app";
-  version = "0-unstable-2026-06-07";
+  version = "0-unstable-2026-06-22";
 
   src = fetchFromGitHub {
     owner = "excalidraw";
     repo = "excalidraw";
-    rev = "61fe15a51d1a74e5edd564b366889ea8789aec1c";
-    hash = "sha256-rkBIFV8nO2sHcnFEQrOS8XwIioRwtfuKJ45DRyOmkr8=";
+    rev = "0642e72cfa2d9a71198200e52f37399384610ee3";
+    hash = "sha256-9dzeGALt6jm4PqBWv+J/nlQQi00xhrRSWLlbqa1sfhg=";
   };
 
   yarnOfflineCache = fetchYarnDeps {
