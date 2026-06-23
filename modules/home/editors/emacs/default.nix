@@ -69,5 +69,10 @@ in
       enable = true;
       inherit (cfg) package extraConfig;
     };
+
+    services.emacs = {
+      enable = true;
+      startWithUserSession = true;
+    };
   };
 }

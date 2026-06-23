@@ -9,7 +9,6 @@ let
   inherit (lib)
     mkIf
     getExe
-    map
     optionals
     foldr
     ;
@@ -89,7 +88,7 @@ in
         tf = "terraform";
         k = "kubectl";
         s = "screen -d -m";
-        emacs = "emacs -nw";
+        emacs = "emacsclient";
         d = "date +%Y-%m-%d";
         cd = "z";
         cdi = "zi";

@@ -45,7 +45,7 @@ in
         commit.gpgsign = true;
 
         core = {
-          editor = "emacs -nw";
+          editor = "emacsclient";
           pager = "delta";
           filemode = "false";
         };
