@@ -88,7 +88,7 @@ in
         tf = "terraform";
         k = "kubectl";
         s = "screen -d -m";
-        emacs = "emacsclient";
+        ec = "emacsclient";
         d = "date +%Y-%m-%d";
         cd = "z";
         cdi = "zi";
