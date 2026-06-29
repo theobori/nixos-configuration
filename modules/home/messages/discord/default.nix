@@ -2,6 +2,7 @@
   config,
   lib,
   namespace,
+  pkgs,
   ...
 }:
 let
@@ -49,7 +50,7 @@ in
         fixImagesQuality = enabled;
         forceOwnerCrown = enabled;
         friendInvites = enabled;
-        friendsSince = enabled;
+        # friendsSince = enabled;
         fullSearchContext = enabled;
         moreCommands = {
           # Upstream has decided to make this plugin Equicord only
@@ -82,7 +83,10 @@ in
     programs.nixcord = {
       enable = true;
       discord = disabled;
-      vesktop = enabled;
+      vesktop = {
+        enable = true;
+        package = pkgs.vesktop;
+      };
 
       inherit (cfg) config quickCss;
     };

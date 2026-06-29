@@ -1,0 +1,7 @@
+{ ... }:
+
+final: prev: {
+  vesktop = prev.vesktop.override {
+    pnpm_10_29_2 = final.pnpm_10;
+  };
+}
