@@ -26,7 +26,7 @@ jobs:
       id-token: write
     steps:
       - uses: actions/configure-pages@v5
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -34,9 +34,9 @@ jobs:
       - uses: DeterminateSystems/flakehub-cache-action@main
       - run: nix -L build .#documentation
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: 'result'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
