@@ -10,7 +10,7 @@ let
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.desktops.addons.plasma6;
-  wallpaper = pkgs.${namespace}.wallpapers."true-detective";
+  wallpaper = pkgs.${namespace}.wallpapers."disroot";
 in
 {
   options.${namespace}.desktops.addons.plasma6 = with types; {
