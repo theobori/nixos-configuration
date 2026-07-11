@@ -14,8 +14,7 @@ in
 {
   options.${namespace}.services.lorri = with types; {
     enable = mkBoolOpt false "Whether to enable lorri.";
-    nixPackage = mkOpt package pkgs.lixPackageSets.stable.lix "Which nix package to use.";
-
+    nixPackage = mkOpt package pkgs.nix "Which nix package to use.";
   };
 
   config = mkIf cfg.enable {
