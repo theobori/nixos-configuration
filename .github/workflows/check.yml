@@ -16,6 +16,6 @@ jobs:
       - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
-      - run: nix flake check --show-trace
+      - uses: samueldr/lix-gha-installer-action@latest
+      - uses: DeterminateSystems/flakehub-cache-action@main
+      - run: nix flake check
