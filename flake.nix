@@ -7,6 +7,8 @@
       flake = false;
     };
 
+    xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     qbittorrent-transient.url = "github:theobori/qbittorrent-transient";
 
@@ -140,6 +142,8 @@
             hosts.nixosModule
             stylix.nixosModules.stylix
             xremap-flake.nixosModules.default
+            xlibre-overlay.nixosModules.overlay-xlibre-xserver
+            xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
             # keep-sorted end
           ];
         };
