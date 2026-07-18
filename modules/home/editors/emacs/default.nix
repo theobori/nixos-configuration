@@ -19,7 +19,8 @@ in
     extraConfig = mkOpt str ''
       (global-auto-revert-mode 1)
       (show-paren-mode t)
-      (defalias 'yes-or-no-p 'y-or-n-p)
+      (setq use-short-answers t
+            show-trailing-whitespace t)
 
       ;; Remove the menu bar
       (menu-bar-mode -1)
@@ -32,8 +33,8 @@ in
         (tool-bar-mode -1)
         (scroll-bar-mode -1))
 
-      (setq standard-indent 2)
       (setq display-line-numbers-type 'relative)
+      (setq standard-indent 2)
       (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
       ;; Needed to request GPG passphrase with Emacs
@@ -56,6 +57,11 @@ in
         scroll-margin 15)
 
       (setq inhibit-startup-screen t)
+
+      ;; Better and cool behaviors
+      (electric-pair-mode 1)
+      (global-hl-line-mode 1)
+      (delete-selection-mode 1)
 
       ;; Run Emacs server
       (use-package server :ensure nil)
