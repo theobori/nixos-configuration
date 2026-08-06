@@ -28,6 +28,7 @@ in
           bat = enabled;
           btop = enabled;
           direnv = enabled;
+          dracut = enabled;
           eza = enabled;
           fastfetch = enabled;
           fzf = enabled;
