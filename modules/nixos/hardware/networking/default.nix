@@ -34,22 +34,12 @@ in
 
         upstream_recursive_servers = [
           {
-            address_data = "1.1.1.1";
-            tls_auth_name = "cloudflare-dns.com";
+            address_data = "9.9.9.9";
+            tls_auth_name = "dns.quad9.net";
             tls_pubkey_pinset = [
               {
                 digest = "sha256";
-                value = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
-              }
-            ];
-          }
-          {
-            address_data = "1.0.0.1";
-            tls_auth_name = "cloudflare-dns.com";
-            tls_pubkey_pinset = [
-              {
-                digest = "sha256";
-                value = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
+                value = "i2kObfz0qIKCGNWt7MjBUeSrh0Dyjb0/zWINImZES+I=";
               }
             ];
           }
