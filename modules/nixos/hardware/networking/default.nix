@@ -2,33 +2,92 @@
   config,
   lib,
   namespace,
+  pkgs,
   ...
 }:
 let
-  inherit (lib) mkIf types;
-  inherit (lib.${namespace}) mkBoolOpt mkOpt;
+  inherit (lib) mkIf;
+  inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.hardware.networking;
 in
 {
-  options.${namespace}.hardware.networking = with types; {
+  options.${namespace}.hardware.networking = {
     enable = mkBoolOpt false "Enable networkmanager.";
-    insertNameservers = mkOpt (listOf str) [
-      # Cloudflare
-      "1.1.1.1"
-      "1.0.0.1"
-      # Google
-      "8.8.8.8"
-      "8.8.4.4"
-    ] "Insert nameservers before the ones added by networkmanager";
   };
 
   config = mkIf cfg.enable {
+    # As describe at https://wiki.archlinux.org/title/Stubby,
+    # Stubby implement DNS over TLS butdoes not have a built-in DNS cache.
+    #
+    # So my goal is to use dnsmasq as DNS proxy that has a local DNS cache.
+    #
+    # dnsmasq will listen on port 53 and then it will transmit
+    # the DNS request to Stubby at port 54.
+    services.stubby = {
+      enable = true;
+      settings = pkgs.stubby.passthru.settingsExample // {
+        listen_addresses = [
+          "127.0.0.1@54"
+          "0::1@54"
+        ];
+
+        upstream_recursive_servers = [
+          {
+            address_data = "1.1.1.1";
+            tls_auth_name = "cloudflare-dns.com";
+            tls_pubkey_pinset = [
+              {
+                digest = "sha256";
+                value = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
+              }
+            ];
+          }
+          {
+            address_data = "1.0.0.1";
+            tls_auth_name = "cloudflare-dns.com";
+            tls_pubkey_pinset = [
+              {
+                digest = "sha256";
+                value = "ltQ6aXy3tqpNZKJdnevMD7oR+IsI5rNWbOssFDrl+Ew=";
+              }
+            ];
+          }
+        ];
+      };
+    };
+
+    services.dnsmasq = {
+      enable = true;
+      settings = {
+        no-resolv = true;
+        proxy-dnssec = true;
+        # This parameter force stubby to bind the port 53 to the lo network interface only.
+        # Otherwise, it can conflict with the libvirt dnsmasq instance on the virbr0 network interface.
+        bind-interfaces = true;
+        server = [
+          "127.0.0.1#54"
+          "::1#54"
+        ];
+        listen-address = "127.0.0.1";
+        interface = "lo";
+      };
+    };
+
     networking = {
+      # Since I want to use DNS over TLS only, the block
+      # below must not change. It must points to the local dnsmasq service
+      # declared below.
+      nameservers = [
+        "127.0.0.1"
+        "::1"
+      ];
+      # It prevents /etc/resolv.conf being overwritten
+      dhcpcd.extraConfig = "nohook resolv.conf";
       networkmanager = {
         enable = true;
-
-        inherit (cfg) insertNameservers;
+        # It prevents /etc/resolv.conf being overwritten
+        dns = "none";
       };
 
       firewall = {
