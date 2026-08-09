@@ -34,12 +34,12 @@ in
 
         upstream_recursive_servers = [
           {
-            address_data = "9.9.9.9";
-            tls_auth_name = "dns.quad9.net";
+            address_data = "116.202.176.26";
+            tls_auth_name = "dot.libredns.gr";
             tls_pubkey_pinset = [
               {
                 digest = "sha256";
-                value = "i2kObfz0qIKCGNWt7MjBUeSrh0Dyjb0/zWINImZES+I=";
+                value = "V0Y0pvWkAwOPkNSPxDyZd/vJ2bo40ylADWJFu/ubPlM=";
               }
             ];
           }
