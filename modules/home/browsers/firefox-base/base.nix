@@ -151,10 +151,6 @@ in
                 url = "https://www.cahiersducinema.com/fr-fr";
               }
               {
-                name = "YGG-LEAK";
-                url = "https://ygg.gratis";
-              }
-              {
                 name = "C411";
                 url = "https://c411.org";
               }
