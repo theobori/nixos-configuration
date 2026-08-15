@@ -17,6 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ (bitwarden-desktop.override { electron_39 = electron_39-bin; }) ];
+    home.packages = with pkgs; [ bitwarden-desktop ];
   };
 }
