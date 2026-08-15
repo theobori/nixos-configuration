@@ -38,6 +38,7 @@ in
           knock = enabled;
           sshs = enabled;
           mat = enabled;
+          openssl = enabled;
         };
       };
 
