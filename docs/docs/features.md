@@ -13,10 +13,6 @@ Here's an overview of what my Nix configuration offers:
   support maintaining this flake. You can use the devShell for convenient
   development and maintenance of your Nix environment.
 
-- **CI with Cachix**: The configuration includes continuous integration (CI)
-  that pushes built artifacts to [Cachix](https://github.com/cachix/cachix). This ensures efficient builds and
-  reduces the need to build dependencies on your local machine.
-
 - **Utilize sops-nix**: Secret management with [sops-nix](https://github.com/Mic92/sops-nix) for secure and encrypted
   handling of sensitive information.
 
@@ -36,3 +32,5 @@ Here's an overview of what my Nix configuration offers:
   KDE Plasma with Home Manager.
 
 - **Declarative Spotify customization**: Use [spicetify-nix](https://github.com/Gerg-L/spicetify-nix) to modify Spotify.
+
+- **XLibre**: Use [XLibre](https://xlibre.net) to override the X.org components.
