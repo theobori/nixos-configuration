@@ -51,7 +51,7 @@ in
 
     hardware = {
       corsair = disabled; # Not using my CORSAIR keyboard anymore.
-      razer = enabled;
+      razer = disabled; # Not using my Razer keyboard anymore.
     };
 
     desktops = {

@@ -14,7 +14,7 @@ in
     };
 
     hardware = {
-      razer = enabled;
+      razer = disabled;
     };
 
     roles = {
