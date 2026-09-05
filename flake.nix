@@ -141,9 +141,9 @@
             home-manager.nixosModules.home-manager
             hosts.nixosModule
             stylix.nixosModules.stylix
-            xremap-flake.nixosModules.default
-            xlibre-overlay.nixosModules.overlay-xlibre-xserver
             xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
+            xlibre-overlay.nixosModules.overlay-xlibre-xserver
+            xremap-flake.nixosModules.default
             # keep-sorted end
           ];
         };
