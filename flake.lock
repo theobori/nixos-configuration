@@ -530,10 +530,10 @@
     "my-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1773498995,
-        "narHash": "sha256-LHqOEQo590lDH+UFNDLeqOUWXQB5cETG1uonxM14afw=",
+        "lastModified": 1789055284,
+        "narHash": "sha256-oTMZpWuiFWPQ/E5/eYMpqhPhAGxB8kNQRD/8tghqtm4=",
         "ref": "main",
-        "rev": "e1defc5b2e36b8a7e067498e6592dda22c270477",
+        "rev": "0d6714b10eccf2502f93cc12a5a4808d9f9bc1c5",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/theobori/nixos-configuration-secrets"
