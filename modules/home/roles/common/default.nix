@@ -39,6 +39,7 @@ in
           sshs = enabled;
           mat = enabled;
           openssl = enabled;
+          a = enabled;
         };
       };
 

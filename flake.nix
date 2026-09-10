@@ -7,6 +7,8 @@
       flake = false;
     };
 
+    a.url = "github:theobori/a";
+
     xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
