@@ -210,6 +210,10 @@ in
                 url = "https://tilde.team";
               }
               {
+                name = "~club";
+                url = "https://tilde.club";
+              }
+              {
                 name = "~town";
                 url = "https://tilde.town";
               }
