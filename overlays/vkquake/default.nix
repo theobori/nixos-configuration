@@ -1,5 +1,8 @@
-{ channels, ... }:
+{ ... }:
 
 _final: _prev: {
-  inherit (channels.unstable) vkquake;
+  # The l=atest vkQuake version on the unstable channel
+  # is broken at the moment
+  #
+  # inherit (channels.unstable) vkquake;
 }
