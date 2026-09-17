@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     # As describe at https://wiki.archlinux.org/title/Stubby,
-    # Stubby implement DNS over TLS butdoes not have a built-in DNS cache.
+    # Stubby implement DNS over TLS but does not have a built-in DNS cache.
     #
     # So my goal is to use dnsmasq as DNS proxy that has a local DNS cache.
     #
