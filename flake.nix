@@ -8,6 +8,7 @@
     };
 
     a.url = "github:theobori/a";
+    nine-ports.url = "github:theobori/9ports";
 
     xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
 

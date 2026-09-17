@@ -40,6 +40,7 @@ in
         programs = {
           ratiomaster = enabled;
           xkill = enabled;
+          nine-ports = enabled;
         };
         terminals = {
           syncterm = enabled;
