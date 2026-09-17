@@ -44,6 +44,10 @@ in
   # and also slow down the system when something crash
   systemd.coredump.enable = false;
 
+  networking.extraHosts = ''
+    92.63.176.157 repology.org
+  '';
+
   ${namespace} = rec {
     boot.plymouth = enabled;
     security.sudo = enabled;
