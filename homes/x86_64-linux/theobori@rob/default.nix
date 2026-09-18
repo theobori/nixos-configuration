@@ -92,6 +92,7 @@ in
       elfeed = enabled;
       qbittorrent-transient = enabled;
       grip = enabled;
+      geiser = enabled;
     };
   };
 
