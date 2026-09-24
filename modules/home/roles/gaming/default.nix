@@ -28,6 +28,7 @@ in
         worldofpadman = enabled;
         taisei = enabled;
         srb2 = enabled;
+        ssuika = enabled;
 
         # Flatpaks
         # sober = enabled;
