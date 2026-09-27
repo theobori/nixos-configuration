@@ -1,11 +1,11 @@
 {
-  stdenvNoCC,
   fetchFromCodeberg,
   pkg-config,
   raylib,
-  clang,
+  clangStdenv,
+  lib,
 }:
-stdenvNoCC.mkDerivation {
+clangStdenv.mkDerivation {
   pname = "ssuika";
   version = "0-unstable-2026-06-30";
 
@@ -18,13 +18,13 @@ stdenvNoCC.mkDerivation {
 
   nativeBuildInputs = [
     pkg-config
-    clang
   ];
 
   buildInputs = [ raylib ];
 
   postPatch = ''
-    for f in src/sound.c src/grid.c; do
+    for f in src/sound.c src/grid.c;
+    do
       substituteInPlace $f --replace-fail "assets/" "$out/share/ssuika/assets/"
     done
   '';
@@ -41,5 +41,10 @@ stdenvNoCC.mkDerivation {
 
   meta = {
     mainProgram = "ssuika";
+    description = "Free Suika game alternative";
+    homepage = "https://codeberg.org/nzuum/ssuika;";
+    license = lib.licenses.unlicense;
+    maintainers = with lib.maintainers; [ theobori ];
+    platforms = lib.platforms.unix;
   };
 }
