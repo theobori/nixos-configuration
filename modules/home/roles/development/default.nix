@@ -46,6 +46,7 @@ in
           network-tools = enabled;
           nix-converter = enabled;
           nix-index = enabled;
+          nixpkgs-vet = enabled;
           nsearch = enabled;
           onefetch = enabled;
           pay-respects = enabled;
