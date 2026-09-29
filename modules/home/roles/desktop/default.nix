@@ -33,7 +33,7 @@ in
         lagrange = enabled;
         gophie = enabled;
         nyxt = enabled;
-        tor-browser = enabled;
+        tor-browser = disabled;
       };
 
       cli = {
