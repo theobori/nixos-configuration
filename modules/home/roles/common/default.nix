@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt enabled disabled;
 
   cfg = config.${namespace}.roles.common;
 in
@@ -35,7 +35,7 @@ in
           file-tools = enabled;
           xclip = enabled;
           manix = enabled;
-          knock = enabled;
+          knock = disabled; # Not needed for the moment
           sshs = enabled;
           mat = enabled;
           openssl = enabled;
