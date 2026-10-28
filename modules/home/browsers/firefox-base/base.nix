@@ -55,6 +55,7 @@ in
         alerte-sur-les-sites-genai
         nitter
         imginn
+        human-json-verifier
       ])
     ) "Extensions to install.";
 
