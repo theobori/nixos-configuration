@@ -40,6 +40,7 @@ in
           mat = enabled;
           openssl = enabled;
           a = enabled;
+          slot = enabled;
           sacc = enabled;
         };
       };

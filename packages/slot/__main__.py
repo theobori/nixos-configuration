@@ -1,0 +1,1 @@
+import random;print("\n".join([" ",">"][i==1]+" ".join(random.choices("0123456789",[.11]*7+[.01]+[.11]*2,k=3))+["", "<"][i==1]for i in [0,1,2]))
