@@ -61,13 +61,12 @@ in
             (optionalString config.${namespace}.programs.spicetify.enable "applications:spotify.desktop")
             # (optionalString config.${namespace}.messages.dino.enable "applications:im.dino.Dino.desktop")
             (optionalString config.${namespace}.messages.pidgin.enable "applications:pidgin.desktop")
-
-            (optionalString config.${namespace}.games.taterclient-ddnet.enable
-              "applications:taterclient-ddnet.desktop"
-            )
-            (optionalString config.${namespace}.programs.quake-injector.enable
-              "applications:quake-injector.desktop"
-            )
+            # (optionalString config.${namespace}.games.taterclient-ddnet.enable
+            #   "applications:taterclient-ddnet.desktop"
+            # )
+            # (optionalString config.${namespace}.programs.quake-injector.enable
+            #   "applications:quake-injector.desktop"
+            # )
           ];
         };
       }
