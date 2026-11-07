@@ -69,7 +69,7 @@ in
       org-download = enabled;
       org = enabled;
       org-journal = enabled;
-      treemacs = enabled;
+      treemacs = disabled;
       ligature = enabled;
       lsp-mode = {
         enable = true;
@@ -93,6 +93,7 @@ in
       qbittorrent-transient = enabled;
       grip = enabled;
       geiser = enabled;
+      dracula-theme = enabled;
     };
   };
 
