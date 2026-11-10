@@ -18,7 +18,10 @@ in
   };
 
   config = mkIf (lsp-mode.enable && cfg.enable) {
-    home.packages = with pkgs; [ python3Packages.python-lsp-server ];
+    home.packages = with pkgs; [
+      python3Packages.python-lsp-server
+      python3
+    ];
 
     programs.emacs = {
       extraConfig = ''
