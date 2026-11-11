@@ -33,6 +33,7 @@ in
           :commands (dired dired-jump)
           :custom
           (dired-kill-when-opening-new-dired-buffer t) ;; It prevents having hundreds useless buffers
+          (dired-listing-switches "-lahv")
           :hook
           (dired-mode .
             (lambda ()
