@@ -10,7 +10,6 @@ let
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.styles.stylix;
-  my-base16-schemes = pkgs.${namespace}.my-base16-schemes;
 in
 {
   options.${namespace}.styles.stylix = with types; {
@@ -21,7 +20,7 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${my-base16-schemes}/share/themes/dracula.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
       inherit (cfg) image;
 
