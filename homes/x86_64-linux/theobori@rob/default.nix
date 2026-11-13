@@ -10,7 +10,7 @@ in
 {
   theobori-nix = {
     accounts = {
-      email = disabled; # uneeded for the moment
+      email = enabled;
     };
 
     hardware = {

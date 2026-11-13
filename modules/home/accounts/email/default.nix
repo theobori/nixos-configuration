@@ -31,23 +31,23 @@ in
           host = "disroot.org";
           port = 993;
           tls.enable = true;
-          authentication = "login";
         };
         smtp = {
           host = "disroot.org";
           port = 465;
           tls.enable = true;
-          authentication = "login";
         };
         mbsync = {
           enable = true;
-          create = "maildir";
+          create = "both";
+          remove = "both";
+          expunge = "both";
         };
         msmtp.enable = true;
         notmuch.enable = true;
         primary = true;
         realName = "Théo Bori";
-        passwordCommand = "age -i ${config.home.homeDirectory}/.config/sops/age/keys.txt -d ${inputs.my-secrets}/secrets/${host}/theobori/accounts-email.yaml.age | yq .accounts.disroot.theobori.password";
+        passwordCommand = "age -i ${config.home.homeDirectory}/.config/sops/age/keys.txt -d ${inputs.my-secrets}/secrets/${host}/theobori/accounts-email.yaml.age | yq .accounts.disroot.theobori.password -r";
         userName = "theobori";
       };
 
@@ -57,22 +57,22 @@ in
           host = "imap.tilde.team";
           port = 993;
           tls.enable = true;
-          authentication = "login";
         };
         smtp = {
           host = "smtp.tilde.team";
           port = 465;
           tls.enable = true;
-          authentication = "login";
         };
         mbsync = {
           enable = true;
-          create = "maildir";
+          create = "both";
+          remove = "both";
+          expunge = "both";
         };
         msmtp.enable = true;
         notmuch.enable = true;
         realName = "Nagi";
-        passwordCommand = "age -i ${config.home.homeDirectory}/.config/sops/age/keys.txt -d ${inputs.my-secrets}/secrets/${host}/theobori/accounts-email.yaml.age | yq .accounts.tilde_team.nagi.password";
+        passwordCommand = "age -i ${config.home.homeDirectory}/.config/sops/age/keys.txt -d ${inputs.my-secrets}/secrets/${host}/theobori/accounts-email.yaml.age | yq .accounts.tilde_team.nagi.password -r";
         userName = "nagi";
       };
     } "Email accounts.";

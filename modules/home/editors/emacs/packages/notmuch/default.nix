@@ -29,7 +29,9 @@ in
     programs.emacs = {
       extraPackages = (epkgs: [ epkgs.notmuch ]);
       extraConfig = ''
-        (use-package notmuch)
+        (use-package notmuch
+          :custom
+          (notmuch-search-oldest-first nil))
       '';
     };
   };
